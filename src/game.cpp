@@ -41,15 +41,15 @@ bool Game::OnInit() {
   return true;
 }
 
-void Game::OnEvent(SDL_Event *event) {}
+void Game::OnEvent(SDL_Event *event) { Event::OnEvent(event); }
 
 void Game::OnLoop() {}
 
 void Game::OnRender() {}
 
-void Game::OnCleanUp() {}
+void Game::OnCleanUp() { SDL_Quit(); }
 
-void Game::OnExit() { SDL_Quit(); }
+void Game::OnQuit() { running = false; }
 
 void Game::OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode) {
   std::cout << "Input Key: " << SDL_GetKeyName(key) << std::endl;
