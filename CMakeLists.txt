@@ -19,6 +19,7 @@ FetchContent_MakeAvailable(googletest)
 
 include_directories(./include)
 add_executable(shooting-game
+    src/event.cpp
     src/game.cpp
     src/main.cpp
 )

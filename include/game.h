@@ -3,8 +3,9 @@
 
 #include <SDL.h>
 
+#include "event.h"
 namespace GameLogic {
-class Game {
+class Game : Event {
  private:
   bool running;
   SDL_Surface* windowSurface;
@@ -22,8 +23,9 @@ class Game {
   void OnRender();
   void OnCleanUp();
 
-  void OnExit();
-  void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
+ public:
+  void OnQuit();
+  void OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode);
 };
 }  // namespace GameLogic
 
