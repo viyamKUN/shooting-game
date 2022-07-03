@@ -34,3 +34,5 @@
 # Others
 .vscode
 build/
+.DS_Store
+.clang-format

@@ -19,5 +19,10 @@ FetchContent_MakeAvailable(googletest)
 
 include_directories(./include)
 add_executable(shooting-game
-    src/main.cpp    
+    src/game.cpp
+    src/main.cpp
 )
+
+find_package(OpenGL REQUIRED)
+find_package(SDL REQUIRED)
+target_link_libraries(shooting-game OpenGL::GL SDL::SDL)
