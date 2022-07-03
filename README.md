@@ -7,4 +7,3 @@
 * in `build`
 * cmake .. -GNinja
 * ninja
-* ./shooting-game
