@@ -2,6 +2,8 @@
 
 #include <SDL.h>
 
+#include <iostream>
+
 namespace GameLogic {
 Event::Event() {}
 
@@ -112,8 +114,10 @@ void Event::CallMouseEvent(SDL_MouseButtonEvent* buttonEvent, bool isDown) {
 
 void Event::OnInputFocus() {}
 void Event::OnInputBlur() {}
-void Event::OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode) {}
-void Event::OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode) {}
+void Event::OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode) {
+  std::cout << "Input Key: " << SDL_GetKeyName(key) << std::endl;
+}
+void Event::OnKeyUp(SDLKey key, SDLMod mod, Uint16 unicode) {}
 void Event::OnMouseFocus() {}
 void Event::OnMouseBlur() {}
 void Event::OnMouseMove(int mX, int mY, int relX, int relY, bool Left,
@@ -129,7 +133,7 @@ void Event::OnMinimize() {}
 void Event::OnRestore() {}
 void Event::OnResize(int w, int h) {}
 void Event::OnExpose() {}
-void Event::OnQuit() {}
+void Event::OnQuit() { std::cout << "Quit the game." << std::endl; }
 void Event::OnUser(Uint8 type, int code, void* data, void* data2) {}
 
 }  // namespace GameLogic

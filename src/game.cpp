@@ -49,10 +49,13 @@ void Game::OnRender() {}
 
 void Game::OnCleanUp() { SDL_Quit(); }
 
-void Game::OnQuit() { running = false; }
+void Game::OnQuit() {
+  Event::OnQuit();
+  running = false;
+}
 
 void Game::OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode) {
-  std::cout << "Input Key: " << SDL_GetKeyName(key) << std::endl;
+  Event::OnKeyDown(key, mod, unicode);
 }
 
 }  // namespace GameLogic

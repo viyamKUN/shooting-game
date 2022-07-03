@@ -25,7 +25,7 @@ class Game : Event {
 
  public:
   void OnQuit();
-  void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
+  void OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode);
 };
 }  // namespace GameLogic
 

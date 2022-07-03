@@ -21,8 +21,8 @@ class Event {
  public:
   virtual void OnInputFocus();
   virtual void OnInputBlur();
-  virtual void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
-  virtual void OnKeyUp(SDLKey sym, SDLMod mod, Uint16 unicode);
+  virtual void OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode);
+  virtual void OnKeyUp(SDLKey key, SDLMod mod, Uint16 unicode);
   virtual void OnMouseFocus();
   virtual void OnMouseBlur();
   virtual void OnMouseMove(int mX, int mY, int relX, int relY, bool Left,
