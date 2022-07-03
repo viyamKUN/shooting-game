@@ -4,11 +4,13 @@
 #include <SDL.h>
 
 #include "event.h"
+#include "surface.h"
 namespace GameLogic {
 class Game : Event {
  private:
   bool running;
   SDL_Surface* windowSurface;
+  Surface* surface;
 
  public:
   Game();

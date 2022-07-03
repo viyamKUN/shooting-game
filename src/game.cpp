@@ -9,6 +9,7 @@ Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
   windowSurface = NULL;
+  surface = new Surface("../assets/box.bmp");
 }
 
 Game::~Game() {}
@@ -38,6 +39,8 @@ bool Game::OnInit() {
   if (windowSurface == NULL) {
     return false;
   }
+
+  surface->OnLoad();
   return true;
 }
 
@@ -45,9 +48,16 @@ void Game::OnEvent(SDL_Event *event) { Event::OnEvent(event); }
 
 void Game::OnLoop() {}
 
-void Game::OnRender() {}
+void Game::OnRender() {
+  surface->OnDraw(windowSurface);
+  SDL_Flip(windowSurface);
+}
 
-void Game::OnCleanUp() { SDL_Quit(); }
+void Game::OnCleanUp() {
+  surface->OnClear();
+  SDL_FreeSurface(windowSurface);
+  SDL_Quit();
+}
 
 void Game::OnQuit() {
   Event::OnQuit();
