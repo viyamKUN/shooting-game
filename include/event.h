@@ -11,7 +11,14 @@ class Event {
   Event();
   ~Event();
 
+ public:
   virtual void OnEvent(SDL_Event* event);
+
+ private:
+  void CallActiveEvent(SDL_ActiveEvent* activeEvent);
+  void CallMouseEvent(SDL_MouseButtonEvent* buttonEvent, bool isDown);
+
+ public:
   virtual void OnInputFocus();
   virtual void OnInputBlur();
   virtual void OnKeyDown(SDLKey sym, SDLMod mod, Uint16 unicode);
