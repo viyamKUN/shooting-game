@@ -1,15 +1,10 @@
 #include "game.h"
 
-#include <SDL.h>
-
-#include <iostream>
-
 namespace GameLogic {
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
   windowSurface = NULL;
-  surface = new Surface("../assets/box.bmp");
 }
 
 Game::~Game() {}
@@ -39,23 +34,37 @@ bool Game::OnInit() {
   if (windowSurface == NULL) {
     return false;
   }
+  SDL_EnableKeyRepeat(1, SDL_DEFAULT_REPEAT_INTERVAL / 3);
 
-  surface->OnLoad();
+  Entity box("box.bmp");
+  entities.push_back(&box);
+  for (auto entity : entities) {
+    entity->OnLoad();
+  }
   return true;
 }
 
-void Game::OnEvent(SDL_Event *event) { Event::OnEvent(event); }
+void Game::OnEvent(SDL_Event* event) { Event::OnEvent(event); }
 
-void Game::OnLoop() {}
+void Game::OnLoop() {
+  for (auto entity : entities) {
+    entity->OnLoop();
+  }
+}
 
 void Game::OnRender() {
-  surface->OnDraw(windowSurface);
+  for (auto entity : entities) {
+    entity->OnRender(windowSurface);
+  }
   SDL_Flip(windowSurface);
 }
 
 void Game::OnCleanUp() {
-  surface->OnClear();
   SDL_FreeSurface(windowSurface);
+  for (auto entity : entities) {
+    entity->OnCleanUp();
+  }
+  entities.clear();
   SDL_Quit();
 }
 

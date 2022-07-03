@@ -3,14 +3,19 @@
 
 #include <SDL.h>
 
+#include <iostream>
+#include <vector>
+
+#include "entity.h"
 #include "event.h"
 #include "surface.h"
+
 namespace GameLogic {
 class Game : Event {
  private:
+  std::vector<Entity*> entities;
   bool running;
   SDL_Surface* windowSurface;
-  Surface* surface;
 
  public:
   Game();
