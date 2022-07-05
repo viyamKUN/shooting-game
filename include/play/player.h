@@ -13,12 +13,16 @@ class Player : public Entity {
   Player(int screenWidth, int screenHeight);
   ~Player();
 
- public:
   void OnLoop();
   void OnKeyDown(SDL_Keycode key, Uint16 mod);
   void OnKeyUp(SDL_Keycode key, Uint16 mod);
-  void SetAnimation(int animationType, int maxFrame);
   void OnCleanUp();
+
+ private:
+  enum PLAYER_ANIMATIONS {
+    PLAYER_ANIMATION_IDLE = 0,
+    PLAYER_ANIMATION_WALK = 1
+  };
 };
 
 }  // namespace play

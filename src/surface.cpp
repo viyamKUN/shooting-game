@@ -18,6 +18,11 @@ void Surface::SetAnimation(int animationType, int maxFrame) {
   animation = new Animation(maxFrame, animationType);
 }
 
+void Surface::ChangeAnimationState(int state) {
+  animation->SetAnimationState(state);
+  // TODO: max Frame이 바꿔야함
+}
+
 void Surface::OnLoad(Transform* transform) {
   this->transform = transform;
   src = SDL_LoadBMP(assetPath);

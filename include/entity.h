@@ -18,7 +18,7 @@ class Entity {
   ~Entity();
 
   void OnLoad();
-  virtual void SetAnimation(int animationType, int maxFrame);
+  void SetAnimation(int animationType, int maxFrame);
   virtual void OnLoop();
   virtual void OnKeyDown(SDL_Keycode key, Uint16 mod);
   virtual void OnKeyUp(SDL_Keycode key, Uint16 mod);

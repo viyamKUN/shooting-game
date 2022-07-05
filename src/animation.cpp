@@ -41,5 +41,7 @@ int Animation::GetCurrentFrame() { return currentFrame; }
 // Get animation state index (ex. idle = 0, run = 1)
 int Animation::GetAnimationState() { return animationState; }
 
+void Animation::SetAnimationState(int state) { animationState = state; }
+
 }  // namespace gamelogic
 }  // namespace sg

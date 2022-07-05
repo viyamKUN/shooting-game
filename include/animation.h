@@ -9,14 +9,7 @@ namespace gamelogic {
 enum ANIMATING_TYPE { ANIMATION_NONE, ANIMATION_RESTART, ANIMATION_PINGPONG };
 
 class Animation {
- private:
-  int currentFrame;
-  int timeBucket;
-  int frameIncrease;
-  int animationState;
-
  public:
-  const int maxFrame;
   const int animationType;
   const int frameRate;
 
@@ -26,7 +19,15 @@ class Animation {
 
   void OnAnimate();
   int GetCurrentFrame();
+  void SetAnimationState(int state);
   int GetAnimationState();
+
+ private:
+  int currentFrame;
+  int timeBucket;
+  int frameIncrease;
+  int animationState;
+  int maxFrame;
 };
 
 }  // namespace gamelogic

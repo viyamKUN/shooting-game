@@ -15,10 +15,12 @@ void Player::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   switch (key) {
     case SDLK_LEFT:
       transform->Translate(-1, 0);
+      spriteRenderer->ChangeAnimationState(PLAYER_ANIMATION_WALK);
       break;
 
     case SDLK_RIGHT:
       transform->Translate(1, 0);
+      spriteRenderer->ChangeAnimationState(PLAYER_ANIMATION_WALK);
       break;
   }
 }
@@ -27,14 +29,9 @@ void Player::OnKeyUp(SDL_Keycode key, Uint16 mod) {
   switch (key) {
     case SDLK_LEFT:
     case SDLK_RIGHT:
-      // return to idle animation
+      spriteRenderer->ChangeAnimationState(PLAYER_ANIMATION_IDLE);
       break;
   }
-}
-
-void Player::SetAnimation(int animationType, int maxFrame) {
-  Entity::SetAnimation(animationType, maxFrame);
-  // state별로 y 인덱스를 매핑
 }
 
 void Player::OnCleanUp() { Entity::OnCleanUp(); }

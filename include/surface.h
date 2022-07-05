@@ -28,6 +28,7 @@ class Surface {
   ~Surface();
 
   void SetAnimation(int animationType, int maxFrame);
+  void ChangeAnimationState(int state);
   void OnLoad(Transform* transform);
   void OnLoop();
   void OnDraw(SDL_Renderer* renderer);
