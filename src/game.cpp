@@ -1,14 +1,11 @@
 #include "game.h"
 
-#include <SDL.h>
-
-#include <iostream>
-
-namespace GameLogic {
+namespace sg::gamelogic {
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
-  windowSurface = NULL;
+  window = NULL;
+  renderer = NULL;
 }
 
 Game::~Game() {}
@@ -24,6 +21,7 @@ int Game::OnExecute() {
     }
     OnLoop();
     OnRender();
+    SDL_Delay(16);
   }
   OnCleanUp();
   return 0;
@@ -31,31 +29,64 @@ int Game::OnExecute() {
 
 bool Game::OnInit() {
   if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+    std::cout << "Init Fail" << std::endl;
     return false;
   }
 
-  windowSurface = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-  if (windowSurface == NULL) {
-    return false;
+  window =
+      SDL_CreateWindow("Shooting Game!!", SDL_WINDOWPOS_UNDEFINED,
+                       SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
+  if (window == NULL) return false;
+  renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
+  RegistEntities();
+  for (auto entity : entities) {
+    entity->OnLoad();
   }
   return true;
 }
 
-void Game::OnEvent(SDL_Event *event) { Event::OnEvent(event); }
+void Game::RegistEntities() {
+  Entity* player = new Entity("player.bmp", 32, 32, 320, 200);
+  player->SetAnimation(ANIMATION_RESTART, 4);
+  entities.push_back(player);
 
-void Game::OnLoop() {}
+  Entity* box = new Entity("box.bmp", 32, 32, 320, 100);
+  entities.push_back(box);
+}
 
-void Game::OnRender() {}
+void Game::OnEvent(SDL_Event* event) { Event::OnEvent(event); }
 
-void Game::OnCleanUp() { SDL_Quit(); }
+void Game::OnLoop() {
+  for (auto entity : entities) {
+    entity->OnLoop();
+  }
+}
+
+void Game::OnRender() {
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+  SDL_RenderClear(renderer);
+  for (auto entity : entities) {
+    entity->OnRender(renderer);
+  }
+  SDL_RenderPresent(renderer);
+}
+
+void Game::OnCleanUp() {
+  for (auto entity : entities) {
+    entity->OnCleanUp();
+  }
+  entities.clear();
+  SDL_Quit();
+}
 
 void Game::OnQuit() {
   Event::OnQuit();
   running = false;
 }
 
-void Game::OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode) {
-  Event::OnKeyDown(key, mod, unicode);
+void Game::OnKeyDown(SDL_Keycode key, Uint16 mod) {
+  Event::OnKeyDown(key, mod);
 }
 
-}  // namespace GameLogic
+}  // namespace sg::gamelogic

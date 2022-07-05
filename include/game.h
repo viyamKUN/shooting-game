@@ -3,12 +3,24 @@
 
 #include <SDL.h>
 
+#include <iostream>
+#include <vector>
+
+#include "entity.h"
 #include "event.h"
-namespace GameLogic {
+#include "surface.h"
+
+namespace sg::gamelogic {
 class Game : Event {
  private:
+  const int SCREEN_WIDTH = 640;
+  const int SCREEN_HEIGHT = 480;
+
+ private:
+  std::vector<Entity*> entities;
   bool running;
-  SDL_Surface* windowSurface;
+  SDL_Window* window;
+  SDL_Renderer* renderer;
 
  public:
   Game();
@@ -18,6 +30,7 @@ class Game : Event {
 
  private:
   bool OnInit();
+  void RegistEntities();
   void OnEvent(SDL_Event* event);
   void OnLoop();
   void OnRender();
@@ -25,8 +38,8 @@ class Game : Event {
 
  public:
   void OnQuit();
-  void OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode);
+  void OnKeyDown(SDL_Keycode key, Uint16 mod);
 };
-}  // namespace GameLogic
+}  // namespace sg::gamelogic
 
 #endif
