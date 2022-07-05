@@ -13,6 +13,10 @@
 namespace GameLogic {
 class Game : Event {
  private:
+  const int SCREEN_WIDTH = 640;
+  const int SCREEN_HEIGHT = 480;
+
+ private:
   std::vector<Entity*> entities;
   bool running;
   SDL_Window* window;

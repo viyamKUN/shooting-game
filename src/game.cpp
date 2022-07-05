@@ -33,13 +33,11 @@ bool Game::OnInit() {
     return false;
   }
 
-  SDL_CreateWindowAndRenderer(640, 480, 0, &window, &renderer);
+  window =
+      SDL_CreateWindow("Shooting Game!!", SDL_WINDOWPOS_UNDEFINED,
+                       SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, 0);
   if (window == NULL) return false;
-
-  SDL_SetWindowTitle(window, "Shooting Game!!");
-  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-  SDL_RenderClear(renderer);
-  SDL_RenderPresent(renderer);
+  renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
   Entity box("box.bmp");
   entities.push_back(&box);
@@ -58,9 +56,12 @@ void Game::OnLoop() {
 }
 
 void Game::OnRender() {
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+  SDL_RenderClear(renderer);
   for (auto entity : entities) {
     // entity->OnRender(renderer);
   }
+  SDL_RenderPresent(renderer);
 }
 
 void Game::OnCleanUp() {
