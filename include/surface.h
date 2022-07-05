@@ -17,6 +17,11 @@ class Surface {
   Transform* transform;
   Animation* animation;
 
+ private:
+  const int TRANS_R = 254;
+  const int TRANS_G = 0;
+  const int TRANS_B = 255;
+
  public:
   Surface(char* path);
   ~Surface();
