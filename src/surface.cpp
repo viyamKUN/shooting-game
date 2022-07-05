@@ -7,14 +7,24 @@ namespace sg::gamelogic {
 Surface::Surface(char* path) {
   assetPath = path;
   texture = NULL;
+  animation = NULL;
 }
 
 Surface::~Surface() {}
+
+void Surface::SetAnimation(int animationType, int maxFrame) {
+  if (animationType == ANIMATION_NONE) return;
+  animation = new Animation(maxFrame, animationType);
+}
 
 void Surface::OnLoad(Transform* transform) {
   this->transform = transform;
   src = SDL_LoadBMP(assetPath);
   if (src == NULL) SDL_GetError();
+}
+
+void Surface::OnLoop() {
+  if (animation) animation->OnAnimate();
 }
 
 void Surface::OnDraw(SDL_Renderer* renderer) {

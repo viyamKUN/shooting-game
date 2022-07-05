@@ -10,15 +10,13 @@ namespace sg::gamelogic {
 class Entity {
  private:
   Transform* transform;
-  Surface* spriteSurface;
-  Animation* animation;
+  Surface* spriteRenderer;
 
  public:
   Entity(const char* spriteName, int sizeX, int sizeY, int posX, int posY);
   ~Entity();
 
   void SetAnimation(int animationType, int maxFrame);
-
   void OnLoad();
   void OnLoop();
   void OnRender(SDL_Renderer* renderer);

@@ -5,6 +5,7 @@
 
 #include <iostream>
 
+#include "animation.h"
 #include "transform.h"
 
 namespace sg::gamelogic {
@@ -14,12 +15,15 @@ class Surface {
   SDL_Surface* src;
   SDL_Texture* texture;
   Transform* transform;
+  Animation* animation;
 
  public:
   Surface(char* path);
   ~Surface();
 
+  void SetAnimation(int animationType, int maxFrame);
   void OnLoad(Transform* transform);
+  void OnLoop();
   void OnDraw(SDL_Renderer* renderer);
   void OnClear();
 };
