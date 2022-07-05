@@ -17,4 +17,9 @@ Coordination* Transform::GetSize() { return size; }
 
 Coordination* Transform::GetPosition() { return position; }
 
+void Transform::Translate(int x, int y) {
+  position->setX(position->getX() + x);
+  position->setY(position->getY() + y);
+}
+
 }  // namespace sg::gamelogic

@@ -19,6 +19,8 @@ class Transform {
 
   Coordination* GetSize();
   Coordination* GetPosition();
+
+  void Translate(int x, int y);
 };
 }  // namespace sg::gamelogic
 

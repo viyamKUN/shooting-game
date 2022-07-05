@@ -12,6 +12,8 @@ class Coordination {
   ~Coordination();
   int getX();
   int getY();
+  void setX(int x);
+  void setY(int y);
 };
 
 }  // namespace sg::gamelogic

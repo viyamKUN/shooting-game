@@ -20,7 +20,14 @@ void Entity::SetAnimation(int animationType, int maxFrame) {
 
 void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
 
-void Entity::OnLoop() { spriteRenderer->OnLoop(); }
+void Entity::OnLoop() {
+  spriteRenderer->OnLoop();
+  // virtual method
+}
+
+void Entity::OnKeyDown(SDL_Keycode key, Uint16 mod) {
+  // virtual method
+}
 
 void Entity::OnRender(SDL_Renderer* renderer) {
   spriteRenderer->OnDraw(renderer);

@@ -8,7 +8,7 @@
 
 namespace sg::gamelogic {
 class Entity {
- private:
+ public:
   Transform* transform;
   Surface* spriteRenderer;
 
@@ -18,9 +18,10 @@ class Entity {
 
   void SetAnimation(int animationType, int maxFrame);
   void OnLoad();
-  void OnLoop();
+  virtual void OnLoop();
+  virtual void OnKeyDown(SDL_Keycode key, Uint16 mod);
   void OnRender(SDL_Renderer* renderer);
-  void OnCleanUp();
+  virtual void OnCleanUp();
 };
 
 }  // namespace sg::gamelogic
