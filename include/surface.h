@@ -5,18 +5,21 @@
 
 #include <iostream>
 
+#include "transform.h"
+
 namespace sg::gamelogic {
 class Surface {
  private:
   char* assetPath;
   SDL_Surface* src;
   SDL_Texture* texture;
+  Transform* transform;
 
  public:
   Surface(char* path);
   ~Surface();
 
-  void OnLoad();
+  void OnLoad(Transform* transform);
   void OnDraw(SDL_Renderer* renderer);
   void OnClear();
 };

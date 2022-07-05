@@ -11,7 +11,8 @@ Surface::Surface(char* path) {
 
 Surface::~Surface() {}
 
-void Surface::OnLoad() {
+void Surface::OnLoad(Transform* transform) {
+  this->transform = transform;
   src = SDL_LoadBMP(assetPath);
   if (src == NULL) SDL_GetError();
 }
@@ -19,10 +20,10 @@ void Surface::OnLoad() {
 void Surface::OnDraw(SDL_Renderer* renderer) {
   texture = SDL_CreateTextureFromSurface(renderer, src);
   SDL_Rect destRect;
-  destRect.x = 0;
-  destRect.y = 0;
-  destRect.w = 32;
-  destRect.h = 32;
+  destRect.x = transform->GetPosition()->getX();
+  destRect.y = transform->GetPosition()->getY();
+  destRect.w = transform->GetSize()->getX();
+  destRect.h = transform->GetSize()->getY();
   SDL_RenderCopy(renderer, texture, NULL, &destRect);
 }
 

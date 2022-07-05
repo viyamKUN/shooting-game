@@ -39,8 +39,8 @@ bool Game::OnInit() {
   if (window == NULL) return false;
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  entities.push_back(new Entity("player.bmp"));
-  entities.push_back(new Entity("box.bmp"));
+  entities.push_back(new Entity("player.bmp", 32, 32, 320, 200));
+  entities.push_back(new Entity("box.bmp", 32, 32, 320, 100));
   for (auto entity : entities) {
     entity->OnLoad();
   }
@@ -81,4 +81,4 @@ void Game::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   Event::OnKeyDown(key, mod);
 }
 
-}  // namespace GameLogic
+}  // namespace sg::gamelogic
