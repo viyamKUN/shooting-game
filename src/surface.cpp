@@ -41,8 +41,7 @@ void Surface::OnDraw(SDL_Renderer* renderer) {
   if (animation) {
     SDL_Rect srcRect;
     srcRect.x = transform->GetSize()->getX() * animation->GetCurrentFrame();
-    // TODO: 이 값으로 애니메이션 종류를 바꿀 수 있음 (ex. run, walk)
-    srcRect.y = 0;
+    srcRect.y = transform->GetSize()->getY() * animation->GetAnimationState();
     srcRect.w = transform->GetSize()->getX();
     srcRect.h = transform->GetSize()->getY();
     SDL_RenderCopy(renderer, texture, &srcRect, &destRect);

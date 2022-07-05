@@ -8,7 +8,8 @@ Animation::Animation(int maxFrame, int animationType)
       frameRate(150),
       currentFrame(0),
       timeBucket(0),
-      frameIncrease(1) {}
+      frameIncrease(1),
+      animationState(0) {}
 
 Animation::~Animation() {}
 
@@ -36,6 +37,9 @@ void Animation::OnAnimate() {
 }
 
 int Animation::GetCurrentFrame() { return currentFrame; }
+
+// Get animation state index (ex. idle = 0, run = 1)
+int Animation::GetAnimationState() { return animationState; }
 
 }  // namespace gamelogic
 }  // namespace sg

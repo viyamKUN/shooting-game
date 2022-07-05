@@ -13,6 +13,7 @@ class Animation {
   int currentFrame;
   int timeBucket;
   int frameIncrease;
+  int animationState;
 
  public:
   const int maxFrame;
@@ -25,6 +26,7 @@ class Animation {
 
   void OnAnimate();
   int GetCurrentFrame();
+  int GetAnimationState();
 };
 
 }  // namespace gamelogic

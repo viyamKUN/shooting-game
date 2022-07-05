@@ -30,6 +30,10 @@ void Entity::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   // virtual method
 }
 
+void Entity::OnKeyUp(SDL_Keycode key, Uint16 mod) {
+  // virtual method
+}
+
 void Entity::OnRender(SDL_Renderer* renderer) {
   spriteRenderer->OnDraw(renderer);
 }

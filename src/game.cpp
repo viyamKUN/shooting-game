@@ -93,5 +93,12 @@ void Game::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   }
 }
 
+void Game::OnKeyUp(SDL_Keycode key, Uint16 mod) {
+  Event::OnKeyUp(key, mod);
+  for (auto entity : entities) {
+    entity->OnKeyUp(key, mod);
+  }
+}
+
 }  // namespace gamelogic
 }  // namespace sg
