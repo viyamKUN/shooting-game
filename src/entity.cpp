@@ -12,7 +12,7 @@ Entity::Entity(const char* spriteName) {
 
 Entity::~Entity() {}
 
-void Entity::OnLoad(SDL_Renderer* renderer) { spriteSurface->OnLoad(renderer); }
+void Entity::OnLoad() { spriteSurface->OnLoad(); }
 
 void Entity::OnLoop() {}
 

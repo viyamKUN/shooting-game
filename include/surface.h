@@ -8,14 +8,15 @@
 namespace GameLogic {
 class Surface {
  private:
-  const char* assetPath;
+  char* assetPath;
+  SDL_Surface* src;
   SDL_Texture* texture;
 
  public:
-  Surface(const char* path);
+  Surface(char* path);
   ~Surface();
 
-  void OnLoad(SDL_Renderer* renderer);
+  void OnLoad();
   void OnDraw(SDL_Renderer* renderer);
   void OnClear();
 };

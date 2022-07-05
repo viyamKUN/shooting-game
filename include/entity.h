@@ -13,7 +13,7 @@ class Entity {
   Entity(const char* spriteName);
   ~Entity();
 
-  void OnLoad(SDL_Renderer* renderer);
+  void OnLoad();
   void OnLoop();
   void OnRender(SDL_Renderer* renderer);
   void OnCleanUp();

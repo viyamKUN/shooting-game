@@ -39,10 +39,10 @@ bool Game::OnInit() {
   if (window == NULL) return false;
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  Entity box("box.bmp");
-  entities.push_back(&box);
+  Entity* box = new Entity("box.bmp");
+  entities.push_back(box);
   for (auto entity : entities) {
-    entity->OnLoad(renderer);
+    entity->OnLoad();
   }
   return true;
 }
@@ -59,7 +59,7 @@ void Game::OnRender() {
   SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
   SDL_RenderClear(renderer);
   for (auto entity : entities) {
-    // entity->OnRender(renderer);
+    entity->OnRender(renderer);
   }
   SDL_RenderPresent(renderer);
 }
