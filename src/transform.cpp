@@ -1,6 +1,7 @@
 #include "transform.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 
 Transform::Transform() { Transform(100, 100, 0, 0); }
 
@@ -22,4 +23,5 @@ void Transform::Translate(int x, int y) {
   position->setY(position->getY() + y);
 }
 
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg

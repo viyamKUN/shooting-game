@@ -11,7 +11,8 @@
 #include "play/player.h"
 #include "surface.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 class Game : Event {
  private:
   const int SCREEN_WIDTH = 640;
@@ -41,6 +42,7 @@ class Game : Event {
   void OnQuit();
   void OnKeyDown(SDL_Keycode key, Uint16 mod);
 };
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg
 
 #endif

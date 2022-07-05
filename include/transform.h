@@ -5,7 +5,8 @@
 
 #include "coordination.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 class Transform {
  private:
   Coordination* size;
@@ -22,6 +23,7 @@ class Transform {
 
   void Translate(int x, int y);
 };
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg
 
 #endif

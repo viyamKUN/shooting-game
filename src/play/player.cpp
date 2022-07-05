@@ -1,6 +1,8 @@
 #include "play/player.h"
 
-namespace sg::gamelogic::play {
+namespace sg {
+namespace gamelogic {
+namespace play {
 
 Player::Player(int screenWidth, int screenHeight)
     : Entity("player.bmp", 32, 32, screenWidth / 2, screenHeight - 80) {}
@@ -26,4 +28,6 @@ void Player::OnKeyDown(SDL_Keycode key, Uint16 mod) {
 
 void Player::OnCleanUp() {}
 
-}  // namespace sg::gamelogic::play
+}  // namespace play
+}  // namespace gamelogic
+}  // namespace sg

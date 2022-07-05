@@ -1,6 +1,7 @@
 #include "animation.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 Animation::Animation(int maxFrame, int animationType)
     : maxFrame(maxFrame),
       animationType(animationType),
@@ -36,4 +37,5 @@ void Animation::OnAnimate() {
 
 int Animation::GetCurrentFrame() { return currentFrame; }
 
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg

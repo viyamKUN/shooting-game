@@ -1,6 +1,7 @@
 #include "game.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
@@ -92,4 +93,5 @@ void Game::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   }
 }
 
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg

@@ -3,7 +3,8 @@
 
 #include <SDL.h>
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 
 enum ANIMATING_TYPE { ANIMATION_NONE, ANIMATION_RESTART, ANIMATION_PINGPONG };
 
@@ -26,6 +27,7 @@ class Animation {
   int GetCurrentFrame();
 };
 
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg
 
 #endif

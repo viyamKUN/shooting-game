@@ -3,7 +3,10 @@
 
 #include "entity.h"
 
-namespace sg::gamelogic::play {
+namespace sg {
+namespace gamelogic {
+namespace play {
+
 class Player : public Entity {
  public:
   Player(int screenWidth, int screenHeight);
@@ -15,6 +18,8 @@ class Player : public Entity {
   void OnCleanUp();
 };
 
-}  // namespace sg::gamelogic::play
+}  // namespace play
+}  // namespace gamelogic
+}  // namespace sg
 
 #endif

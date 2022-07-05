@@ -2,7 +2,8 @@
 
 #include <SDL.h>
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 
 Surface::Surface(char* path) {
   assetPath = path;
@@ -55,4 +56,5 @@ void Surface::OnClear() {
   SDL_DestroyTexture(texture);
 }
 
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg

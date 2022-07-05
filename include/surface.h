@@ -8,7 +8,8 @@
 #include "animation.h"
 #include "transform.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 class Surface {
  private:
   char* assetPath;
@@ -32,5 +33,7 @@ class Surface {
   void OnDraw(SDL_Renderer* renderer);
   void OnClear();
 };
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg
+
 #endif

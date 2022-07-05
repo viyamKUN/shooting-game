@@ -6,7 +6,8 @@
 #include "surface.h"
 #include "transform.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 class Entity {
  public:
   Transform* transform;
@@ -24,5 +25,6 @@ class Entity {
   virtual void OnCleanUp();
 };
 
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg
 #endif
