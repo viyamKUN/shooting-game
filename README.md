@@ -1,13 +1,16 @@
 # Shooting Game
 
-근본 슈팅 게임임.
+Basic shooting game.
 
-## Build & Run
+## Build
 
-* in `build`
 * cmake .. -GNinja
 * ninja
 
-## 스팩
+## Use
 
-* SDL2 사용.
+* `SDL2`
+
+# Other Docs
+
+* [Dev diary](diary.md)
