@@ -6,18 +6,14 @@
 #include <iostream>
 #include <vector>
 
+#include "config.h"
 #include "entity.h"
 #include "event.h"
 #include "play/player.h"
 #include "surface.h"
-
 namespace sg {
 namespace gamelogic {
 class Game : Event {
- private:
-  const int SCREEN_WIDTH = 640;
-  const int SCREEN_HEIGHT = 480;
-
  private:
   std::vector<Entity*> entities;
   bool running;

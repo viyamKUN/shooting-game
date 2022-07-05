@@ -5,7 +5,7 @@ namespace gamelogic {
 namespace play {
 
 Player::Player(int screenWidth, int screenHeight)
-    : Entity("player.bmp", 32, 32, screenWidth / 2, screenHeight - 80) {}
+    : Entity("player.bmp", 32, 32, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 80) {}
 
 Player::~Player() {}
 
