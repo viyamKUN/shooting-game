@@ -21,7 +21,9 @@ class Animation {
  public:
   Animation(int maxFrame, int animationType);
   ~Animation();
+
   void OnAnimate();
+  int GetCurrentFrame();
 };
 
 }  // namespace sg::gamelogic

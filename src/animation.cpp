@@ -34,4 +34,6 @@ void Animation::OnAnimate() {
   }
 }
 
+int Animation::GetCurrentFrame() { return currentFrame; }
+
 }  // namespace sg::gamelogic

@@ -34,7 +34,17 @@ void Surface::OnDraw(SDL_Renderer* renderer) {
   destRect.y = transform->GetPosition()->getY();
   destRect.w = transform->GetSize()->getX();
   destRect.h = transform->GetSize()->getY();
-  SDL_RenderCopy(renderer, texture, NULL, &destRect);
+
+  if (animation) {
+    SDL_Rect srcRect;
+    srcRect.x = transform->GetSize()->getX() * animation->GetCurrentFrame();
+    srcRect.y = 0;
+    srcRect.w = transform->GetSize()->getX();
+    srcRect.h = transform->GetSize()->getY();
+    SDL_RenderCopy(renderer, texture, &srcRect, &destRect);
+  } else {
+    SDL_RenderCopy(renderer, texture, NULL, &destRect);
+  }
 }
 
 void Surface::OnClear() {
