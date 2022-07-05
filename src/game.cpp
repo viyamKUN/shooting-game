@@ -1,6 +1,6 @@
 #include "game.h"
 
-namespace GameLogic {
+namespace sg::gamelogic {
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
@@ -39,8 +39,8 @@ bool Game::OnInit() {
   if (window == NULL) return false;
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  Entity* box = new Entity("box.bmp");
-  entities.push_back(box);
+  entities.push_back(new Entity("player.bmp"));
+  entities.push_back(new Entity("box.bmp"));
   for (auto entity : entities) {
     entity->OnLoad();
   }

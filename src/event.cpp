@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-namespace GameLogic {
+namespace sg::gamelogic {
 Event::Event() {}
 
 Event::~Event() {}
@@ -136,4 +136,4 @@ void Event::OnExpose() {}
 void Event::OnQuit() { std::cout << "Quit the game." << std::endl; }
 void Event::OnUser(Uint8 type, int code, void* data, void* data2) {}
 
-}  // namespace GameLogic
+}  // namespace sg::gamelogic

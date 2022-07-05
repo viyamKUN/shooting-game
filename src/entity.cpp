@@ -1,6 +1,6 @@
 #include "entity.h"
 
-namespace GameLogic {
+namespace sg::gamelogic {
 
 Entity::Entity(const char* spriteName) {
   const char* defaultPath = "../assets/";
@@ -27,4 +27,4 @@ void Entity::OnCleanUp() {
   spriteSurface = NULL;
 }
 
-}  // namespace GameLogic
+}  // namespace sg::gamelogic

@@ -2,7 +2,7 @@
 #define __EVENT_H__
 #include <SDL.h>
 
-namespace GameLogic {
+namespace sg::gamelogic {
 //게임에서 발생할 수 있는 인풋 이벤트
 class Event {
  private:
@@ -41,6 +41,6 @@ class Event {
   virtual void OnQuit();
   virtual void OnUser(Uint8 type, int code, void* data, void* data2);
 };
-}  // namespace GameLogic
+}  // namespace sg::gamelogic
 
 #endif

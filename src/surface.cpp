@@ -2,7 +2,7 @@
 
 #include <SDL.h>
 
-namespace GameLogic {
+namespace sg::gamelogic {
 
 Surface::Surface(char* path) {
   assetPath = path;
@@ -21,7 +21,9 @@ void Surface::OnDraw(SDL_Renderer* renderer) {
   SDL_Rect destRect;
   destRect.x = 0;
   destRect.y = 0;
-  SDL_RenderCopy(renderer, texture, NULL, NULL);
+  destRect.w = 32;
+  destRect.h = 32;
+  SDL_RenderCopy(renderer, texture, NULL, &destRect);
 }
 
 void Surface::OnClear() {
@@ -29,4 +31,4 @@ void Surface::OnClear() {
   SDL_DestroyTexture(texture);
 }
 
-}  // namespace GameLogic
+}  // namespace sg::gamelogic

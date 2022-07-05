@@ -5,7 +5,7 @@
 
 #include <iostream>
 
-namespace GameLogic {
+namespace sg::gamelogic {
 class Surface {
  private:
   char* assetPath;
@@ -20,5 +20,5 @@ class Surface {
   void OnDraw(SDL_Renderer* renderer);
   void OnClear();
 };
-}  // namespace GameLogic
+}  // namespace sg::gamelogic
 #endif

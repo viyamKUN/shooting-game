@@ -4,7 +4,7 @@
 
 #include "surface.h"
 
-namespace GameLogic {
+namespace sg::gamelogic {
 class Entity {
  private:
   Surface* spriteSurface;
@@ -19,5 +19,5 @@ class Entity {
   void OnCleanUp();
 };
 
-}  // namespace GameLogic
+}  // namespace sg::gamelogic
 #endif
