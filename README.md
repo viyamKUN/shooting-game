@@ -7,3 +7,7 @@
 * in `build`
 * cmake .. -GNinja
 * ninja
+
+## 스팩
+
+* SDL2 사용.

@@ -13,9 +13,9 @@ class Entity {
   Entity(const char* spriteName);
   ~Entity();
 
-  void OnLoad();
+  void OnLoad(SDL_Renderer* renderer);
   void OnLoop();
-  void OnRender(SDL_Surface* display);
+  void OnRender(SDL_Renderer* renderer);
   void OnCleanUp();
 };
 

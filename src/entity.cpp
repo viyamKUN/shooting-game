@@ -12,11 +12,13 @@ Entity::Entity(const char* spriteName) {
 
 Entity::~Entity() {}
 
-void Entity::OnLoad() { spriteSurface->OnLoad(); }
+void Entity::OnLoad(SDL_Renderer* renderer) { spriteSurface->OnLoad(renderer); }
 
 void Entity::OnLoop() {}
 
-void Entity::OnRender(SDL_Surface* display) { spriteSurface->OnDraw(display); }
+void Entity::OnRender(SDL_Renderer* renderer) {
+  spriteSurface->OnDraw(renderer);
+}
 
 void Entity::OnCleanUp() {
   if (spriteSurface) {

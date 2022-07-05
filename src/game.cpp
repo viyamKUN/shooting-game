@@ -4,7 +4,8 @@ namespace GameLogic {
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
-  windowSurface = NULL;
+  window = NULL;
+  renderer = NULL;
 }
 
 Game::~Game() {}
@@ -20,6 +21,7 @@ int Game::OnExecute() {
     }
     OnLoop();
     OnRender();
+    SDL_Delay(16);
   }
   OnCleanUp();
   return 0;
@@ -27,19 +29,22 @@ int Game::OnExecute() {
 
 bool Game::OnInit() {
   if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+    std::cout << "Init Fail" << std::endl;
     return false;
   }
 
-  windowSurface = SDL_SetVideoMode(640, 480, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-  if (windowSurface == NULL) {
-    return false;
-  }
-  SDL_EnableKeyRepeat(1, SDL_DEFAULT_REPEAT_INTERVAL / 3);
+  SDL_CreateWindowAndRenderer(640, 480, 0, &window, &renderer);
+  if (window == NULL) return false;
+
+  SDL_SetWindowTitle(window, "Shooting Game!!");
+  SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+  SDL_RenderClear(renderer);
+  SDL_RenderPresent(renderer);
 
   Entity box("box.bmp");
   entities.push_back(&box);
   for (auto entity : entities) {
-    entity->OnLoad();
+    entity->OnLoad(renderer);
   }
   return true;
 }
@@ -54,13 +59,11 @@ void Game::OnLoop() {
 
 void Game::OnRender() {
   for (auto entity : entities) {
-    entity->OnRender(windowSurface);
+    // entity->OnRender(renderer);
   }
-  SDL_Flip(windowSurface);
 }
 
 void Game::OnCleanUp() {
-  SDL_FreeSurface(windowSurface);
   for (auto entity : entities) {
     entity->OnCleanUp();
   }
@@ -73,8 +76,8 @@ void Game::OnQuit() {
   running = false;
 }
 
-void Game::OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode) {
-  Event::OnKeyDown(key, mod, unicode);
+void Game::OnKeyDown(SDL_Keycode key, Uint16 mod) {
+  Event::OnKeyDown(key, mod);
 }
 
 }  // namespace GameLogic

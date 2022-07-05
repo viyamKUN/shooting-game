@@ -11,18 +11,16 @@ Event::~Event() {}
 
 void Event::OnEvent(SDL_Event* event) {
   switch (event->type) {
-    case SDL_ACTIVEEVENT:
-      CallActiveEvent(&event->active);
+    case SDL_WINDOWEVENT:
+      CallActiveEvent(&event->window);
       break;
 
     case SDL_KEYDOWN:
-      OnKeyDown(event->key.keysym.sym, event->key.keysym.mod,
-                event->key.keysym.unicode);
+      OnKeyDown(event->key.keysym.sym, event->key.keysym.mod);
       break;
 
     case SDL_KEYUP:
-      OnKeyUp(event->key.keysym.sym, event->key.keysym.mod,
-              event->key.keysym.unicode);
+      OnKeyUp(event->key.keysym.sym, event->key.keysym.mod);
       break;
 
     case SDL_MOUSEBUTTONDOWN:
@@ -45,11 +43,11 @@ void Event::OnEvent(SDL_Event* event) {
       OnQuit();
       break;
 
-    case SDL_VIDEORESIZE:
-      OnResize(event->resize.w, event->resize.h);
+    case SDL_WINDOWEVENT_SIZE_CHANGED:
+      OnResize(event->window.data1, event->window.data2);
       break;
 
-    case SDL_VIDEOEXPOSE:
+    case SDL_WINDOWEVENT_EXPOSED:
       OnExpose();
       break;
 
@@ -61,28 +59,30 @@ void Event::OnEvent(SDL_Event* event) {
 }
 
 // 윈도우 활성화 관련 이벤트를 구분하여 호출함
-void Event::CallActiveEvent(SDL_ActiveEvent* activeEvent) {
-  bool isGained = activeEvent->gain;
-  switch (activeEvent->state) {
-    case SDL_APPMOUSEFOCUS:
-      if (isGained)
-        OnMouseFocus();
-      else
-        OnMouseBlur();
+void Event::CallActiveEvent(SDL_WindowEvent* windowEvent) {
+  switch (windowEvent->event) {
+    case SDL_WINDOWEVENT_ENTER:
+      OnMouseFocus();
       break;
 
-    case SDL_APPINPUTFOCUS:
-      if (isGained)
-        OnInputFocus();
-      else
-        OnInputBlur();
+    case SDL_WINDOWEVENT_LEAVE:
+      OnMouseBlur();
       break;
 
-    case SDL_APPACTIVE:
-      if (isGained)
-        OnRestore();
-      else
-        OnMinimize();
+    case SDL_WINDOWEVENT_FOCUS_GAINED:
+      OnInputFocus();
+      break;
+
+    case SDL_WINDOWEVENT_FOCUS_LOST:
+      OnInputBlur();
+      break;
+
+    case SDL_WINDOWEVENT_SHOWN:
+      OnRestore();
+      break;
+
+    case SDL_WINDOWEVENT_CLOSE:
+      OnMinimize();
       break;
   }
 }
@@ -114,10 +114,10 @@ void Event::CallMouseEvent(SDL_MouseButtonEvent* buttonEvent, bool isDown) {
 
 void Event::OnInputFocus() {}
 void Event::OnInputBlur() {}
-void Event::OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode) {
+void Event::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   std::cout << "Input Key: " << SDL_GetKeyName(key) << std::endl;
 }
-void Event::OnKeyUp(SDLKey key, SDLMod mod, Uint16 unicode) {}
+void Event::OnKeyUp(SDL_Keycode key, Uint16 mod) {}
 void Event::OnMouseFocus() {}
 void Event::OnMouseBlur() {}
 void Event::OnMouseMove(int mX, int mY, int relX, int relY, bool Left,

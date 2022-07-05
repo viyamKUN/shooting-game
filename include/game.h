@@ -15,7 +15,8 @@ class Game : Event {
  private:
   std::vector<Entity*> entities;
   bool running;
-  SDL_Surface* windowSurface;
+  SDL_Window* window;
+  SDL_Renderer* renderer;
 
  public:
   Game();
@@ -32,7 +33,7 @@ class Game : Event {
 
  public:
   void OnQuit();
-  void OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode);
+  void OnKeyDown(SDL_Keycode key, Uint16 mod);
 };
 }  // namespace GameLogic
 

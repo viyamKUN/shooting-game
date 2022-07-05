@@ -15,14 +15,14 @@ class Event {
   virtual void OnEvent(SDL_Event* event);
 
  private:
-  void CallActiveEvent(SDL_ActiveEvent* activeEvent);
+  void CallActiveEvent(SDL_WindowEvent* windowEvent);
   void CallMouseEvent(SDL_MouseButtonEvent* buttonEvent, bool isDown);
 
  public:
   virtual void OnInputFocus();
   virtual void OnInputBlur();
-  virtual void OnKeyDown(SDLKey key, SDLMod mod, Uint16 unicode);
-  virtual void OnKeyUp(SDLKey key, SDLMod mod, Uint16 unicode);
+  virtual void OnKeyDown(SDL_Keycode key, Uint16 mod);
+  virtual void OnKeyUp(SDL_Keycode key, Uint16 mod);
   virtual void OnMouseFocus();
   virtual void OnMouseBlur();
   virtual void OnMouseMove(int mX, int mY, int relX, int relY, bool Left,
