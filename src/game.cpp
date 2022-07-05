@@ -39,12 +39,20 @@ bool Game::OnInit() {
   if (window == NULL) return false;
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  entities.push_back(new Entity("player.bmp", 32, 32, 320, 200));
-  entities.push_back(new Entity("box.bmp", 32, 32, 320, 100));
+  RegistEntities();
   for (auto entity : entities) {
     entity->OnLoad();
   }
   return true;
+}
+
+void Game::RegistEntities() {
+  Entity* player = new Entity("player.bmp", 32, 32, 320, 200);
+  player->SetAnimation(ANIMATION_RESTART, 4);
+  entities.push_back(player);
+
+  Entity* box = new Entity("box.bmp", 32, 32, 320, 100);
+  entities.push_back(box);
 }
 
 void Game::OnEvent(SDL_Event* event) { Event::OnEvent(event); }

@@ -2,19 +2,22 @@
 #define __ENTITY_H_
 #include <SDL.h>
 
+#include "animation.h"
 #include "surface.h"
 #include "transform.h"
 
 namespace sg::gamelogic {
 class Entity {
  private:
-  Surface* spriteSurface;
   Transform* transform;
+  Surface* spriteSurface;
+  Animation* animation;
 
  public:
-  Entity(const char* spriteName, int sizeX, int sizeY, int positionX,
-         int positionY);
+  Entity(const char* spriteName, int sizeX, int sizeY, int posX, int posY);
   ~Entity();
+
+  void SetAnimation(int animationType, int maxFrame);
 
   void OnLoad();
   void OnLoop();

@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(./include)
 add_executable(shooting-game
+    src/animation.cpp
     src/coordination.cpp
     src/transform.cpp
     src/entity.cpp

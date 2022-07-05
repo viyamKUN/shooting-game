@@ -30,6 +30,7 @@ class Game : Event {
 
  private:
   bool OnInit();
+  void RegistEntities();
   void OnEvent(SDL_Event* event);
   void OnLoop();
   void OnRender();
