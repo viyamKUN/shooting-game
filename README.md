@@ -11,6 +11,6 @@ Basic shooting game.
 
 * `SDL2`
 
-# Other Docs
+## Other Docs
 
 * [Dev diary](diary.md)
