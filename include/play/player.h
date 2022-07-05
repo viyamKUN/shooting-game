@@ -16,6 +16,7 @@ class Player : public Entity {
  public:
   void OnLoop();
   void OnKeyDown(SDL_Keycode key, Uint16 mod);
+  void SetAnimation(int animationType, int maxFrame);
   void OnCleanUp();
 };
 

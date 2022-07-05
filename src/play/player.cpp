@@ -26,7 +26,11 @@ void Player::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   }
 }
 
-void Player::OnCleanUp() {}
+void Player::SetAnimation(int animationType, int maxFrame) {
+  Entity::SetAnimation(animationType, maxFrame);
+}
+
+void Player::OnCleanUp() { Entity::OnCleanUp(); }
 
 }  // namespace play
 }  // namespace gamelogic
