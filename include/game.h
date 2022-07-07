@@ -9,6 +9,7 @@
 #include "config.h"
 #include "entity.h"
 #include "event.h"
+#include "play/bullet.h"
 #include "play/player.h"
 #include "surface.h"
 namespace sg {
