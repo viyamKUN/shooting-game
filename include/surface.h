@@ -15,7 +15,8 @@ class Surface {
   Surface(char* path);
   ~Surface();
 
-  void SetAnimation(int animationType, int maxFrame);
+  void InitAnimation();
+  void AddAnimation(Uint16 state, Uint16 animType, int maxFrame);
   void SetScale(int x, int y);
   void Flip(SDL_RendererFlip flipType);
   void ChangeAnimationState(int state);

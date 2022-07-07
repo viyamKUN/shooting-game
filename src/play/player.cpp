@@ -5,7 +5,9 @@ namespace gamelogic {
 namespace play {
 
 Player::Player(int screenWidth, int screenHeight)
-    : Entity("player.bmp", 32, 32, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 80) {}
+    : Entity("player.bmp", 32, 32, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 80) {
+  SetAnimation();
+}
 
 Player::~Player() {}
 
@@ -37,6 +39,12 @@ void Player::OnKeyUp(SDL_Keycode key, Uint16 mod) {
 }
 
 void Player::OnCleanUp() { Entity::OnCleanUp(); }
+
+void Player::SetAnimation() {
+  Entity::SetAnimation();
+  spriteRenderer->AddAnimation(PLAYER_ANIMATION_IDLE, ANIMATION_RESTART, 4);
+  spriteRenderer->AddAnimation(PLAYER_ANIMATION_WALK, ANIMATION_RESTART, 5);
+}
 
 }  // namespace play
 }  // namespace gamelogic

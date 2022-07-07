@@ -49,7 +49,6 @@ bool Game::OnInit() {
 
 void Game::RegistEntities() {
   play::Player* player = new play::Player(SCREEN_WIDTH, SCREEN_HEIGHT);
-  player->SetAnimation(ANIMATION_RESTART, 4);
   entities.push_back(player);
 
   Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);

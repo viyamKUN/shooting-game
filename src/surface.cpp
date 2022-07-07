@@ -14,9 +14,10 @@ Surface::Surface(char* path)
 
 Surface::~Surface() {}
 
-void Surface::SetAnimation(int animationType, int maxFrame) {
-  if (animationType == ANIMATION_NONE) return;
-  animation = new Animation(maxFrame, animationType);
+void Surface::InitAnimation() { animation = new Animation(); }
+
+void Surface::AddAnimation(Uint16 state, Uint16 animType, int maxFrame) {
+  animation->AddAnimationState(state, animType, maxFrame);
 }
 
 void Surface::SetScale(int x, int y) { transform->SetScale(x, y); }
@@ -25,7 +26,6 @@ void Surface::Flip(SDL_RendererFlip flipType) { flip = flipType; }
 
 void Surface::ChangeAnimationState(int state) {
   animation->SetAnimationState(state);
-  // TODO: max Frame이 바꿔야함
 }
 
 void Surface::OnLoad(Transform* transform) {

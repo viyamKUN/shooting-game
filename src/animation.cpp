@@ -2,14 +2,12 @@
 
 namespace sg {
 namespace gamelogic {
-Animation::Animation(int maxFrame, int animationType)
-    : maxFrame(maxFrame),
-      animationType(animationType),
-      frameRate(150),
+Animation::Animation()
+    : frameRate(150),
       currentFrame(0),
       timeBucket(0),
-      frameIncrease(1),
-      animationState(0) {}
+      animationState(0),
+      frameIncrease(1) {}
 
 Animation::~Animation() {}
 
@@ -18,6 +16,8 @@ void Animation::OnAnimate() {
 
   timeBucket = SDL_GetTicks();
   currentFrame += frameIncrease;
+  Uint16 animationType = animationStatesMap[animationState].animationType;
+  int maxFrame = animationStatesMap[animationState].maxFrame;
 
   switch (animationType) {
     case ANIMATION_RESTART:
@@ -41,7 +41,14 @@ int Animation::GetCurrentFrame() { return currentFrame; }
 // Get animation state index (ex. idle = 0, run = 1)
 int Animation::GetAnimationState() { return animationState; }
 
-void Animation::SetAnimationState(int state) { animationState = state; }
+void Animation::SetAnimationState(Uint16 state) { animationState = state; }
+
+void Animation::AddAnimationState(Uint16 state, Uint16 animType, int maxFrame) {
+  AnimationState animState;
+  animState.animationType = animType;
+  animState.maxFrame = maxFrame;
+  animationStatesMap.insert({state, animState});
+}
 
 }  // namespace gamelogic
 }  // namespace sg

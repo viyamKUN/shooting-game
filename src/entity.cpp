@@ -15,9 +15,7 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
 
 Entity::~Entity() {}
 
-void Entity::SetAnimation(int animationType, int maxFrame) {
-  spriteRenderer->SetAnimation(animationType, maxFrame);
-}
+void Entity::SetAnimation() { spriteRenderer->InitAnimation(); }
 
 void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
 

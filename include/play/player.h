@@ -19,6 +19,8 @@ class Player : public Entity {
   void OnCleanUp();
 
  private:
+  void SetAnimation();
+
   enum PLAYER_ANIMATIONS {
     PLAYER_ANIMATION_IDLE = 0,
     PLAYER_ANIMATION_WALK = 1
