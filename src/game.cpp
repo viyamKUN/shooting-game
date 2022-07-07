@@ -51,7 +51,7 @@ void Game::RegistEntities() {
   play::Player* player = new play::Player();
   entities.push_back(player);
 
-  play::Bullet* bullet = new play::Bullet(1);
+  play::Bullet* bullet = new play::Bullet(SCREEN_WIDTH / 2, 400, 1);
   entities.push_back(bullet);
 
   Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);
