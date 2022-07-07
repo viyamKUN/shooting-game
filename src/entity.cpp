@@ -1,6 +1,7 @@
 #include "entity.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
                int posY) {
   const char* defaultPath = "../assets/";
@@ -14,13 +15,22 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
 
 Entity::~Entity() {}
 
-void Entity::SetAnimation(int animationType, int maxFrame) {
-  spriteRenderer->SetAnimation(animationType, maxFrame);
-}
+void Entity::SetAnimation() { spriteRenderer->InitAnimation(); }
 
 void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
 
-void Entity::OnLoop() { spriteRenderer->OnLoop(); }
+void Entity::OnLoop() {
+  spriteRenderer->OnLoop();
+  // virtual method
+}
+
+void Entity::OnKeyDown(SDL_Keycode key, Uint16 mod) {
+  // virtual method
+}
+
+void Entity::OnKeyUp(SDL_Keycode key, Uint16 mod) {
+  // virtual method
+}
 
 void Entity::OnRender(SDL_Renderer* renderer) {
   spriteRenderer->OnDraw(renderer);
@@ -33,4 +43,5 @@ void Entity::OnCleanUp() {
   spriteRenderer = NULL;
 }
 
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg

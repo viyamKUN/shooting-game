@@ -1,7 +1,8 @@
 #ifndef __COORDINATION_H_
 #define __COORDINATION_H_
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 class Coordination {
  private:
   int x;
@@ -12,8 +13,10 @@ class Coordination {
   ~Coordination();
   int getX();
   int getY();
+  void setX(int x);
+  void setY(int y);
 };
 
-}  // namespace sg::gamelogic
-
+}  // namespace gamelogic
+}  // namespace sg
 #endif

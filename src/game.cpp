@@ -1,6 +1,7 @@
 #include "game.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
@@ -47,11 +48,10 @@ bool Game::OnInit() {
 }
 
 void Game::RegistEntities() {
-  Entity* player = new Entity("player.bmp", 32, 32, 320, 200);
-  player->SetAnimation(ANIMATION_RESTART, 4);
+  play::Player* player = new play::Player(SCREEN_WIDTH, SCREEN_HEIGHT);
   entities.push_back(player);
 
-  Entity* box = new Entity("box.bmp", 32, 32, 320, 100);
+  Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);
   entities.push_back(box);
 }
 
@@ -87,6 +87,17 @@ void Game::OnQuit() {
 
 void Game::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   Event::OnKeyDown(key, mod);
+  for (auto entity : entities) {
+    entity->OnKeyDown(key, mod);
+  }
 }
 
-}  // namespace sg::gamelogic
+void Game::OnKeyUp(SDL_Keycode key, Uint16 mod) {
+  Event::OnKeyUp(key, mod);
+  for (auto entity : entities) {
+    entity->OnKeyUp(key, mod);
+  }
+}
+
+}  // namespace gamelogic
+}  // namespace sg

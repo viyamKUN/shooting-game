@@ -4,7 +4,8 @@
 
 #include <iostream>
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 Event::Event() {}
 
 Event::~Event() {}
@@ -115,9 +116,11 @@ void Event::CallMouseEvent(SDL_MouseButtonEvent* buttonEvent, bool isDown) {
 void Event::OnInputFocus() {}
 void Event::OnInputBlur() {}
 void Event::OnKeyDown(SDL_Keycode key, Uint16 mod) {
-  std::cout << "Input Key: " << SDL_GetKeyName(key) << std::endl;
+  std::cout << "Input Key (Down): " << SDL_GetKeyName(key) << std::endl;
 }
-void Event::OnKeyUp(SDL_Keycode key, Uint16 mod) {}
+void Event::OnKeyUp(SDL_Keycode key, Uint16 mod) {
+  std::cout << "Input Key (Up): " << SDL_GetKeyName(key) << std::endl;
+}
 void Event::OnMouseFocus() {}
 void Event::OnMouseBlur() {}
 void Event::OnMouseMove(int mX, int mY, int relX, int relY, bool Left,
@@ -136,4 +139,5 @@ void Event::OnExpose() {}
 void Event::OnQuit() { std::cout << "Quit the game." << std::endl; }
 void Event::OnUser(Uint8 type, int code, void* data, void* data2) {}
 
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg

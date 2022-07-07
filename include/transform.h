@@ -5,11 +5,13 @@
 
 #include "coordination.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 class Transform {
  private:
-  Coordination* size;
+  Coordination* size;  // original size
   Coordination* position;
+  Coordination* scale;
 
  public:
   Transform();
@@ -19,7 +21,12 @@ class Transform {
 
   Coordination* GetSize();
   Coordination* GetPosition();
+  Coordination* GetScale();
+
+  void Translate(int x, int y);
+  void SetScale(int x, int y);
 };
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg
 
 #endif

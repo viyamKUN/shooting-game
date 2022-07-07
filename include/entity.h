@@ -6,9 +6,10 @@
 #include "surface.h"
 #include "transform.h"
 
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 class Entity {
- private:
+ public:
   Transform* transform;
   Surface* spriteRenderer;
 
@@ -16,12 +17,15 @@ class Entity {
   Entity(const char* spriteName, int sizeX, int sizeY, int posX, int posY);
   ~Entity();
 
-  void SetAnimation(int animationType, int maxFrame);
   void OnLoad();
-  void OnLoop();
+  virtual void SetAnimation();
+  virtual void OnLoop();
+  virtual void OnKeyDown(SDL_Keycode key, Uint16 mod);
+  virtual void OnKeyUp(SDL_Keycode key, Uint16 mod);
   void OnRender(SDL_Renderer* renderer);
-  void OnCleanUp();
+  virtual void OnCleanUp();
 };
 
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg
 #endif

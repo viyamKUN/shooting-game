@@ -6,16 +6,14 @@
 #include <iostream>
 #include <vector>
 
+#include "config.h"
 #include "entity.h"
 #include "event.h"
+#include "play/player.h"
 #include "surface.h"
-
-namespace sg::gamelogic {
+namespace sg {
+namespace gamelogic {
 class Game : Event {
- private:
-  const int SCREEN_WIDTH = 640;
-  const int SCREEN_HEIGHT = 480;
-
  private:
   std::vector<Entity*> entities;
   bool running;
@@ -39,7 +37,9 @@ class Game : Event {
  public:
   void OnQuit();
   void OnKeyDown(SDL_Keycode key, Uint16 mod);
+  void OnKeyUp(SDL_Keycode key, Uint16 mod);
 };
-}  // namespace sg::gamelogic
+}  // namespace gamelogic
+}  // namespace sg
 
 #endif

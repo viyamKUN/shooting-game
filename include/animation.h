@@ -3,29 +3,42 @@
 
 #include <SDL.h>
 
-namespace sg::gamelogic {
+#include <map>
+
+namespace sg {
+namespace gamelogic {
 
 enum ANIMATING_TYPE { ANIMATION_NONE, ANIMATION_RESTART, ANIMATION_PINGPONG };
 
 class Animation {
- private:
-  int currentFrame;
-  int timeBucket;
-  int frameIncrease;
-
  public:
-  const int maxFrame;
-  const int animationType;
-  const int frameRate;
-
- public:
-  Animation(int maxFrame, int animationType);
+  Animation();
   ~Animation();
 
   void OnAnimate();
   int GetCurrentFrame();
+  void SetAnimationState(Uint16 state);
+  int GetAnimationState();
+  void AddAnimationState(Uint16 state, Uint16 animType, int maxFrame);
+
+ private:
+  const int frameRate;
+
+  int currentFrame;
+  int timeBucket;
+  int frameIncrease;
+  Uint16 animationState;
+  std::map<Uint16, struct AnimationState>
+      animationStatesMap;  // state index, state
 };
 
-}  // namespace sg::gamelogic
+struct AnimationState {
+ public:
+  int maxFrame;
+  Uint16 animationType;
+};
+
+}  // namespace gamelogic
+}  // namespace sg
 
 #endif
