@@ -4,7 +4,7 @@ namespace sg {
 namespace gamelogic {
 namespace play {
 
-Player::Player(int screenWidth, int screenHeight)
+Player::Player()
     : Entity("player.bmp", 32, 32, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 80) {
   SetAnimation();
 }

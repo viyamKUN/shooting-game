@@ -10,7 +10,7 @@ namespace play {
 
 class Player : public Entity {
  public:
-  Player(int screenWidth, int screenHeight);
+  Player();
   ~Player();
 
   void OnLoop();
