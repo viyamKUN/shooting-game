@@ -19,6 +19,8 @@ class Entity {
 
   void OnLoad();
   virtual void SetAnimation();
+  // If entity need part of image, set the destination Rect to Cut
+  virtual void CutSprite(int posX, int posY);
   virtual void OnLoop();
   virtual void OnKeyDown(SDL_Keycode key, Uint16 mod);
   virtual void OnKeyUp(SDL_Keycode key, Uint16 mod);

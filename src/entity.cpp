@@ -8,14 +8,18 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
   char* path = new char[strlen(defaultPath) + strlen(spriteName)];
   path = strcat(path, defaultPath);
   path = strcat(path, spriteName);
-  spriteRenderer = new Surface(path);
 
-  transform = new Transform(sizeX, sizeY, posX, posY);
+  spriteRenderer = new Surface(path, sizeX, sizeY);
+  transform = new Transform(posX, posY);
 }
 
 Entity::~Entity() {}
 
 void Entity::SetAnimation() { spriteRenderer->InitAnimation(); }
+
+void Entity::CutSprite(int posX, int posY) {
+  spriteRenderer->CutSurface(posX, posY);
+}
 
 void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
 

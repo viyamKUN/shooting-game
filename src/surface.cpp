@@ -5,12 +5,14 @@
 namespace sg {
 namespace gamelogic {
 
-Surface::Surface(char* path)
+Surface::Surface(char* path, int sizeX, int sizeY)
     : angle(0),
       flip(SDL_FLIP_NONE),
       texture(NULL),
       animation(NULL),
-      assetPath(path) {}
+      assetPath(path),
+      surfConfig((SurfaceConfig){SURF_TYPE_SINGLE, new Coordination(0, 0),
+                                 new Coordination(sizeX, sizeY)}) {}
 
 Surface::~Surface() {}
 
@@ -18,6 +20,12 @@ void Surface::InitAnimation() { animation = new Animation(); }
 
 void Surface::AddAnimation(Uint16 state, Uint16 animType, int maxFrame) {
   animation->AddAnimationState(state, animType, maxFrame);
+}
+
+void Surface::CutSurface(int posX, int posY) {
+  surfConfig.surfaceType = SURF_TYPE_MULTIPLE;
+  surfConfig.position->setX(posX);
+  surfConfig.position->setY(posY);
 }
 
 void Surface::SetScale(int x, int y) { transform->SetScale(x, y); }
@@ -46,15 +54,22 @@ void Surface::OnDraw(SDL_Renderer* renderer) {
   auto scale = transform->GetScale();
   destRect.x = transform->GetPosition()->getX();
   destRect.y = transform->GetPosition()->getY();
-  destRect.w = transform->GetSize()->getX() * scale->getX();
-  destRect.h = transform->GetSize()->getY() * scale->getY();
+  destRect.w = surfConfig.size->getX() * scale->getX();
+  destRect.h = surfConfig.size->getY() * scale->getY();
 
   if (animation) {
     SDL_Rect srcRect;
-    srcRect.x = transform->GetSize()->getX() * animation->GetCurrentFrame();
-    srcRect.y = transform->GetSize()->getY() * animation->GetAnimationState();
-    srcRect.w = transform->GetSize()->getX();
-    srcRect.h = transform->GetSize()->getY();
+    srcRect.x = surfConfig.size->getX() * animation->GetCurrentFrame();
+    srcRect.y = surfConfig.size->getY() * animation->GetAnimationState();
+    srcRect.w = surfConfig.size->getX();
+    srcRect.h = surfConfig.size->getY();
+    SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect, angle, NULL, flip);
+  } else if (surfConfig.surfaceType == SURF_TYPE_MULTIPLE) {
+    SDL_Rect srcRect;
+    srcRect.x = surfConfig.position->getX();
+    srcRect.y = surfConfig.position->getY();
+    srcRect.w = surfConfig.size->getX();
+    srcRect.h = surfConfig.size->getY();
     SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect, angle, NULL, flip);
   } else {
     SDL_RenderCopyEx(renderer, texture, NULL, &destRect, angle, NULL, flip);

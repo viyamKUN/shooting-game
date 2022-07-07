@@ -3,19 +3,14 @@
 namespace sg {
 namespace gamelogic {
 
-Transform::Transform() { Transform(100, 100, 0, 0); }
+Transform::Transform() { Transform(0, 0); }
 
-Transform::Transform(int sizeX, int sizeY) { Transform(sizeX, sizeY, 0, 0); }
-
-Transform::Transform(int sizeX, int sizeY, int posX, int posY) {
-  size = new Coordination(sizeX, sizeY);
+Transform::Transform(int posX, int posY) {
   position = new Coordination(posX, posY);
   scale = new Coordination(1, 1);  // Init scale
 }
 
 Transform::~Transform() {}
-
-Coordination* Transform::GetSize() { return size; }
 
 Coordination* Transform::GetPosition() { return position; }
 
