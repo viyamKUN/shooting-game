@@ -5,11 +5,12 @@
 namespace sg {
 namespace gamelogic {
 
-Surface::Surface(char* path) {
-  assetPath = path;
-  texture = NULL;
-  animation = NULL;
-}
+Surface::Surface(char* path)
+    : angle(0),
+      flip(SDL_FLIP_NONE),
+      texture(NULL),
+      animation(NULL),
+      assetPath(path) {}
 
 Surface::~Surface() {}
 
@@ -17,6 +18,10 @@ void Surface::SetAnimation(int animationType, int maxFrame) {
   if (animationType == ANIMATION_NONE) return;
   animation = new Animation(maxFrame, animationType);
 }
+
+void Surface::SetScale(int x, int y) { transform->SetScale(x, y); }
+
+void Surface::Flip(SDL_RendererFlip flipType) { flip = flipType; }
 
 void Surface::ChangeAnimationState(int state) {
   animation->SetAnimationState(state);
@@ -38,10 +43,11 @@ void Surface::OnLoop() {
 void Surface::OnDraw(SDL_Renderer* renderer) {
   texture = SDL_CreateTextureFromSurface(renderer, src);
   SDL_Rect destRect;
+  auto scale = transform->GetScale();
   destRect.x = transform->GetPosition()->getX();
   destRect.y = transform->GetPosition()->getY();
-  destRect.w = transform->GetSize()->getX();
-  destRect.h = transform->GetSize()->getY();
+  destRect.w = transform->GetSize()->getX() * scale->getX();
+  destRect.h = transform->GetSize()->getY() * scale->getY();
 
   if (animation) {
     SDL_Rect srcRect;
@@ -49,9 +55,9 @@ void Surface::OnDraw(SDL_Renderer* renderer) {
     srcRect.y = transform->GetSize()->getY() * animation->GetAnimationState();
     srcRect.w = transform->GetSize()->getX();
     srcRect.h = transform->GetSize()->getY();
-    SDL_RenderCopy(renderer, texture, &srcRect, &destRect);
+    SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect, angle, NULL, flip);
   } else {
-    SDL_RenderCopy(renderer, texture, NULL, &destRect);
+    SDL_RenderCopyEx(renderer, texture, NULL, &destRect, angle, NULL, flip);
   }
 }
 

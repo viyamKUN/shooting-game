@@ -16,11 +16,13 @@ void Player::OnKeyDown(SDL_Keycode key, Uint16 mod) {
     case SDLK_LEFT:
       transform->Translate(-1, 0);
       spriteRenderer->ChangeAnimationState(PLAYER_ANIMATION_WALK);
+      spriteRenderer->Flip(SDL_FLIP_NONE);
       break;
 
     case SDLK_RIGHT:
       transform->Translate(1, 0);
       spriteRenderer->ChangeAnimationState(PLAYER_ANIMATION_WALK);
+      spriteRenderer->Flip(SDL_FLIP_HORIZONTAL);
       break;
   }
 }
