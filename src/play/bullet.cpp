@@ -14,7 +14,7 @@ Bullet::Bullet(int posX, int posY, int speed)
 Bullet::~Bullet() {}
 
 void Bullet::OnLoop() {
-  transform->Translate(0, -1);
+  transform->Translate(0, -1 * speed);
   if (transform->GetPosition()->getY() < 0) {
     Entity::Destroy();
   }

@@ -22,8 +22,12 @@ class Player : public Entity {
 
  private:
   void SetAnimation();
+  void Shoot();
 
-  const int bulletSpeed = 2;
+  const int bulletSpeed = 5;
+  const int playerSpeed = 3;
+  const int shootingInterval = 500;  // milliseconds
+  int shootingTimeBucket;
   enum PLAYER_ANIMATIONS {
     PLAYER_ANIMATION_IDLE = 0,
     PLAYER_ANIMATION_WALK = 1
