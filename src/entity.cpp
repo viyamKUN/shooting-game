@@ -23,27 +23,48 @@ void Entity::CutSprite(int posX, int posY) {
 
 void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
 
+void Entity::RegistChildEntity(Entity* entity) {
+  entities.push_back(entity);
+  entity->OnLoad();
+}
+
 void Entity::OnLoop() {
   spriteRenderer->OnLoop();
+  for (auto entity : entities) {
+    entity->OnLoop();
+  }
   // virtual method
 }
 
 void Entity::OnKeyDown(SDL_Keycode key, Uint16 mod) {
+  for (auto entity : entities) {
+    entity->OnKeyDown(key, mod);
+  }
   // virtual method
 }
 
 void Entity::OnKeyUp(SDL_Keycode key, Uint16 mod) {
   // virtual method
+  for (auto entity : entities) {
+    entity->OnKeyUp(key, mod);
+  }
 }
 
 void Entity::OnRender(SDL_Renderer* renderer) {
   spriteRenderer->OnDraw(renderer);
+  for (auto entity : entities) {
+    entity->OnRender(renderer);
+  }
 }
 
 void Entity::OnCleanUp() {
   if (spriteRenderer) {
     spriteRenderer->OnClear();
   }
+  for (auto entity : entities) {
+    entity->OnCleanUp();
+  }
+  entities.clear();
   spriteRenderer = NULL;
 }
 

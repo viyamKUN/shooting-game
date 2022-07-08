@@ -3,6 +3,7 @@
 
 #include "config.h"
 #include "entity.h"
+#include "play/bullet.h"
 
 namespace sg {
 namespace gamelogic {

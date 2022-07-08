@@ -26,6 +26,11 @@ void Player::OnKeyDown(SDL_Keycode key, Uint16 mod) {
       spriteRenderer->ChangeAnimationState(PLAYER_ANIMATION_WALK);
       spriteRenderer->Flip(SDL_FLIP_HORIZONTAL);
       break;
+
+    case SDLK_SPACE:
+      play::Bullet* bullet = new play::Bullet(SCREEN_WIDTH / 2, 400, 1);
+      Entity::RegistChildEntity(bullet);
+      break;
   }
 }
 

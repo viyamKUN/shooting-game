@@ -5,6 +5,7 @@
 #include "animation.h"
 #include "surface.h"
 #include "transform.h"
+#include "vector"
 
 namespace sg {
 namespace gamelogic {
@@ -12,12 +13,15 @@ class Entity {
  public:
   Transform* transform;
   Surface* spriteRenderer;
+  std::vector<Entity*> entities;
 
  public:
   Entity(const char* spriteName, int sizeX, int sizeY, int posX, int posY);
   ~Entity();
 
   void OnLoad();
+  void RegistChildEntity(Entity* entity);
+
   virtual void SetAnimation();
   // If entity need part of image, set the destination Rect to Cut
   void CutSprite(int posX, int posY);
