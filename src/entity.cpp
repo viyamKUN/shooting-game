@@ -13,7 +13,10 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
   transform = new Transform(posX, posY);
 }
 
-Entity::~Entity() {}
+Entity::~Entity() {
+  delete spriteRenderer;
+  delete transform;
+}
 
 void Entity::SetAnimation() { spriteRenderer->InitAnimation(); }
 
@@ -39,6 +42,8 @@ void Entity::RemoveDestroyTargets() {
   if (destroyTargets.empty()) return;
   for (auto entity : destroyTargets) {
     entities.remove(entity);
+    entity->OnCleanUp();
+    delete entity;
   }
   destroyTargets.clear();
 }
@@ -84,7 +89,6 @@ void Entity::Destroy() {
   if (parent) {
     parent->AddDestoryTargetEntity(this);
   }
-  OnCleanUp();
 }
 
 void Entity::OnCleanUp() {
@@ -93,9 +97,9 @@ void Entity::OnCleanUp() {
   }
   for (auto entity : entities) {
     entity->OnCleanUp();
+    delete entity;
   }
   entities.clear();
-  spriteRenderer = NULL;
 }
 
 }  // namespace gamelogic
