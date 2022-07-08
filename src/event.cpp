@@ -89,8 +89,7 @@ void Event::CallActiveEvent(SDL_WindowEvent* windowEvent) {
 }
 
 void Event::OnRetainKeyEvents() {
-  // TODO: 입력한 키 리스트를 유지하면서 처리하면 최신 키 스테이트만 관리하면
-  // 됨.
+  // TODO: 입력한 키 리스트를 유지하면서 처리하면 최신 키 입력만 유지할 수 있음
   for (int i = 0; i <= SDL_NUM_SCANCODES; i++) {
     if (keyboardState[i] > 0) {
       OnKey(SDL_GetKeyFromScancode((SDL_Scancode)i));
