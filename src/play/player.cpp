@@ -28,8 +28,10 @@ void Player::OnKeyDown(SDL_Keycode key, Uint16 mod) {
       break;
 
     case SDLK_SPACE:
-      play::Bullet* bullet = new play::Bullet(SCREEN_WIDTH / 2, 400, 1);
-      Entity::RegistChildEntity(bullet);
+      play::Bullet* bullet =
+          new play::Bullet(transform->GetPosition()->getX(),
+                           transform->GetPosition()->getY(), bulletSpeed);
+      Entity::RegisterChildEntity(bullet);
       break;
   }
 }

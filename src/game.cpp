@@ -40,14 +40,14 @@ bool Game::OnInit() {
   if (window == NULL) return false;
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  RegistEntities();
+  RegisterEntities();
   for (auto entity : entities) {
     entity->OnLoad();
   }
   return true;
 }
 
-void Game::RegistEntities() {
+void Game::RegisterEntities() {
   play::Player* player = new play::Player();
   entities.push_back(player);
 

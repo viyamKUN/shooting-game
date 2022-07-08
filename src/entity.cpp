@@ -23,9 +23,24 @@ void Entity::CutSprite(int posX, int posY) {
 
 void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
 
-void Entity::RegistChildEntity(Entity* entity) {
+void Entity::RegisterChildEntity(Entity* entity) {
   entities.push_back(entity);
+  entity->RegisterParentEntity(this);
   entity->OnLoad();
+}
+
+void Entity::RegisterParentEntity(Entity* entity) { parent = entity; }
+
+void Entity::AddDestoryTargetEntity(Entity* entity) {
+  destroyTargets.push_back(entity);
+}
+
+void Entity::RemoveDestroyTargets() {
+  if (destroyTargets.empty()) return;
+  for (auto entity : destroyTargets) {
+    entities.remove(entity);
+  }
+  destroyTargets.clear();
 }
 
 void Entity::OnLoop() {
@@ -33,6 +48,7 @@ void Entity::OnLoop() {
   for (auto entity : entities) {
     entity->OnLoop();
   }
+  RemoveDestroyTargets();
   // virtual method
 }
 
@@ -54,6 +70,12 @@ void Entity::OnRender(SDL_Renderer* renderer) {
   spriteRenderer->OnDraw(renderer);
   for (auto entity : entities) {
     entity->OnRender(renderer);
+  }
+}
+
+void Entity::Destroy() {
+  if (parent) {
+    parent->AddDestoryTargetEntity(this);
   }
 }
 

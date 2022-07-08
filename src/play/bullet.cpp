@@ -15,8 +15,9 @@ Bullet::~Bullet() {}
 
 void Bullet::OnLoop() {
   transform->Translate(0, -1);
-  if (transform->GetPosition()->getY() > SCREEN_HEIGHT) {
-    // Destroy
+  if (transform->GetPosition()->getY() < 0) {
+    Entity::Destroy();
+    OnCleanUp();
   }
 }
 

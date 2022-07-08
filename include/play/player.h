@@ -22,6 +22,7 @@ class Player : public Entity {
  private:
   void SetAnimation();
 
+  const int bulletSpeed = 2;
   enum PLAYER_ANIMATIONS {
     PLAYER_ANIMATION_IDLE = 0,
     PLAYER_ANIMATION_WALK = 1
