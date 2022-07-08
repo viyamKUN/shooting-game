@@ -66,6 +66,13 @@ void Entity::OnKeyUp(SDL_Keycode key, Uint16 mod) {
   }
 }
 
+void Entity::OnKey(SDL_Keycode key) {
+  // virtual method
+  for (auto entity : entities) {
+    entity->OnKey(key);
+  }
+}
+
 void Entity::OnRender(SDL_Renderer* renderer) {
   spriteRenderer->OnDraw(renderer);
   for (auto entity : entities) {

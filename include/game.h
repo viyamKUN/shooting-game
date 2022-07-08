@@ -38,6 +38,7 @@ class Game : Event {
   void OnQuit();
   void OnKeyDown(SDL_Keycode key, Uint16 mod);
   void OnKeyUp(SDL_Keycode key, Uint16 mod);
+  void OnKey(SDL_Keycode key);
 };
 }  // namespace gamelogic
 }  // namespace sg

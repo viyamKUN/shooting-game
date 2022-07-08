@@ -20,6 +20,7 @@ int Game::OnExecute() {
     while (SDL_PollEvent(&event)) {
       OnEvent(&event);
     }
+    Event::OnRetainKeyEvents();
     OnLoop();
     OnRender();
     SDL_Delay(16);
@@ -96,6 +97,13 @@ void Game::OnKeyUp(SDL_Keycode key, Uint16 mod) {
   Event::OnKeyUp(key, mod);
   for (auto entity : entities) {
     entity->OnKeyUp(key, mod);
+  }
+}
+
+void Game::OnKey(SDL_Keycode key) {
+  Event::OnKey(key);
+  for (auto entity : entities) {
+    entity->OnKey(key);
   }
 }
 

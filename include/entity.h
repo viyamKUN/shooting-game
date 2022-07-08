@@ -27,6 +27,7 @@ class Entity {
   virtual void OnLoop();
   virtual void OnKeyDown(SDL_Keycode key, Uint16 mod);
   virtual void OnKeyUp(SDL_Keycode key, Uint16 mod);
+  virtual void OnKey(SDL_Keycode key);
   void OnRender(SDL_Renderer* renderer);
   // Register in destroy targets.
   // After Loop, parent entity will destroy whole targets.
