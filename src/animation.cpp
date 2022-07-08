@@ -41,7 +41,12 @@ int Animation::GetCurrentFrame() { return currentFrame; }
 // Get animation state index (ex. idle = 0, run = 1)
 int Animation::GetAnimationState() { return animationState; }
 
-void Animation::SetAnimationState(Uint16 state) { animationState = state; }
+void Animation::SetAnimationState(Uint16 state) {
+  if (animationState != state) {
+    currentFrame = 0;
+  }
+  animationState = state;
+}
 
 void Animation::AddAnimationState(Uint16 state, Uint16 animType, int maxFrame) {
   AnimationState animState;
