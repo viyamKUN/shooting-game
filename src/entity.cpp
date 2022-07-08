@@ -77,6 +77,7 @@ void Entity::Destroy() {
   if (parent) {
     parent->AddDestoryTargetEntity(this);
   }
+  OnCleanUp();
 }
 
 void Entity::OnCleanUp() {
