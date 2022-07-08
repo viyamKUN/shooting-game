@@ -10,13 +10,24 @@
 
 namespace sg {
 namespace gamelogic {
+
+enum SURF_TYPE { SURF_TYPE_SINGLE, SURF_TYPE_MULTIPLE };
+
+struct SurfaceConfig {
+ public:
+  Uint16 surfaceType;
+  Coordination* position;
+  Coordination* size;
+};
+
 class Surface {
  public:
-  Surface(char* path);
+  Surface(char* path, int sizeX, int sizeY);
   ~Surface();
 
   void InitAnimation();
   void AddAnimation(Uint16 state, Uint16 animType, int maxFrame);
+  void CutSurface(int posX, int posY);
   void SetScale(int x, int y);
   void Flip(SDL_RendererFlip flipType);
   void ChangeAnimationState(int state);
@@ -34,11 +45,13 @@ class Surface {
   Animation* animation;
   double angle;
   SDL_RendererFlip flip;
+  struct SurfaceConfig surfConfig;
 
   const int TRANS_R = 254;
   const int TRANS_G = 0;
   const int TRANS_B = 255;
 };
+
 }  // namespace gamelogic
 }  // namespace sg
 

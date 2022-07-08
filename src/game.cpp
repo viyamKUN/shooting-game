@@ -20,6 +20,7 @@ int Game::OnExecute() {
     while (SDL_PollEvent(&event)) {
       OnEvent(&event);
     }
+    Event::OnRetainKeyEvents();
     OnLoop();
     OnRender();
     SDL_Delay(16);
@@ -40,15 +41,15 @@ bool Game::OnInit() {
   if (window == NULL) return false;
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  RegistEntities();
+  RegisterEntities();
   for (auto entity : entities) {
     entity->OnLoad();
   }
   return true;
 }
 
-void Game::RegistEntities() {
-  play::Player* player = new play::Player(SCREEN_WIDTH, SCREEN_HEIGHT);
+void Game::RegisterEntities() {
+  play::Player* player = new play::Player();
   entities.push_back(player);
 
   Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);
@@ -96,6 +97,13 @@ void Game::OnKeyUp(SDL_Keycode key, Uint16 mod) {
   Event::OnKeyUp(key, mod);
   for (auto entity : entities) {
     entity->OnKeyUp(key, mod);
+  }
+}
+
+void Game::OnKey(SDL_Keycode key) {
+  Event::OnKey(key);
+  for (auto entity : entities) {
+    entity->OnKey(key);
   }
 }
 

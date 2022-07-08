@@ -88,6 +88,15 @@ void Event::CallActiveEvent(SDL_WindowEvent* windowEvent) {
   }
 }
 
+void Event::OnRetainKeyEvents() {
+  // TODO: 입력한 키 리스트를 유지하면서 처리하면 최신 키 입력만 유지할 수 있음
+  for (int i = 0; i <= SDL_NUM_SCANCODES; i++) {
+    if (keyboardState[i] > 0) {
+      OnKey(SDL_GetKeyFromScancode((SDL_Scancode)i));
+    }
+  }
+}
+
 void Event::CallMouseEvent(SDL_MouseButtonEvent* buttonEvent, bool isDown) {
   switch (buttonEvent->button) {
     case SDL_BUTTON_LEFT:
@@ -116,10 +125,13 @@ void Event::CallMouseEvent(SDL_MouseButtonEvent* buttonEvent, bool isDown) {
 void Event::OnInputFocus() {}
 void Event::OnInputBlur() {}
 void Event::OnKeyDown(SDL_Keycode key, Uint16 mod) {
-  std::cout << "Input Key (Down): " << SDL_GetKeyName(key) << std::endl;
+  // std::cout << "Input Key (Down): " << SDL_GetKeyName(key) << std::endl;
 }
 void Event::OnKeyUp(SDL_Keycode key, Uint16 mod) {
-  std::cout << "Input Key (Up): " << SDL_GetKeyName(key) << std::endl;
+  // std::cout << "Input Key (Up): " << SDL_GetKeyName(key) << std::endl;
+}
+void Event::OnKey(SDL_Keycode key) {
+  // std::cout << "Input Key (Down): " << SDL_GetKeyName(key) << std::endl;
 }
 void Event::OnMouseFocus() {}
 void Event::OnMouseBlur() {}
@@ -138,6 +150,5 @@ void Event::OnResize(int w, int h) {}
 void Event::OnExpose() {}
 void Event::OnQuit() { std::cout << "Quit the game." << std::endl; }
 void Event::OnUser(Uint8 type, int code, void* data, void* data2) {}
-
 }  // namespace gamelogic
 }  // namespace sg

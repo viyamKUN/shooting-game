@@ -9,17 +9,14 @@ namespace sg {
 namespace gamelogic {
 class Transform {
  private:
-  Coordination* size;  // original size
   Coordination* position;
   Coordination* scale;
 
  public:
   Transform();
-  Transform(int sizeX, int sizeY);
-  Transform(int sizeX, int sizeY, int posX, int posY);
+  Transform(int posX, int posY);
   ~Transform();
 
-  Coordination* GetSize();
   Coordination* GetPosition();
   Coordination* GetScale();
 
