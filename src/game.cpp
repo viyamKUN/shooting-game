@@ -2,6 +2,16 @@
 
 namespace sg {
 namespace gamelogic {
+
+Game* Game::instance = NULL;
+
+Game* Game::GetInstance() {
+  if (instance == NULL) {
+    instance = new Game();
+  }
+  return instance;
+}
+
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
@@ -42,18 +52,24 @@ bool Game::OnInit() {
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
   RegisterEntities();
-  for (auto entity : entities) {
-    entity->OnLoad();
-  }
   return true;
 }
 
 void Game::RegisterEntities() {
   play::Player* player = new play::Player();
-  entities.push_back(player);
+  RegisterEntity(player);
 
   Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);
-  entities.push_back(box);
+  RegisterEntity(box);
+}
+
+void Game::RegisterEntity(Entity* entity) {
+  entities.push_back(entity);
+  entity->OnLoad();
+}
+
+void Game::RegisterEntityDestroy(Entity* entity) {
+  destroyRegistry.push_back(entity);
 }
 
 void Game::OnEvent(SDL_Event* event) { Event::OnEvent(event); }
@@ -62,6 +78,17 @@ void Game::OnLoop() {
   for (auto entity : entities) {
     entity->OnLoop();
   }
+  DestroyTargets();
+}
+
+void Game::DestroyTargets() {
+  if (destroyRegistry.empty()) return;
+  for (auto entity : destroyRegistry) {
+    entities.remove(entity);
+    entity->OnCleanUp();
+    delete entity;
+  }
+  destroyRegistry.clear();
 }
 
 void Game::OnRender() {

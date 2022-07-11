@@ -1,5 +1,7 @@
 #include "play/player.h"
 
+#include "game.h"
+
 namespace sg {
 namespace gamelogic {
 namespace play {
@@ -62,7 +64,7 @@ void Player::Shoot() {
   play::Bullet* bullet =
       new play::Bullet(transform->GetPosition()->getX(),
                        transform->GetPosition()->getY(), bulletSpeed);
-  Entity::RegisterChildEntity(bullet);
+  Game::GetInstance()->RegisterEntity(bullet);
 }
 
 }  // namespace play
