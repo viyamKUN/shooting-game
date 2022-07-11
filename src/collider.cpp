@@ -5,8 +5,8 @@ namespace gamelogic {
 
 Collider::Collider(int sizeX, int sizeY, Transform* transform) {
   collider = new SDL_Rect();
-  collider->w = sizeX;
-  collider->h = sizeY;
+  collider->w = sizeX * transform->GetScale()->getX();
+  collider->h = sizeY * transform->GetScale()->getY();
   collider->x = transform->GetPosition()->getX();
   collider->y = transform->GetPosition()->getY();
 }
