@@ -52,3 +52,9 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: ctest -C ${{env.BUILD_TYPE}}
+
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: shooting-game
+        path: build/shooting-game
