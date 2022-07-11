@@ -4,7 +4,7 @@
 #include <SDL.h>
 
 #include <iostream>
-#include <vector>
+#include <list>
 
 #include "config.h"
 #include "entity.h"
@@ -14,31 +14,33 @@
 namespace sg {
 namespace gamelogic {
 class Game : Event {
- private:
-  std::vector<Entity*> entities;
-  bool running;
-  SDL_Window* window;
-  SDL_Renderer* renderer;
-
  public:
   Game();
   ~Game();
 
   int OnExecute();
+  void OnQuit();
+  void OnKeyDown(SDL_Keycode key, Uint16 mod);
+  void OnKeyUp(SDL_Keycode key, Uint16 mod);
+  void OnKey(SDL_Keycode key);
+  void RegisterEntity(Entity* entity);
+  void RegisterEntityDestroy(Entity* entity);
 
  private:
   bool OnInit();
   void RegisterEntities();
   void OnEvent(SDL_Event* event);
   void OnLoop();
+  void DestroyTargets();
   void OnRender();
   void OnCleanUp();
 
- public:
-  void OnQuit();
-  void OnKeyDown(SDL_Keycode key, Uint16 mod);
-  void OnKeyUp(SDL_Keycode key, Uint16 mod);
-  void OnKey(SDL_Keycode key);
+ private:
+  std::list<Entity*> entities;
+  std::list<Entity*> destroyRegistry;
+  bool running;
+  SDL_Window* window;
+  SDL_Renderer* renderer;
 };
 }  // namespace gamelogic
 }  // namespace sg

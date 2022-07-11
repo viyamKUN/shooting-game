@@ -50,10 +50,16 @@ bool Game::OnInit() {
 
 void Game::RegisterEntities() {
   play::Player* player = new play::Player();
-  entities.push_back(player);
+  RegisterEntity(player);
 
   Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);
-  entities.push_back(box);
+  RegisterEntity(box);
+}
+
+void Game::RegisterEntity(Entity* entity) { entities.push_back(entity); }
+
+void Game::RegisterEntityDestroy(Entity* entity) {
+  destroyRegistry.push_back(entity);
 }
 
 void Game::OnEvent(SDL_Event* event) { Event::OnEvent(event); }
@@ -62,6 +68,17 @@ void Game::OnLoop() {
   for (auto entity : entities) {
     entity->OnLoop();
   }
+  DestroyTargets();
+}
+
+void Game::DestroyTargets() {
+  if (destroyRegistry.empty()) return;
+  for (auto entity : destroyRegistry) {
+    entities.remove(entity);
+    entity->OnCleanUp();
+    delete entity;
+  }
+  destroyRegistry.clear();
 }
 
 void Game::OnRender() {
