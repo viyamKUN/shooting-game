@@ -18,6 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install freeglut3-dev
+    
     - name: Install SDL
       run: |
         git clone -b release-${SDL_VERSION} https://github.com/libsdl-org/SDL
