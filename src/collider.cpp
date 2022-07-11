@@ -4,6 +4,7 @@ namespace sg {
 namespace gamelogic {
 
 Collider::Collider(int sizeX, int sizeY, int posX, int posY) {
+  collider = new SDL_Rect();
   collider->w = sizeX;
   collider->h = sizeY;
   collider->x = posX;
@@ -17,8 +18,8 @@ void Collider::UpdatePos(int posX, int posY) {
   collider->y = posY;
 }
 
-SDL_bool Collider::HasIntersection(SDL_Rect* target) {
-  return SDL_HasIntersection(collider, target);
+SDL_bool Collider::HasIntersection(Collider* target) {
+  return SDL_HasIntersection(collider, target->GetCollider());
 }
 
 SDL_Rect* Collider::GetCollider() { return collider; }

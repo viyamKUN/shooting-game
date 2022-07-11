@@ -28,14 +28,21 @@ void Entity::CutSprite(int posX, int posY) {
 }
 
 // Update Tag. Tag is classify for entity.
-void Entity::UpdateTag(char* tag) { this->tag = tag; }
+void Entity::SetTag(const char* tag) { this->tag = tag; }
 
-bool Entity::CompareTag(char* tag) { return strcmp(this->tag, tag); }
+bool Entity::CompareTag(const char* tag) {
+  if (this->tag != NULL)
+    return strcmp(this->tag, tag);
+  else
+    return false;
+}
 
-// Collider Can detect collision.
+// Collider can detect collision.
 void Entity::SetCollider(int sizeX, int sizeY, int posX, int posY) {
   collider = new Collider(sizeX, sizeY, posX, posY);
 }
+
+Collider* Entity::GetCollider() { return collider; }
 
 void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
 
@@ -57,6 +64,19 @@ void Entity::OnKeyUp(SDL_Keycode key, Uint16 mod) {
 }
 
 void Entity::OnKey(SDL_Keycode key) {
+  // virtual method
+}
+
+void Entity::OnCollision(Entity* target) {
+  if (collider == NULL) return;
+  if (target->GetCollider() == NULL) return;
+
+  if (collider->HasIntersection(target->GetCollider()) == SDL_TRUE) {
+    OnCollisionDetect(target);
+  }
+}
+
+void Entity::OnCollisionDetect(Entity* target) {
   // virtual method
 }
 

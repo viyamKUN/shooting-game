@@ -34,6 +34,7 @@ class Game : Event {
   void OnEvent(SDL_Event* event);
   void OnLoop();
   void DestroyTargets();
+  void OnCollision();
   void OnRender();
   void OnCleanUp();
 

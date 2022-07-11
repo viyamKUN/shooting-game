@@ -12,7 +12,7 @@ class Collider {
   ~Collider();
 
   void UpdatePos(int posX, int posY);
-  SDL_bool HasIntersection(SDL_Rect* target);
+  SDL_bool HasIntersection(Collider* target);
   SDL_Rect* GetCollider();
 
  private:

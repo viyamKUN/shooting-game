@@ -14,6 +14,9 @@ class Bullet : public Entity {
   void OnLoop();
   void OnCleanUp();
 
+ protected:
+  void OnCollisionDetect(Entity* target);
+
  private:
   const int speed;
 };
