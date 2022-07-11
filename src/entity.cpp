@@ -1,5 +1,7 @@
 #include "entity.h"
 
+#include "game.h"
+
 namespace sg {
 namespace gamelogic {
 Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
@@ -47,9 +49,7 @@ void Entity::OnRender(SDL_Renderer* renderer) {
   spriteRenderer->OnDraw(renderer);
 }
 
-void Entity::Destroy() {
-  // TODO: implement
-}
+void Entity::Destroy() { Game::GetInstance()->RegisterEntityDestroy(this); }
 
 void Entity::OnCleanUp() {
   if (spriteRenderer) {

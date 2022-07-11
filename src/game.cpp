@@ -52,9 +52,6 @@ bool Game::OnInit() {
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
   RegisterEntities();
-  for (auto entity : entities) {
-    entity->OnLoad();
-  }
   return true;
 }
 
@@ -66,7 +63,10 @@ void Game::RegisterEntities() {
   RegisterEntity(box);
 }
 
-void Game::RegisterEntity(Entity* entity) { entities.push_back(entity); }
+void Game::RegisterEntity(Entity* entity) {
+  entities.push_back(entity);
+  entity->OnLoad();
+}
 
 void Game::RegisterEntityDestroy(Entity* entity) {
   destroyRegistry.push_back(entity);
