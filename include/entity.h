@@ -20,9 +20,11 @@ class Entity {
   virtual void SetAnimation();
   // If entity need part of image, set the destination Rect to Cut
   void CutSprite(int posX, int posY);
+
   // Update Tag. Tag is classify for entity.
   void SetTag(const char* tag);
   bool CompareTag(const char* tag);
+
   // Collider Can detect collision.
   void SetCollider(int sizeX, int sizeY);
   Collider* GetCollider();
@@ -31,12 +33,16 @@ class Entity {
   virtual void OnKeyDown(SDL_Keycode key, Uint16 mod);
   virtual void OnKeyUp(SDL_Keycode key, Uint16 mod);
   virtual void OnKey(SDL_Keycode key);
+
   // If collision appear, run OnCollisionDetect().
   void OnCollision(Entity* target);
+
   void OnRender(SDL_Renderer* renderer);
+
   // Register in destroy targets.
   // After Loop, parent entity will destroy whole targets.
   void Destroy();
+
   // Clean data
   virtual void OnCleanUp();
 

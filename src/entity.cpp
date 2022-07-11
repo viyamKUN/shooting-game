@@ -19,6 +19,7 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
 Entity::~Entity() {
   delete spriteRenderer;
   delete transform;
+  delete collider;
 }
 
 void Entity::SetAnimation() { spriteRenderer->InitAnimation(); }
