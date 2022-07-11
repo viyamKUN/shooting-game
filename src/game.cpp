@@ -32,6 +32,7 @@ int Game::OnExecute() {
     }
     Event::OnRetainKeyEvents();
     OnLoop();
+    OnCollision();
     OnRender();
     SDL_Delay(16);
   }
@@ -57,9 +58,12 @@ bool Game::OnInit() {
 
 void Game::RegisterEntities() {
   play::Player* player = new play::Player();
+  player->SetTag("player");
   RegisterEntity(player);
 
   Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);
+  box->SetTag("box");
+  box->SetCollider(32, 32);
   RegisterEntity(box);
 }
 
@@ -89,6 +93,15 @@ void Game::DestroyTargets() {
     delete entity;
   }
   destroyRegistry.clear();
+}
+
+void Game::OnCollision() {
+  for (auto entity : entities) {
+    for (auto target : entities) {
+      if (target == entity) continue;
+      entity->OnCollision(target);
+    }
+  }
 }
 
 void Game::OnRender() {
