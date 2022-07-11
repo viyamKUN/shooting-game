@@ -4,7 +4,7 @@
 
 int main(int argc, char** argv) {
   std::cout << "Run Game..." << std::endl;
-  sg::gamelogic::Game game;
-  game.OnExecute();
+  auto game = sg::gamelogic::Game::GetInstance();
+  game->OnExecute();
   return EXIT_SUCCESS;
 }

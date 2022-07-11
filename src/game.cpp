@@ -2,6 +2,16 @@
 
 namespace sg {
 namespace gamelogic {
+
+Game* Game::instance = NULL;
+
+Game* Game::GetInstance() {
+  if (instance == NULL) {
+    instance = new Game();
+  }
+  return instance;
+}
+
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;

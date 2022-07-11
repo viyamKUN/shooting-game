@@ -15,7 +15,8 @@ namespace sg {
 namespace gamelogic {
 class Game : Event {
  public:
-  Game();
+  static Game* GetInstance();
+
   ~Game();
 
   int OnExecute();
@@ -27,6 +28,7 @@ class Game : Event {
   void RegisterEntityDestroy(Entity* entity);
 
  private:
+  Game();
   bool OnInit();
   void RegisterEntities();
   void OnEvent(SDL_Event* event);
@@ -35,7 +37,7 @@ class Game : Event {
   void OnRender();
   void OnCleanUp();
 
- private:
+  static Game* instance;
   std::list<Entity*> entities;
   std::list<Entity*> destroyRegistry;
   bool running;
