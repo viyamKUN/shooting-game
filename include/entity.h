@@ -24,7 +24,7 @@ class Entity {
   void SetTag(const char* tag);
   bool CompareTag(const char* tag);
   // Collider Can detect collision.
-  void SetCollider(int sizeX, int sizeY, int posX, int posY);
+  void SetCollider(int sizeX, int sizeY);
   Collider* GetCollider();
 
   virtual void OnLoop();

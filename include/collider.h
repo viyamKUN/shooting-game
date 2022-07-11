@@ -10,7 +10,7 @@ namespace gamelogic {
 
 class Collider {
  public:
-  Collider(int sizeX, int sizeY, int posX, int posY);
+  Collider(int sizeX, int sizeY, Transform* transform);
   ~Collider();
 
   void UpdatePos(Transform* transform);

@@ -38,8 +38,8 @@ bool Entity::CompareTag(const char* tag) {
 }
 
 // Collider can detect collision.
-void Entity::SetCollider(int sizeX, int sizeY, int posX, int posY) {
-  collider = new Collider(sizeX, sizeY, posX, posY);
+void Entity::SetCollider(int sizeX, int sizeY) {
+  collider = new Collider(sizeX, sizeY, transform);
 }
 
 Collider* Entity::GetCollider() { return collider; }

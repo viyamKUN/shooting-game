@@ -63,7 +63,7 @@ void Game::RegisterEntities() {
 
   Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);
   box->SetTag("box");
-  box->SetCollider(32, 32, SCREEN_WIDTH / 2, 100);
+  box->SetCollider(32, 32);
   RegisterEntity(box);
 }
 

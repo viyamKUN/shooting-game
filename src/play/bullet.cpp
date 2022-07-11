@@ -9,7 +9,7 @@ Bullet::Bullet(int posX, int posY, int speed)
   srand(time(NULL));
   int x = rand() % 4;
   CutSprite(x * WIDTH, 0);
-  SetCollider(WIDTH, HEIGHT, posX, posY);
+  SetCollider(WIDTH, HEIGHT);
 }
 
 Bullet::~Bullet() {}

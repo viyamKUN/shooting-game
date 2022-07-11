@@ -3,12 +3,12 @@
 namespace sg {
 namespace gamelogic {
 
-Collider::Collider(int sizeX, int sizeY, int posX, int posY) {
+Collider::Collider(int sizeX, int sizeY, Transform* transform) {
   collider = new SDL_Rect();
   collider->w = sizeX;
   collider->h = sizeY;
-  collider->x = posX;
-  collider->y = posY;
+  collider->x = transform->GetPosition()->getX();
+  collider->y = transform->GetPosition()->getY();
 }
 
 Collider::~Collider() {}
