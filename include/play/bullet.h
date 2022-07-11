@@ -18,7 +18,9 @@ class Bullet : public Entity {
   void OnCollisionDetect(Entity* target);
 
  private:
-  const int speed;
+  const int SPEED;
+  static const int WIDTH = 16;
+  static const int HEIGHT = 16;
 };
 
 }  // namespace play
