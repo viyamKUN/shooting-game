@@ -62,7 +62,7 @@ void Player::Shoot() {
   play::Bullet* bullet =
       new play::Bullet(transform->GetPosition()->getX(),
                        transform->GetPosition()->getY(), bulletSpeed);
-  Entity::RegisterChildEntity(bullet);
+  // TODO: Register to game registry
 }
 
 }  // namespace play

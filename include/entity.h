@@ -16,11 +16,6 @@ class Entity {
   ~Entity();
 
   void OnLoad();
-  void RegisterChildEntity(Entity* entity);
-  void RegisterParentEntity(Entity* entity);
-  void AddDestoryTargetEntity(Entity* entity);
-  void RemoveDestroyTargets();
-
   virtual void SetAnimation();
   // If entity need part of image, set the destination Rect to Cut
   void CutSprite(int posX, int posY);
@@ -38,9 +33,6 @@ class Entity {
  protected:
   Transform* transform;
   Surface* spriteRenderer;
-  std::list<Entity*> entities;
-  std::list<Entity*> destroyTargets;
-  Entity* parent;
 };
 
 }  // namespace gamelogic
