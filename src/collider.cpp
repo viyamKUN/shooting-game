@@ -13,9 +13,9 @@ Collider::Collider(int sizeX, int sizeY, int posX, int posY) {
 
 Collider::~Collider() {}
 
-void Collider::UpdatePos(int posX, int posY) {
-  collider->x = posX;
-  collider->y = posY;
+void Collider::UpdatePos(Transform* transform) {
+  collider->x = transform->GetPosition()->getX();
+  collider->y = transform->GetPosition()->getY();
 }
 
 SDL_bool Collider::HasIntersection(Collider* target) {

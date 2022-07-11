@@ -49,8 +49,7 @@ void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
 void Entity::OnLoop() {
   spriteRenderer->OnLoop();
   if (collider) {
-    collider->UpdatePos(transform->GetPosition()->getX(),
-                        transform->GetPosition()->getY());
+    collider->UpdatePos(transform);
   }
   // virtual method
 }

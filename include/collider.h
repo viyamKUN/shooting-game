@@ -3,6 +3,8 @@
 
 #include <SDL.h>
 
+#include "transform.h"
+
 namespace sg {
 namespace gamelogic {
 
@@ -11,7 +13,7 @@ class Collider {
   Collider(int sizeX, int sizeY, int posX, int posY);
   ~Collider();
 
-  void UpdatePos(int posX, int posY);
+  void UpdatePos(Transform* transform);
   SDL_bool HasIntersection(Collider* target);
   SDL_Rect* GetCollider();
 

@@ -16,8 +16,7 @@ Bullet::~Bullet() {}
 
 void Bullet::OnLoop() {
   transform->Translate(0, -1 * SPEED);
-  collider->UpdatePos(transform->GetPosition()->getX(),
-                      transform->GetPosition()->getY());
+  collider->UpdatePos(transform);
   if (transform->GetPosition()->getY() < 0) {
     Entity::Destroy();
   }
