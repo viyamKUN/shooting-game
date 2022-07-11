@@ -1,0 +1,60 @@
+name: build and test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Release
+  SDL_VERSION: 2.0.22
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        sudo apt-get install freeglut3-dev
+
+    - name: Install dependencies (MacOS)
+      if: matrix.os == 'macos-latest'
+      run: |
+        brew install freeglut
+
+    - name: Install SDL
+      run: |
+        git clone -b release-${{env.SDL_VERSION}} https://github.com/libsdl-org/SDL
+        mkdir -p SDL/build
+        pushd SDL/build
+        ../configure
+        make -j 2
+        sudo make install
+        popd
+        rm -rf SDL
+
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      run: ctest -C ${{env.BUILD_TYPE}}
+
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: shooting-game-${{matrix.os}}
+        path: build/shooting-game
