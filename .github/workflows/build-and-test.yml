@@ -34,7 +34,7 @@ jobs:
 
     - name: Install SDL
       run: |
-        git clone -b release-${SDL_VERSION} https://github.com/libsdl-org/SDL
+        git clone -b release-${{env.SDL_VERSION}} https://github.com/libsdl-org/SDL
         mkdir -p SDL/build
         pushd SDL/build
         ../configure
@@ -56,5 +56,5 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v3
       with:
-        name: shooting-game
+        name: shooting-game-${{matrix.os}}
         path: build/shooting-game
