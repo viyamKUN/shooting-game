@@ -32,7 +32,7 @@ void Entity::SetTag(const char* tag) { this->tag = tag; }
 
 bool Entity::CompareTag(const char* tag) {
   if (this->tag != NULL)
-    return strcmp(this->tag, tag);
+    return strcmp(this->tag, tag) == 0;
   else
     return false;
 }

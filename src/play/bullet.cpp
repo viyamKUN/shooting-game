@@ -26,9 +26,7 @@ void Bullet::OnLoop() {
 void Bullet::OnCleanUp() { Entity::OnCleanUp(); }
 
 void Bullet::OnCollisionDetect(Entity* target) {
-  std::cout << "Bullet shoot something. TAG is box: ["
-            << target->CompareTag("box") << "]" << std::endl;
-  Entity::Destroy();
+  if (target->CompareTag("box")) Entity::Destroy();
 }
 
 }  // namespace play
