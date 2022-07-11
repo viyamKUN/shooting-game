@@ -7,7 +7,6 @@ on:
     branches: [ "main" ]
 
 env:
-  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
   BUILD_TYPE: Release
   SDL_VERSION: 2.0.22
 
@@ -29,7 +28,7 @@ jobs:
         mkdir -p SDL/build
         pushd SDL/build
         ../configure
-        make
+        make -j 2
         sudo make install
         popd
         rm -rf SDL
