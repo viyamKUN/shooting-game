@@ -10,6 +10,7 @@ add_executable(shooting-game
     src/play/bullet.cpp
     src/play/player.cpp
     src/animation.cpp
+    src/collider.cpp
     src/coordination.cpp
     src/transform.cpp
     src/entity.cpp

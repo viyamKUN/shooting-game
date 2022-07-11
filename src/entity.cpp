@@ -13,6 +13,7 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
 
   spriteRenderer = new Surface(path, sizeX, sizeY);
   transform = new Transform(posX, posY);
+  collider = NULL;
 }
 
 Entity::~Entity() {
@@ -26,10 +27,24 @@ void Entity::CutSprite(int posX, int posY) {
   spriteRenderer->CutSurface(posX, posY);
 }
 
+// Update Tag. Tag is classify for entity.
+void Entity::UpdateTag(char* tag) { this->tag = tag; }
+
+bool Entity::CompareTag(char* tag) { return strcmp(this->tag, tag); }
+
+// Collider Can detect collision.
+void Entity::SetCollider(int sizeX, int sizeY, int posX, int posY) {
+  collider = new Collider(sizeX, sizeY, posX, posY);
+}
+
 void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
 
 void Entity::OnLoop() {
   spriteRenderer->OnLoop();
+  if (collider) {
+    collider->UpdatePos(transform->GetPosition()->getX(),
+                        transform->GetPosition()->getY());
+  }
   // virtual method
 }
 
