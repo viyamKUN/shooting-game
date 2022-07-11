@@ -7,10 +7,16 @@ Basic shooting game.
 * cmake .. -GNinja
 * ninja
 
+## Execute Build file
+
+* need `chmod +x shooting-game` (add execute permission)
+* need assets folder and files
+
 ## Use
 
 * `SDL2`
 
 ## Other Docs
 
-* [Dev diary](diary.md)
+* [Dev diary](docs/diary.md)
+* [game design](docs/design.md)
