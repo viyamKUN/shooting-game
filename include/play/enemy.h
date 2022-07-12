@@ -9,6 +9,7 @@ namespace gamelogic {
 namespace play {
 class Enemy : public Entity {
  public:
+  Enemy();
   Enemy(int posX, int posY);
   ~Enemy();
   void OnLoop();

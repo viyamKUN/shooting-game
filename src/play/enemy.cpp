@@ -4,6 +4,8 @@ namespace sg {
 namespace gamelogic {
 namespace play {
 
+Enemy::Enemy() : Enemy(0, 0) {}
+
 Enemy::Enemy(int posX, int posY)
     : Entity("box.bmp", WIDTH, HEIGHT, posX, posY) {
   SetCollider(WIDTH, HEIGHT);

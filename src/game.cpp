@@ -60,8 +60,8 @@ void Game::RegisterEntities() {
   play::Player* player = new play::Player();
   RegisterEntity(player);
 
-  play::Enemy* enemy = new play::Enemy(SCREEN_WIDTH / 2, 100);
-  RegisterEntity(enemy);
+  play::EnemySpawner* spawner = new play::EnemySpawner();
+  RegisterEntity(spawner);
 }
 
 void Game::RegisterEntity(Entity* entity) {

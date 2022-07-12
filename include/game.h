@@ -9,7 +9,7 @@
 #include "config.h"
 #include "entity.h"
 #include "event.h"
-#include "play/enemy.h"
+#include "play/enemy_spawner.h"
 #include "play/player.h"
 #include "surface.h"
 

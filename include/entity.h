@@ -2,8 +2,6 @@
 #define __ENTITY_H_
 #include <SDL.h>
 
-#include <list>
-
 #include "animation.h"
 #include "collider.h"
 #include "surface.h"
@@ -13,6 +11,7 @@ namespace sg {
 namespace gamelogic {
 class Entity {
  public:
+  Entity();
   Entity(const char* spriteName, int sizeX, int sizeY, int posX, int posY);
   ~Entity();
 

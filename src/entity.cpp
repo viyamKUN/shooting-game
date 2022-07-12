@@ -4,6 +4,12 @@
 
 namespace sg {
 namespace gamelogic {
+Entity::Entity() {
+  spriteRenderer = NULL;
+  transform = NULL;
+  collider = NULL;
+}
+
 Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
                int posY) {
   const char* defaultPath = "../assets/";
@@ -45,7 +51,11 @@ void Entity::SetCollider(int sizeX, int sizeY) {
 
 Collider* Entity::GetCollider() { return collider; }
 
-void Entity::OnLoad() { spriteRenderer->OnLoad(transform); }
+void Entity::OnLoad() {
+  if (spriteRenderer) {
+    spriteRenderer->OnLoad(transform);
+  }
+}
 
 void Entity::OnLoop() {
   spriteRenderer->OnLoop();
@@ -81,7 +91,9 @@ void Entity::OnCollisionDetect(Entity* target) {
 }
 
 void Entity::OnRender(SDL_Renderer* renderer) {
-  spriteRenderer->OnDraw(renderer);
+  if (spriteRenderer) {
+    spriteRenderer->OnDraw(renderer);
+  }
 }
 
 void Entity::Destroy() { Game::GetInstance()->RegisterEntityDestroy(this); }
