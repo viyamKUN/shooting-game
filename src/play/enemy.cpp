@@ -4,12 +4,19 @@ namespace sg {
 namespace gamelogic {
 namespace play {
 
-Enemy::Enemy(const char* spriteName, int sizeX, int sizeY, int posX, int posY)
-    : Entity(spriteName, sizeX, sizeY, posX, posY) {}
+Enemy::Enemy(int posX, int posY)
+    : Entity("box.bmp", WIDTH, HEIGHT, posX, posY) {
+  SetCollider(WIDTH, HEIGHT);
+  SetTag("enemy");
+}
 
 Enemy::~Enemy() {}
 
-void Enemy::OnLoop() {}
+void Enemy::OnLoop() {
+  // TODO
+  // Auto Moving
+  // Auto Shooting
+}
 
 }  // namespace play
 }  // namespace gamelogic

@@ -23,7 +23,7 @@ void Bullet::OnLoop() {
 }
 
 void Bullet::OnCollisionDetect(Entity* target) {
-  if (target->CompareTag("box")) Entity::Destroy();
+  if (target->CompareTag("enemy")) Entity::Destroy();
 }
 
 }  // namespace play

@@ -61,10 +61,8 @@ void Game::RegisterEntities() {
   player->SetTag("player");
   RegisterEntity(player);
 
-  Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);
-  box->SetTag("box");
-  box->SetCollider(32, 32);
-  RegisterEntity(box);
+  play::Enemy* enemy = new play::Enemy(SCREEN_WIDTH / 2, 100);
+  RegisterEntity(enemy);
 }
 
 void Game::RegisterEntity(Entity* entity) {

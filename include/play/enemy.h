@@ -8,9 +8,13 @@ namespace gamelogic {
 namespace play {
 class Enemy : public Entity {
  public:
-  Enemy(const char* spriteName, int sizeX, int sizeY, int posX, int posY);
+  Enemy(int posX, int posY);
   ~Enemy();
   void OnLoop();
+
+ private:
+  static const int WIDTH = 32;
+  static const int HEIGHT = 32;
 };
 
 }  // namespace play
