@@ -3,6 +3,7 @@
 
 #include "config.h"
 #include "entity.h"
+#include "play/tags.h"
 
 namespace sg {
 namespace gamelogic {

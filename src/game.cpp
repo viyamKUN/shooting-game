@@ -58,7 +58,6 @@ bool Game::OnInit() {
 
 void Game::RegisterEntities() {
   play::Player* player = new play::Player();
-  player->SetTag("player");
   RegisterEntity(player);
 
   play::Enemy* enemy = new play::Enemy(SCREEN_WIDTH / 2, 100);

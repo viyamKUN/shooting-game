@@ -10,6 +10,7 @@ Player::Player()
     : Entity("player.bmp", 32, 32, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 80),
       shootingTimeBucket(0) {
   SetAnimation();
+  SetTag(PLAYER);
 }
 
 Player::~Player() {}
