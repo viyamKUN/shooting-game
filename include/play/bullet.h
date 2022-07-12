@@ -12,7 +12,6 @@ class Bullet : public Entity {
   Bullet(int posX, int posY, int speed);
   ~Bullet();
   void OnLoop();
-  void OnCleanUp();
 
  protected:
   void OnCollisionDetect(Entity* target);

@@ -17,6 +17,8 @@ class Entity {
   ~Entity();
 
   void OnLoad();
+
+  // Base init animation. You need to add animation states.
   virtual void SetAnimation();
   // If entity need part of image, set the destination Rect to Cut
   void CutSprite(int posX, int posY);
@@ -36,15 +38,11 @@ class Entity {
 
   // If collision appear, run OnCollisionDetect().
   void OnCollision(Entity* target);
-
   void OnRender(SDL_Renderer* renderer);
-
   // Register in destroy targets.
   // After Loop, parent entity will destroy whole targets.
   void Destroy();
-
-  // Clean data
-  virtual void OnCleanUp();
+  void OnCleanUp();
 
  protected:
   Transform* transform;

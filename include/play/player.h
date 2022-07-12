@@ -18,7 +18,6 @@ class Player : public Entity {
   void OnKeyDown(SDL_Keycode key, Uint16 mod);
   void OnKeyUp(SDL_Keycode key, Uint16 mod);
   void OnKey(SDL_Keycode key);
-  void OnCleanUp();
 
  private:
   void SetAnimation();

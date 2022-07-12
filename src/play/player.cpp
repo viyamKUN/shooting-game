@@ -52,8 +52,6 @@ void Player::OnKey(SDL_Keycode key) {
   }
 }
 
-void Player::OnCleanUp() { Entity::OnCleanUp(); }
-
 void Player::SetAnimation() {
   Entity::SetAnimation();
   spriteRenderer->AddAnimation(PLAYER_ANIMATION_IDLE, ANIMATION_RESTART, 4);

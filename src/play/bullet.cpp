@@ -22,8 +22,6 @@ void Bullet::OnLoop() {
   }
 }
 
-void Bullet::OnCleanUp() { Entity::OnCleanUp(); }
-
 void Bullet::OnCollisionDetect(Entity* target) {
   if (target->CompareTag("box")) Entity::Destroy();
 }
