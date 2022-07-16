@@ -12,6 +12,8 @@ class Enemy : public Entity {
   Enemy();
   Enemy(int posX, int posY);
   ~Enemy();
+  Entity* Clone();
+
   void OnLoop();
 
  protected:

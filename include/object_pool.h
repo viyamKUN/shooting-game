@@ -4,39 +4,21 @@
 #include <iostream>
 #include <list>
 
+#include "entity.h"
+
 namespace sg {
 namespace gamelogic {
 
-template <class T>
 class ObjectPool {
  public:
-  ObjectPool(int maxCount);
+  ObjectPool(Entity* baseEntity, int maxCount);
   ~ObjectPool();
 
-  T* GetObject();
+  Entity* GetObject();
 
  private:
-  std::list<T*> objects;
+  std::list<Entity*> objects;
 };
-
-template <class T>
-ObjectPool<T>::ObjectPool(int maxCount) {
-  for (int i = 0; i < maxCount; i++) {
-    objects.push_back(new T());
-  }
-}
-
-template <class T>
-ObjectPool<T>::~ObjectPool() {}
-
-template <class T>
-T* ObjectPool<T>::GetObject() {
-  for (auto obj : objects) {
-    // TODO: check valid object
-    if (true) return obj;
-  }
-  return NULL;
-}
 
 }  // namespace gamelogic
 }  // namespace sg

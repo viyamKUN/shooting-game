@@ -29,6 +29,7 @@ class Surface {
   void AddAnimation(Uint16 state, Uint16 animType, int maxFrame);
   void CutSurface(int posX, int posY);
   void SetScale(int x, int y);
+  Coordination* GetSize();
   void Flip(SDL_RendererFlip flipType);
   void ChangeAnimationState(int state);
 

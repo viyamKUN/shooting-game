@@ -1,13 +1,11 @@
 #include "play/enemy_spawner.h"
-
-#include "game.h"
-
 namespace sg {
 namespace gamelogic {
 namespace play {
 
 EnemySpawner::EnemySpawner() : Entity() {
-  enemyPool = new ObjectPool<Enemy>(MAX_COUNT);
+  auto baseEntity = new Enemy();
+  enemyPool = new ObjectPool(baseEntity, MAX_COUNT);
 }
 
 EnemySpawner::~EnemySpawner() {}
@@ -19,8 +17,13 @@ void EnemySpawner::OnKeyDown(SDL_Keycode key, Uint16 mod) {
 }
 
 void EnemySpawner::OnSpawn() {
-  Enemy* enemy = enemyPool->GetObject();
-  Game::GetInstance()->RegisterEntity(enemy);
+  auto enemy = enemyPool->GetObject();
+  if (enemy == NULL) return;
+  // TODO: if there is no entity to return, enemy will be null. Need some
+  // feedbacks.
+
+  enemy->SetIsActive(true);
+  // TODO: Reset enemy data (ex. hp, position...)
 }
 
 }  // namespace play

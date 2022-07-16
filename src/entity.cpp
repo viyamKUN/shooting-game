@@ -8,6 +8,7 @@ Entity::Entity() {
   spriteRenderer = NULL;
   transform = NULL;
   collider = NULL;
+  isActive = false;
 }
 
 Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
@@ -16,6 +17,7 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
   char* path = new char[strlen(defaultPath) + strlen(spriteName)];
   path = strcat(path, defaultPath);
   path = strcat(path, spriteName);
+  this->spriteName = spriteName;
 
   spriteRenderer = new Surface(path, sizeX, sizeY);
   transform = new Transform(posX, posY);
@@ -26,6 +28,13 @@ Entity::~Entity() {
   delete spriteRenderer;
   delete transform;
   delete collider;
+}
+
+Entity* Entity::Clone() {
+  return new Entity(spriteName, spriteRenderer->GetSize()->getX(),
+                    spriteRenderer->GetSize()->getY(),
+                    transform->GetPosition()->getX(),
+                    transform->GetPosition()->getY());
 }
 
 void Entity::SetAnimation() { spriteRenderer->InitAnimation(); }
@@ -50,6 +59,10 @@ void Entity::SetCollider(int sizeX, int sizeY) {
 }
 
 Collider* Entity::GetCollider() { return collider; }
+
+void Entity::SetIsActive(bool active) { isActive = active; }
+
+bool Entity::GetIsActive() { return isActive; }
 
 void Entity::OnLoad() {
   if (spriteRenderer) {

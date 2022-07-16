@@ -11,6 +11,7 @@ add_executable(shooting-game
     src/play/enemy_spawner.cpp
     src/play/bullet.cpp
     src/play/player.cpp
+    src/object_pool.cpp
     src/animation.cpp
     src/collider.cpp
     src/coordination.cpp

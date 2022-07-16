@@ -14,6 +14,7 @@ class Entity {
   Entity();
   Entity(const char* spriteName, int sizeX, int sizeY, int posX, int posY);
   ~Entity();
+  virtual Entity* Clone();
 
   void OnLoad();
 
@@ -29,6 +30,9 @@ class Entity {
   // Collider Can detect collision.
   void SetCollider(int sizeX, int sizeY);
   Collider* GetCollider();
+
+  void SetIsActive(bool active);
+  bool GetIsActive();
 
   virtual void OnLoop();
   virtual void OnKeyDown(SDL_Keycode key, Uint16 mod);
@@ -52,6 +56,8 @@ class Entity {
 
  private:
   const char* tag;
+  const char* spriteName;
+  bool isActive;
 };
 
 }  // namespace gamelogic

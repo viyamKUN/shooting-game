@@ -15,6 +15,8 @@ Enemy::Enemy(int posX, int posY)
 
 Enemy::~Enemy() {}
 
+Entity* Enemy::Clone() { return new Enemy(); }
+
 void Enemy::OnLoop() {
   // TODO: Auto Shooting
   transform->Translate(0, 1);
@@ -30,7 +32,7 @@ void Enemy::Hit() {
   if (hp <= 0) Die();
 }
 
-void Enemy::Die() { Destroy(); }
+void Enemy::Die() { SetIsActive(false); }
 
 }  // namespace play
 }  // namespace gamelogic
