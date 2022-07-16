@@ -10,7 +10,6 @@ Enemy::Enemy(int posX, int posY)
     : Entity("box.bmp", WIDTH, HEIGHT, posX, posY) {
   SetCollider(WIDTH, HEIGHT);
   SetTag(ENEMY);
-  hp = MAX_HP;
 }
 
 Enemy::~Enemy() {}
@@ -21,6 +20,12 @@ void Enemy::OnLoop() {
   // TODO: Auto Shooting
   transform->Translate(0, 1);
   collider->UpdatePos(transform);
+}
+
+void Enemy::ResetData(int xPos, int yPos) {
+  hp = MAX_HP;
+  transform->GetPosition()->setX(xPos);
+  transform->GetPosition()->setY(yPos);
 }
 
 void Enemy::OnCollisionDetect(Entity* target) {

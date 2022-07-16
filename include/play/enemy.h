@@ -15,6 +15,7 @@ class Enemy : public Entity {
   Entity* Clone();
 
   void OnLoop();
+  void ResetData(int xPos, int yPos);
 
  protected:
   void OnCollisionDetect(Entity* target);

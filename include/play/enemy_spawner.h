@@ -1,10 +1,10 @@
 #ifndef __ENEMY_SPAWNER_H_
 #define __ENEMY_SPAWNER_H_
 
+#include "config.h"
 #include "entity.h"
 #include "object_pool.h"
 #include "play/enemy.h"
-
 namespace sg {
 namespace gamelogic {
 namespace play {

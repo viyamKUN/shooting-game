@@ -23,7 +23,9 @@ void EnemySpawner::OnSpawn() {
   // feedbacks.
 
   enemy->SetIsActive(true);
-  // TODO: Reset enemy data (ex. hp, position...)
+  srand(time(NULL));
+  int randomPos = SCREEN_WIDTH * (rand() % 100 * 0.01);
+  ((Enemy*)enemy)->ResetData(randomPos, 0);
 }
 
 }  // namespace play
