@@ -20,6 +20,9 @@ void Enemy::OnLoop() {
   // TODO: Auto Shooting
   transform->Translate(0, 1);
   collider->UpdatePos(transform);
+  if (transform->GetPosition()->getY() > SCREEN_HEIGHT) {
+    Entity::SetIsActive(false);
+  }
 }
 
 void Enemy::ResetData(int xPos, int yPos) {

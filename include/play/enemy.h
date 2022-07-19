@@ -1,6 +1,7 @@
 #ifndef __ENEMY_H_
 #define __ENEMY_H_
 
+#include "config.h"
 #include "entity.h"
 #include "play/tags.h"
 
