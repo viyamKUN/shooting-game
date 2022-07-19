@@ -1,6 +1,7 @@
 #include "play/player.h"
 
 #include "game.h"
+#include "play/service_provider.h"
 #include "play/ui/ui_manager.h"
 
 namespace sg {
@@ -74,16 +75,21 @@ void Player::SetAnimation() {
 }
 
 void Player::Shoot() {
-  play::Bullet* bullet = new play::Bullet(transform->GetPosition()->getX(),
-                                          transform->GetPosition()->getY(),
-                                          BULLET_SPEED, FACTION_PLAYER);
-  Game::GetInstance()->RegisterEntity(bullet);
+  ServiceProvider::GetInstance()->GetBulletPool()->SpawnBullet(
+      transform->GetPosition()->getX(), transform->GetPosition()->getY(),
+      BULLET_SPEED, FACTION_PLAYER);
 }
 
 void Player::OnCollisionDetect(Entity* target) {
   if (isDead) return;
-  if (target->CompareTag(ENEMY) || target->CompareTag(ENEMY_BULLET)) {
-    if (!isInvincible) Hit();
+  if (isInvincible) return;
+
+  if (target->CompareTag(ENEMY)) {
+    Hit();
+  } else if (target->CompareTag(BULLET)) {
+    if (((Bullet*)target)->GetFaction() == FACTION_ENEMY) {
+      Hit();
+    }
   }
 }
 

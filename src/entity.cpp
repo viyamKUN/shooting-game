@@ -47,7 +47,7 @@ void Entity::CutSprite(int posX, int posY) {
 void Entity::SetTag(const char* tag) { this->tag = tag; }
 
 bool Entity::CompareTag(const char* tag) {
-  if (this->tag != NULL)
+  if (this->tag != NULL && tag != NULL)
     return strcmp(this->tag, tag) == 0;
   else
     return false;

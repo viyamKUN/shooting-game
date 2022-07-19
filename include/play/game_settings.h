@@ -6,9 +6,8 @@ namespace gamelogic {
 namespace play {
 
 #define PLAYER "player"
-#define PLAYER_BULLET "bullet"
+#define BULLET "bullet"
 #define ENEMY "enemy"
-#define ENEMY_BULLET "enemyBullet"
 // Player's maximum hp.
 #define PLAYER_MAX_HP 5
 
