@@ -11,12 +11,15 @@ class HpHeartUI : public Entity {
  public:
   HpHeartUI();
   ~HpHeartUI();
+
   void Init();
   void UpdatePosition(int posX, int posY);
   void UpdateState(bool isFill);
+  int GetWidth();
 
  private:
-  bool isFill;
+  static const int WIDTH = 16;
+  static const int HEIGHT = 16;
 };
 
 }  // namespace ui

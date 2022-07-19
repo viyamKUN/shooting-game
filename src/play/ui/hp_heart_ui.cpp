@@ -7,9 +7,9 @@ namespace gamelogic {
 namespace play {
 namespace ui {
 
-HpHeartUI::HpHeartUI() : Entity("box.bmp", 16, 32, 0, 0) {
+HpHeartUI::HpHeartUI() : Entity("hearts.bmp", WIDTH, HEIGHT, 0, 0) {
   Game::GetInstance()->RegisterEntity(this);
-  UpdateState(false);
+  UpdateState(true);
 }
 
 HpHeartUI::~HpHeartUI() {}
@@ -19,13 +19,13 @@ void HpHeartUI::UpdatePosition(int posX, int posY) {
 }
 
 void HpHeartUI::UpdateState(bool isFill) {
-  this->isFill = isFill;
-  // TODO: Update Image
   if (isFill)
     CutSprite(0, 0);
   else
-    CutSprite(16, 0);
+    CutSprite(WIDTH, 0);
 }
+
+int HpHeartUI::GetWidth() { return WIDTH; }
 
 }  // namespace ui
 }  // namespace play

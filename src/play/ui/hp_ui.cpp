@@ -17,7 +17,8 @@ HpUi::~HpUi() {}
 void HpUi::Init() {
   for (int i = 0; i < PLAYER_MAX_HP; i++) {
     // TODO: positions are dummy for test.
-    heartUIs[i]->UpdatePosition(40 * i, 0);
+    heartUIs[i]->UpdatePosition(
+        X_POS + (heartUIs[i]->GetWidth() + HEART_UI_DISTANCE) * i, Y_POS);
   }
 }
 

@@ -16,6 +16,9 @@ class HpUi {
   void UpdateHp(int hp);
 
  private:
+  const int HEART_UI_DISTANCE = 8;
+  const int X_POS = 24;
+  const int Y_POS = 24;
   HpHeartUI* heartUIs[PLAYER_MAX_HP];
 };
 
