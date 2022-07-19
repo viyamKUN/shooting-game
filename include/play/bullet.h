@@ -10,17 +10,21 @@ namespace gamelogic {
 namespace play {
 class Bullet : public Entity {
  public:
-  Bullet(int posX, int posY, int speed, FACTION faction);
+  Bullet();
   ~Bullet();
+
+  Entity* Clone();
+  void ResetData(int posX, int posY, int speed, FACTION faction);
   void OnLoop();
+  FACTION GetFaction();
 
  protected:
   void OnCollisionDetect(Entity* target);
 
  private:
-  const int SPEED;
   static const int WIDTH = 16;
   static const int HEIGHT = 16;
+  int speed;
   FACTION bulletFaction;
 };
 

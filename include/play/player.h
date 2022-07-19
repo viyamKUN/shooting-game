@@ -4,6 +4,7 @@
 #include "config.h"
 #include "entity.h"
 #include "play/bullet.h"
+#include "play/bullet_pool.h"
 #include "play/game_settings.h"
 
 namespace sg {

@@ -1,6 +1,7 @@
 #include "play/enemy.h"
 
 #include "game.h"
+#include "play/service_provider.h"
 
 namespace sg {
 namespace gamelogic {
@@ -34,12 +35,15 @@ void Enemy::OnLoop() {
 
 void Enemy::ResetData(int xPos, int yPos) {
   hp = MAX_HP;
-  transform->GetPosition()->setX(xPos);
-  transform->GetPosition()->setY(yPos);
+  transform->SetPosition(xPos, yPos);
 }
 
 void Enemy::OnCollisionDetect(Entity* target) {
-  if (target->CompareTag(PLAYER_BULLET)) Hit();
+  if (target->CompareTag(BULLET)) {
+    if (((Bullet*)target)->GetFaction() == FACTION_PLAYER) {
+      Hit();
+    }
+  }
 }
 
 void Enemy::Hit() {
@@ -50,10 +54,9 @@ void Enemy::Hit() {
 void Enemy::Die() { SetIsActive(false); }
 
 void Enemy::Shoot() {
-  play::Bullet* bullet = new play::Bullet(transform->GetPosition()->getX(),
-                                          transform->GetPosition()->getY(),
-                                          BULLET_SPEED, FACTION_ENEMY);
-  Game::GetInstance()->RegisterEntity(bullet);
+  ServiceProvider::GetInstance()->GetBulletPool()->SpawnBullet(
+      transform->GetPosition()->getX(), transform->GetPosition()->getY(),
+      BULLET_SPEED, FACTION_ENEMY);
 }
 }  // namespace play
 }  // namespace gamelogic

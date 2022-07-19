@@ -101,7 +101,7 @@ void Game::OnCollision() {
   for (auto entity : entities) {
     for (auto target : entities) {
       if (target == entity) continue;
-      if (entity->GetIsActive()) {
+      if (entity->GetIsActive() && target->GetIsActive()) {
         entity->OnCollision(target);
       }
     }
