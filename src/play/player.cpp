@@ -96,6 +96,7 @@ void Player::Hit() {
 void Player::Die() {
   isDead = true;
   std::cout << "Player Die!" << std::endl;
+  Entity::SetActiveCollider(false);
 
   // TODO: implement
 }

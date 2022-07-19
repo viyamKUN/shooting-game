@@ -29,6 +29,7 @@ class Entity {
 
   // Collider Can detect collision.
   void SetCollider(int sizeX, int sizeY);
+  void SetActiveCollider(bool isOn);
   Collider* GetCollider();
 
   void SetIsActive(bool active);

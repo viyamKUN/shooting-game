@@ -58,7 +58,13 @@ void Entity::SetCollider(int sizeX, int sizeY) {
   collider = new Collider(sizeX, sizeY, transform);
 }
 
-Collider* Entity::GetCollider() { return collider; }
+void Entity::SetActiveCollider(bool isOn) { collider->SetActive(isOn); }
+
+Collider* Entity::GetCollider() {
+  if (collider == NULL) return NULL;
+  if (!collider->GetActive()) return NULL;
+  return collider;
+}
 
 void Entity::SetIsActive(bool active) { isActive = active; }
 
