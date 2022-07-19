@@ -21,6 +21,11 @@ void Transform::Translate(int x, int y) {
   position->setY(position->getY() + y);
 }
 
+void Transform::SetPosition(int x, int y) {
+  position->setX(x);
+  position->setY(y);
+}
+
 void Transform::SetScale(int x, int y) {
   scale->setX(x);
   scale->setY(y);

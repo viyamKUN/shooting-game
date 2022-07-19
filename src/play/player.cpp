@@ -1,6 +1,7 @@
 #include "play/player.h"
 
 #include "game.h"
+#include "play/ui/ui_manager.h"
 
 namespace sg {
 namespace gamelogic {
@@ -9,7 +10,7 @@ namespace play {
 Player::Player()
     : Entity("player.bmp", 32, 32, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 80),
       shootingTimeBucket(0),
-      hp(MAX_HP),
+      hp(PLAYER_MAX_HP),
       isDead(false),
       isInvincible(false) {
   SetAnimation();
@@ -88,6 +89,7 @@ void Player::OnCollisionDetect(Entity* target) {
 
 void Player::Hit() {
   hp--;
+  ui::UiManager::GetInstance()->UpdateHp(hp);
   isInvincible = true;
   invincibleTimeBucket = SDL_GetTicks();
   if (hp <= 0) Die();

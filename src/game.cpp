@@ -62,6 +62,8 @@ void Game::RegisterEntities() {
 
   play::EnemySpawner* spawner = new play::EnemySpawner();
   RegisterEntity(spawner);
+
+  play::ui::UiManager::GetInstance()->Init();
 }
 
 void Game::RegisterEntity(Entity* entity) {

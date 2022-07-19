@@ -77,7 +77,9 @@ void Entity::OnLoad() {
 }
 
 void Entity::OnLoop() {
-  spriteRenderer->OnLoop();
+  if (spriteRenderer) {
+    spriteRenderer->OnLoop();
+  }
   if (collider) {
     collider->UpdatePos(transform);
   }

@@ -11,6 +11,7 @@
 #include "event.h"
 #include "play/enemy_spawner.h"
 #include "play/player.h"
+#include "play/ui/ui_manager.h"
 #include "surface.h"
 
 namespace sg {

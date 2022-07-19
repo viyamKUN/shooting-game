@@ -22,6 +22,7 @@ class Transform {
 
   void Translate(int x, int y);
   void SetScale(int x, int y);
+  void SetPosition(int x, int y);
 };
 }  // namespace gamelogic
 }  // namespace sg
