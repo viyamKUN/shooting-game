@@ -3,14 +3,13 @@
 
 #include "config.h"
 #include "entity.h"
-#include "play/tags.h"
+#include "play/game_settings.h"
 
 namespace sg {
 namespace gamelogic {
 namespace play {
 class Bullet : public Entity {
  public:
-  Bullet(int posX, int posY, int speed);
   ~Bullet();
   void OnLoop();
 

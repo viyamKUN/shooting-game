@@ -1,14 +1,16 @@
-#ifndef __TAGS_H_
-#define __TAGS_H_
+#ifndef __GAME_SETTINGS_H_
+#define __GAME_SETTINGS_H_
 
 namespace sg {
 namespace gamelogic {
 namespace play {
 
 #define PLAYER "player"
-#define BULLET "bullet"
+#define PLAYER_BULLET "bullet"
 #define ENEMY "enemy"
 #define ENEMY_BULLET "enemyBullet"
+
+enum FACTION { NONE, FACTION_PLAYER, FACTION_ENEMY };
 
 }  // namespace play
 }  // namespace gamelogic
