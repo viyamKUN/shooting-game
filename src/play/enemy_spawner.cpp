@@ -23,7 +23,7 @@ void EnemySpawner::OnSpawn() {
   // feedbacks.
 
   enemy->SetIsActive(true);
-  srand(time(NULL));
+  srand(SDL_GetTicks());
   int randomPos = SCREEN_WIDTH * (rand() % 100 * 0.01);
   ((Enemy*)enemy)->ResetData(randomPos, 0);
 }
