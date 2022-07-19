@@ -23,7 +23,8 @@ void Bullet::OnLoop() {
   transform->Translate(0, moveSide * SPEED);
   collider->UpdatePos(transform);
 
-  if (transform->GetPosition()->getY() < 0) {
+  if (transform->GetPosition()->getY() < 0 ||
+      transform->GetPosition()->getY() > SCREEN_HEIGHT) {
     Entity::Destroy();
   }
 }
