@@ -18,9 +18,12 @@ class EnemySpawner : public Entity {
 
  private:
   static const int MAX_COUNT = 15;
-  static const int INTERVAL = 4;
+  static const int START_INTERVAL = 4000;
   ObjectPool* enemyPool;
+  int spawnTimeBucket;
+  int interval;
 
+  void SetSpawnInterval();
   void OnSpawn();
 };
 

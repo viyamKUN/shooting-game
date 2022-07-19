@@ -6,14 +6,32 @@ namespace play {
 EnemySpawner::EnemySpawner() : Entity() {
   auto baseEntity = new Enemy();
   enemyPool = new ObjectPool(baseEntity, MAX_COUNT);
+  spawnTimeBucket = SDL_GetTicks();
+  interval = START_INTERVAL;
 }
 
 EnemySpawner::~EnemySpawner() {}
 
-void EnemySpawner::OnLoop() {}
+void EnemySpawner::OnLoop() {
+  if (SDL_GetTicks() > spawnTimeBucket + interval) {
+    spawnTimeBucket = SDL_GetTicks();
+    auto decreseAmount = 1 - SDL_GetTicks() * 0.01;
+    SetSpawnInterval();
+    OnSpawn();
+  }
+}
 
 void EnemySpawner::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   if (key == SDLK_a) OnSpawn();
+}
+
+void EnemySpawner::SetSpawnInterval() {
+  auto value = -0.0001 * SDL_GetTicks() + START_INTERVAL;
+  if (value <= 200) {
+    interval = 200;
+    return;
+  }
+  interval = value;
 }
 
 void EnemySpawner::OnSpawn() {
