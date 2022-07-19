@@ -17,6 +17,12 @@ ServiceProvider::ServiceProvider() : bulletPool(NULL) {}
 
 ServiceProvider::~ServiceProvider() {}
 
+BulletPool* ServiceProvider::GetBulletPool() {
+  if (bulletPool == NULL) {
+    bulletPool = new BulletPool();
+  }
+  return bulletPool;
+}
 
 }  // namespace play
 }  // namespace gamelogic

@@ -1,6 +1,7 @@
 #ifndef __SERVICE_PROVIDER_H_
 #define __SERVICE_PROVIDER_H_
 
+#include "play/bullet_pool.h"
 
 namespace sg {
 namespace gamelogic {
@@ -12,9 +13,11 @@ class ServiceProvider {
   ServiceProvider();
   ~ServiceProvider();
 
+  BulletPool* GetBulletPool();
 
  private:
   static ServiceProvider* instance;
+  BulletPool* bulletPool;
 };
 
 }  // namespace play
