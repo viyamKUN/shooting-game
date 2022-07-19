@@ -4,6 +4,7 @@
 #include "config.h"
 #include "entity.h"
 #include "play/bullet.h"
+#include "play/game_settings.h"
 
 namespace sg {
 namespace gamelogic {
@@ -18,20 +19,30 @@ class Player : public Entity {
   void OnKeyDown(SDL_Keycode key, Uint16 mod);
   void OnKeyUp(SDL_Keycode key, Uint16 mod);
   void OnKey(SDL_Keycode key);
-  void OnCleanUp();
 
  private:
-  void SetAnimation();
-  void Shoot();
-
-  const int bulletSpeed = 5;
-  const int playerSpeed = 3;
-  const int shootingInterval = 500;  // milliseconds
+  const int BULLET_SPEED = 5;
+  const int PLAYER_SPEED = 3;
+  const int MAX_HP = 5;
+  const int SHOOTING_INTERVAL = 500;  // milliseconds
+  const int INVINCIBLE_TIME = 500;
+  int hp;
+  bool isDead;
+  bool isInvincible;
   int shootingTimeBucket;
+  int invincibleTimeBucket;
   enum PLAYER_ANIMATIONS {
     PLAYER_ANIMATION_IDLE = 0,
     PLAYER_ANIMATION_WALK = 1
   };
+
+  void SetAnimation();
+  void Shoot();
+  void OnCollisionDetect(Entity* target);
+  void Hit();
+  void Die();
+  // When player hit by enemy, player will be invincible for short time.
+  void BeTemporaryInvincible();
 };
 
 }  // namespace play

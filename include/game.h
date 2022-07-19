@@ -9,8 +9,10 @@
 #include "config.h"
 #include "entity.h"
 #include "event.h"
+#include "play/enemy_spawner.h"
 #include "play/player.h"
 #include "surface.h"
+
 namespace sg {
 namespace gamelogic {
 class Game : Event {

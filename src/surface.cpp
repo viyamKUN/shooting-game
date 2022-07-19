@@ -30,6 +30,8 @@ void Surface::CutSurface(int posX, int posY) {
 
 void Surface::SetScale(int x, int y) { transform->SetScale(x, y); }
 
+Coordination* Surface::GetSize() { return surfConfig.size; }
+
 void Surface::Flip(SDL_RendererFlip flipType) { flip = flipType; }
 
 void Surface::ChangeAnimationState(int state) {

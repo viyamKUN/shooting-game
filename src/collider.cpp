@@ -9,6 +9,7 @@ Collider::Collider(int sizeX, int sizeY, Transform* transform) {
   collider->h = sizeY * transform->GetScale()->getY();
   collider->x = transform->GetPosition()->getX();
   collider->y = transform->GetPosition()->getY();
+  isActive = true;
 }
 
 Collider::~Collider() {}
@@ -23,6 +24,10 @@ SDL_bool Collider::HasIntersection(Collider* target) {
 }
 
 SDL_Rect* Collider::GetCollider() { return collider; }
+
+void Collider::SetActive(bool isOn) { isActive = isOn; }
+
+bool Collider::GetActive() { return isActive; }
 
 }  // namespace gamelogic
 }  // namespace sg

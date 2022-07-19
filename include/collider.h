@@ -16,9 +16,12 @@ class Collider {
   void UpdatePos(Transform* transform);
   SDL_bool HasIntersection(Collider* target);
   SDL_Rect* GetCollider();
+  void SetActive(bool isOn);
+  bool GetActive();
 
  private:
   SDL_Rect* collider;
+  bool isActive;
 };
 
 }  // namespace gamelogic

@@ -2,8 +2,6 @@
 #define __ENTITY_H_
 #include <SDL.h>
 
-#include <list>
-
 #include "animation.h"
 #include "collider.h"
 #include "surface.h"
@@ -13,10 +11,14 @@ namespace sg {
 namespace gamelogic {
 class Entity {
  public:
+  Entity();
   Entity(const char* spriteName, int sizeX, int sizeY, int posX, int posY);
   ~Entity();
+  virtual Entity* Clone();
 
   void OnLoad();
+
+  // Base init animation. You need to add animation states.
   virtual void SetAnimation();
   // If entity need part of image, set the destination Rect to Cut
   void CutSprite(int posX, int posY);
@@ -27,7 +29,11 @@ class Entity {
 
   // Collider Can detect collision.
   void SetCollider(int sizeX, int sizeY);
+  void SetActiveCollider(bool isOn);
   Collider* GetCollider();
+
+  void SetIsActive(bool active);
+  bool GetIsActive();
 
   virtual void OnLoop();
   virtual void OnKeyDown(SDL_Keycode key, Uint16 mod);
@@ -36,15 +42,11 @@ class Entity {
 
   // If collision appear, run OnCollisionDetect().
   void OnCollision(Entity* target);
-
   void OnRender(SDL_Renderer* renderer);
-
   // Register in destroy targets.
   // After Loop, parent entity will destroy whole targets.
   void Destroy();
-
-  // Clean data
-  virtual void OnCleanUp();
+  void OnCleanUp();
 
  protected:
   Transform* transform;
@@ -55,6 +57,8 @@ class Entity {
 
  private:
   const char* tag;
+  const char* spriteName;
+  bool isActive;
 };
 
 }  // namespace gamelogic

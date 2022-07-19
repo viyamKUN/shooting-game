@@ -58,18 +58,16 @@ bool Game::OnInit() {
 
 void Game::RegisterEntities() {
   play::Player* player = new play::Player();
-  player->SetTag("player");
   RegisterEntity(player);
 
-  Entity* box = new Entity("box.bmp", 32, 32, SCREEN_WIDTH / 2, 100);
-  box->SetTag("box");
-  box->SetCollider(32, 32);
-  RegisterEntity(box);
+  play::EnemySpawner* spawner = new play::EnemySpawner();
+  RegisterEntity(spawner);
 }
 
 void Game::RegisterEntity(Entity* entity) {
   entities.push_back(entity);
   entity->OnLoad();
+  entity->SetIsActive(true);
 }
 
 void Game::RegisterEntityDestroy(Entity* entity) {
@@ -80,7 +78,9 @@ void Game::OnEvent(SDL_Event* event) { Event::OnEvent(event); }
 
 void Game::OnLoop() {
   for (auto entity : entities) {
-    entity->OnLoop();
+    if (entity->GetIsActive()) {
+      entity->OnLoop();
+    }
   }
   DestroyTargets();
 }
@@ -99,7 +99,9 @@ void Game::OnCollision() {
   for (auto entity : entities) {
     for (auto target : entities) {
       if (target == entity) continue;
-      entity->OnCollision(target);
+      if (entity->GetIsActive()) {
+        entity->OnCollision(target);
+      }
     }
   }
 }
@@ -108,7 +110,9 @@ void Game::OnRender() {
   SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
   SDL_RenderClear(renderer);
   for (auto entity : entities) {
-    entity->OnRender(renderer);
+    if (entity->GetIsActive()) {
+      entity->OnRender(renderer);
+    }
   }
   SDL_RenderPresent(renderer);
 }

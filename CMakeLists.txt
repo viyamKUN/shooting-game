@@ -7,8 +7,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(./include)
 add_executable(shooting-game
+    src/play/enemy.cpp
+    src/play/enemy_spawner.cpp
     src/play/bullet.cpp
     src/play/player.cpp
+    src/object_pool.cpp
     src/animation.cpp
     src/collider.cpp
     src/coordination.cpp
