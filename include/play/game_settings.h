@@ -9,6 +9,8 @@ namespace play {
 #define PLAYER_BULLET "bullet"
 #define ENEMY "enemy"
 #define ENEMY_BULLET "enemyBullet"
+// Player's maximum hp.
+#define PLAYER_MAX_HP 5
 
 enum FACTION { NONE, FACTION_PLAYER, FACTION_ENEMY };
 
