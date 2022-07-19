@@ -18,6 +18,9 @@ class ObjectPool {
 
  private:
   std::list<Entity*> objects;
+  Entity* baseEntity;
+
+  void CreateObjects(int maxCount);
 };
 
 }  // namespace gamelogic

@@ -13,8 +13,6 @@ BulletPool::~BulletPool() {}
 
 void BulletPool::SpawnBullet(int posX, int posY, int speed, FACTION faction) {
   auto bullet = pool->GetObject();
-  if (bullet == NULL) return;
-
   ((Bullet*)bullet)->ResetData(posX, posY, speed, faction);
 }
 
