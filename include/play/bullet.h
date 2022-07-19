@@ -10,6 +10,7 @@ namespace gamelogic {
 namespace play {
 class Bullet : public Entity {
  public:
+  Bullet(int posX, int posY, int speed, FACTION faction);
   ~Bullet();
   void OnLoop();
 
@@ -20,6 +21,7 @@ class Bullet : public Entity {
   const int SPEED;
   static const int WIDTH = 16;
   static const int HEIGHT = 16;
+  FACTION bulletFaction;
 };
 
 }  // namespace play

@@ -3,6 +3,7 @@
 
 #include "config.h"
 #include "entity.h"
+#include "play/bullet.h"
 #include "play/game_settings.h"
 
 namespace sg {
@@ -24,11 +25,15 @@ class Enemy : public Entity {
  private:
   static const int WIDTH = 32;
   static const int HEIGHT = 32;
+  static const int BULLET_SPEED = 4;
+  static const int SHOOTING_INTERVAL = 1000;
   const int MAX_HP = 3;
   int hp;
+  int shootingTimeBucket;
 
   void Hit();
   void Die();
+  void Shoot();
 };
 
 }  // namespace play

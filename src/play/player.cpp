@@ -73,15 +73,15 @@ void Player::SetAnimation() {
 }
 
 void Player::Shoot() {
-  play::Bullet* bullet =
-      new play::Bullet(transform->GetPosition()->getX(),
-                       transform->GetPosition()->getY(), BULLET_SPEED);
+  play::Bullet* bullet = new play::Bullet(transform->GetPosition()->getX(),
+                                          transform->GetPosition()->getY(),
+                                          BULLET_SPEED, FACTION_PLAYER);
   Game::GetInstance()->RegisterEntity(bullet);
 }
 
 void Player::OnCollisionDetect(Entity* target) {
   if (isDead) return;
-  if (target->CompareTag(ENEMY)) {
+  if (target->CompareTag(ENEMY) || target->CompareTag(ENEMY_BULLET)) {
     if (!isInvincible) Hit();
   }
 }
