@@ -23,7 +23,6 @@ class Player : public Entity {
  private:
   const int BULLET_SPEED = 5;
   const int PLAYER_SPEED = 3;
-  const int MAX_HP = 5;
   const int SHOOTING_INTERVAL = 500;  // milliseconds
   const int INVINCIBLE_TIME = 500;
   int hp;
