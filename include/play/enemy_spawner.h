@@ -14,7 +14,6 @@ class EnemySpawner : public Entity {
   ~EnemySpawner();
 
   void OnLoop();
-  void OnKeyDown(SDL_Keycode key, Uint16 mod);
 
  private:
   static const int MAX_COUNT = 15;

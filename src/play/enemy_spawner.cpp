@@ -21,10 +21,6 @@ void EnemySpawner::OnLoop() {
   }
 }
 
-void EnemySpawner::OnKeyDown(SDL_Keycode key, Uint16 mod) {
-  if (key == SDLK_a) OnSpawn();
-}
-
 void EnemySpawner::SetSpawnInterval() {
   auto value = -0.0001 * SDL_GetTicks() + START_INTERVAL;
   if (value <= 200) {
