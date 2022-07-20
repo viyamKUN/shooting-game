@@ -1,4 +1,4 @@
-#include "play/player.h"
+#include "play/player/player.h"
 
 #include "game.h"
 #include "play/service_provider.h"
@@ -20,6 +20,7 @@ Player::Player()
 
   walkEffect = new PlayerWalkEffect();
   Game::GetInstance()->RegisterEntity(walkEffect);
+  walkEffect->StopWalkAnim();
 }
 
 Player::~Player() {}

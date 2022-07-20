@@ -6,7 +6,7 @@
 #include "play/bullet.h"
 #include "play/bullet_pool.h"
 #include "play/game_settings.h"
-#include "play/player_walk_effect.h"
+#include "play/player/player_walk_effect.h"
 
 namespace sg {
 namespace gamelogic {

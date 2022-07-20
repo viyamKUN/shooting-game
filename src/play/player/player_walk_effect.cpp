@@ -1,4 +1,4 @@
-#include "play/player_walk_effect.h"
+#include "play/player/player_walk_effect.h"
 
 namespace sg {
 namespace gamelogic {
@@ -7,7 +7,6 @@ namespace play {
 PlayerWalkEffect::PlayerWalkEffect()
     : Entity("effects/walk.bmp", SIZE, SIZE, 0, 0) {
   SetAnimation();
-  StopWalkAnim();
 }
 
 PlayerWalkEffect::~PlayerWalkEffect() {}
