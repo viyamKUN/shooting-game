@@ -31,6 +31,10 @@ void Animation::OnAnimate() {
         frameIncrease *= -1;
       break;
 
+    case ANIMATION_ONETIME:
+      if (currentFrame >= maxFrame) {
+        // TODO: Set Active Fale
+      }
     default:
       break;
   }
