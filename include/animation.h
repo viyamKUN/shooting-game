@@ -20,6 +20,7 @@ class Animation {
   void SetAnimationState(Uint16 state);
   int GetAnimationState();
   void AddAnimationState(Uint16 state, Uint16 animType, int maxFrame);
+  void ResetAnimationFrame();
 
  private:
   const int frameRate;

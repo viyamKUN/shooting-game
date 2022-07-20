@@ -55,5 +55,7 @@ void Animation::AddAnimationState(Uint16 state, Uint16 animType, int maxFrame) {
   animationStatesMap.insert({state, animState});
 }
 
+void Animation::ResetAnimationFrame() { currentFrame = 0; }
+
 }  // namespace gamelogic
 }  // namespace sg

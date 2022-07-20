@@ -38,6 +38,12 @@ void Surface::ChangeAnimationState(int state) {
   animation->SetAnimationState(state);
 }
 
+void Surface::ResetAnimationFrame() {
+  if (animation) {
+    animation->ResetAnimationFrame();
+  }
+}
+
 void Surface::SetTileData(std::list<std::list<Coordination*>> data) {
   tiles = data;
 }

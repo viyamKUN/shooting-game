@@ -12,7 +12,12 @@ PlayerWalkEffect::PlayerWalkEffect()
 
 PlayerWalkEffect::~PlayerWalkEffect() {}
 
-void PlayerWalkEffect::PlayWalkAnim() { SetIsActive(true); }
+void PlayerWalkEffect::PlayWalkAnim() {
+  if (GetIsActive()) return;
+
+  SetIsActive(true);
+  spriteRenderer->ResetAnimationFrame();
+}
 
 void PlayerWalkEffect::StopWalkAnim() { SetIsActive(false); }
 
