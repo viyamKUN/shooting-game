@@ -14,6 +14,10 @@ class Background : public Entity {
  public:
   Background();
   ~Background();
+
+ private:
+  static const int TILE_SIZE = 16;
+  static const int TILE_CUT_COUNT = 8;
 };
 
 }  // namespace play

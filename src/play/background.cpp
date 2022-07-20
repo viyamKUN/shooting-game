@@ -4,11 +4,17 @@ namespace sg {
 namespace gamelogic {
 namespace play {
 
-Background::Background() : Entity("tiles.bmp", 16, 16, 0, 0) {
+Background::Background() : Entity("tiles.bmp", TILE_SIZE, TILE_SIZE, 0, 0) {
   std::list<std::list<Coordination*>> data;
-  for (int y = 0; y < SCREEN_HEIGHT / 16 + 1; y++) {
+  auto yCount = SCREEN_HEIGHT / TILE_SIZE + 1;
+  auto xCount = SCREEN_WIDTH / TILE_SIZE + 1;
+
+  srand(time(NULL));
+  for (int y = 0; y < yCount; y++) {
     std::list<Coordination*> lineData;
-    for (int x = 0; x < SCREEN_WIDTH / 16 + 1; x++) {
+    for (int x = 0; x < xCount; x++) {
+      lineData.push_back(
+          new Coordination(rand() % TILE_CUT_COUNT, rand() % TILE_CUT_COUNT));
     }
     data.push_back(lineData);
   }
