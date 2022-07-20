@@ -4,8 +4,10 @@
 #include <SDL.h>
 
 #include <iostream>
+#include <list>
 
 #include "animation.h"
+#include "coordination.h"
 #include "transform.h"
 
 namespace sg {
@@ -32,6 +34,9 @@ class Surface {
   Coordination* GetSize();
   void Flip(SDL_RendererFlip flipType);
   void ChangeAnimationState(int state);
+  // The 'data' need positions of tile source. Big tile sprite asset will be
+  // seperate in surface size.
+  void SetTileData(std::list<std::list<Coordination*>> data);
 
   void OnLoad(Transform* transform);
   void OnLoop();
@@ -48,9 +53,16 @@ class Surface {
   SDL_RendererFlip flip;
   struct SurfaceConfig surfConfig;
 
+  std::list<std::list<Coordination*>> tiles;
+
   const int TRANS_R = 254;
   const int TRANS_G = 0;
   const int TRANS_B = 255;
+
+  void DrawAnimationFrame(SDL_Renderer* renderer, SDL_Rect* destRect);
+  void DrawCutImage(SDL_Renderer* renderer, SDL_Rect* destRect);
+  // Render whole tiles.
+  void DrawTileMap(SDL_Renderer* renderer);
 };
 
 }  // namespace gamelogic

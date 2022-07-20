@@ -57,6 +57,9 @@ bool Game::OnInit() {
 }
 
 void Game::RegisterEntities() {
+  play::Background* background = new play::Background();
+  RegisterEntity(background);
+
   play::Player* player = new play::Player();
   RegisterEntity(player);
 

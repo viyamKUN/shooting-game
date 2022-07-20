@@ -38,6 +38,10 @@ void Surface::ChangeAnimationState(int state) {
   animation->SetAnimationState(state);
 }
 
+void Surface::SetTileData(std::list<std::list<Coordination*>> data) {
+  tiles = data;
+}
+
 void Surface::OnLoad(Transform* transform) {
   this->transform = transform;
   src = SDL_LoadBMP(assetPath);
@@ -60,20 +64,16 @@ void Surface::OnDraw(SDL_Renderer* renderer) {
   destRect.h = surfConfig.size->getY() * scale->getY();
 
   if (animation) {
-    SDL_Rect srcRect;
-    srcRect.x = surfConfig.size->getX() * animation->GetCurrentFrame();
-    srcRect.y = surfConfig.size->getY() * animation->GetAnimationState();
-    srcRect.w = surfConfig.size->getX();
-    srcRect.h = surfConfig.size->getY();
-    SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect, angle, NULL, flip);
+    // Render proper frame of animation;
+    DrawAnimationFrame(renderer, &destRect);
   } else if (surfConfig.surfaceType == SURF_TYPE_MULTIPLE) {
-    SDL_Rect srcRect;
-    srcRect.x = surfConfig.position->getX();
-    srcRect.y = surfConfig.position->getY();
-    srcRect.w = surfConfig.size->getX();
-    srcRect.h = surfConfig.size->getY();
-    SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect, angle, NULL, flip);
+    // Render part of image.
+    DrawCutImage(renderer, &destRect);
+  } else if (tiles.size() > 0) {
+    // Render tiles.
+    DrawTileMap(renderer);
   } else {
+    // Render whole image.
     SDL_RenderCopyEx(renderer, texture, NULL, &destRect, angle, NULL, flip);
   }
 }
@@ -81,6 +81,50 @@ void Surface::OnDraw(SDL_Renderer* renderer) {
 void Surface::OnClear() {
   SDL_FreeSurface(src);
   SDL_DestroyTexture(texture);
+}
+
+void Surface::DrawAnimationFrame(SDL_Renderer* renderer, SDL_Rect* destRect) {
+  SDL_Rect srcRect;
+  srcRect.x = surfConfig.size->getX() * animation->GetCurrentFrame();
+  srcRect.y = surfConfig.size->getY() * animation->GetAnimationState();
+  srcRect.w = surfConfig.size->getX();
+  srcRect.h = surfConfig.size->getY();
+  SDL_RenderCopyEx(renderer, texture, &srcRect, destRect, angle, NULL, flip);
+}
+
+void Surface::DrawCutImage(SDL_Renderer* renderer, SDL_Rect* destRect) {
+  SDL_Rect srcRect;
+  srcRect.x = surfConfig.position->getX();
+  srcRect.y = surfConfig.position->getY();
+  srcRect.w = surfConfig.size->getX();
+  srcRect.h = surfConfig.size->getY();
+  SDL_RenderCopyEx(renderer, texture, &srcRect, destRect, angle, NULL, flip);
+}
+
+void Surface::DrawTileMap(SDL_Renderer* renderer) {
+  int x, y = 0;
+  for (auto line : tiles) {
+    x = 0;
+    for (auto tile : line) {
+      // Decide position for tile pos. It is based on tile index.
+      SDL_Rect destRect;
+      destRect.x = x * surfConfig.size->getX();
+      destRect.y = y * surfConfig.size->getY();
+      destRect.w = surfConfig.size->getX();
+      destRect.h = surfConfig.size->getY();
+
+      // Decide position for source. It is based on exist data.
+      SDL_Rect srcRect;
+      srcRect.x = surfConfig.size->getX() * tile->getX();
+      srcRect.y = surfConfig.size->getY() * tile->getY();
+      srcRect.w = surfConfig.size->getX();
+      srcRect.h = surfConfig.size->getY();
+      SDL_RenderCopyEx(renderer, texture, &srcRect, &destRect, angle, NULL,
+                       flip);
+      x++;
+    }
+    y++;
+  }
 }
 
 }  // namespace gamelogic
