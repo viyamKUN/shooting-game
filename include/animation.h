@@ -8,7 +8,12 @@
 namespace sg {
 namespace gamelogic {
 
-enum ANIMATING_TYPE { ANIMATION_NONE, ANIMATION_RESTART, ANIMATION_PINGPONG };
+enum ANIMATING_TYPE {
+  ANIMATION_NONE,
+  ANIMATION_RESTART,
+  ANIMATION_PINGPONG,
+  ANIMATION_ONETIME
+};
 
 class Animation {
  public:

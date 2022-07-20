@@ -48,6 +48,8 @@ void Enemy::OnCollisionDetect(Entity* target) {
 
 void Enemy::Hit() {
   hp--;
+  ServiceProvider::GetInstance()->GetBloodPool()->CallBloodAnim(
+      transform->GetPosition()->getX(), transform->GetPosition()->getY());
   if (hp <= 0) Die();
 }
 

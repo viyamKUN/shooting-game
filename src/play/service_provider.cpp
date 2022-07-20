@@ -13,7 +13,7 @@ ServiceProvider* ServiceProvider::GetInstance() {
   return instance;
 }
 
-ServiceProvider::ServiceProvider() : bulletPool(NULL) {}
+ServiceProvider::ServiceProvider() : bulletPool(NULL), bloodPool(NULL) {}
 
 ServiceProvider::~ServiceProvider() {}
 
@@ -22,6 +22,13 @@ BulletPool* ServiceProvider::GetBulletPool() {
     bulletPool = new BulletPool();
   }
   return bulletPool;
+}
+
+enemy::EnemyBloodPool* ServiceProvider::GetBloodPool() {
+  if (bloodPool == NULL) {
+    bloodPool = new enemy::EnemyBloodPool();
+  }
+  return bloodPool;
 }
 
 }  // namespace play

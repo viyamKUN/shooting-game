@@ -11,6 +11,8 @@ add_executable(shooting-game
     src/play/ui/hp_ui.cpp
     src/play/ui/ui_manager.cpp
     src/play/background.cpp
+    src/play/enemy/enemy_hit_effect.cpp
+    src/play/enemy/enemy_blood_pool.cpp
     src/play/enemy.cpp
     src/play/enemy_spawner.cpp
     src/play/bullet.cpp
