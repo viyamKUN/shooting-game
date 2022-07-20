@@ -6,6 +6,7 @@
 #include "play/bullet.h"
 #include "play/bullet_pool.h"
 #include "play/game_settings.h"
+#include "play/player_walk_effect.h"
 
 namespace sg {
 namespace gamelogic {
@@ -43,6 +44,8 @@ class Player : public Entity {
   void Die();
   // When player hit by enemy, player will be invincible for short time.
   void BeTemporaryInvincible();
+
+  PlayerWalkEffect* walkEffect;
 };
 
 }  // namespace play
