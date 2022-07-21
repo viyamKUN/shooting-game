@@ -9,6 +9,8 @@ include_directories(./include)
 add_executable(shooting-game
     src/play/ui/hp_heart_ui.cpp
     src/play/ui/hp_ui.cpp
+    src/play/ui/number_ui.cpp
+    src/play/ui/score_ui.cpp
     src/play/ui/ui_manager.cpp
     src/play/enemy/enemy_hit_effect.cpp
     src/play/enemy/enemy_blood_pool.cpp
@@ -20,6 +22,7 @@ add_executable(shooting-game
     src/play/bullet.cpp
     src/play/bullet_pool.cpp
     src/play/service_provider.cpp
+    src/play/play_manager.cpp
     src/gamelogic/object_pool.cpp
     src/gamelogic/animation.cpp
     src/gamelogic/collider.cpp

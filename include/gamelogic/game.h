@@ -9,10 +9,7 @@
 #include "config.h"
 #include "entity.h"
 #include "event.h"
-#include "play/background.h"
-#include "play/enemy/enemy_spawner.h"
-#include "play/player/player.h"
-#include "play/ui/ui_manager.h"
+#include "play/service_provider.h"
 #include "surface.h"
 
 namespace sg {
@@ -34,7 +31,6 @@ class Game : Event {
  private:
   Game();
   bool OnInit();
-  void RegisterEntities();
   void OnEvent(SDL_Event* event);
   void OnLoop();
   void DestroyTargets();
@@ -43,8 +39,10 @@ class Game : Event {
   void OnCleanUp();
 
   static Game* instance;
+
   std::list<Entity*> entities;
   std::list<Entity*> destroyRegistry;
+
   bool running;
   SDL_Window* window;
   SDL_Renderer* renderer;

@@ -26,6 +26,7 @@ class Enemy : public gamelogic::Entity {
   static const int HEIGHT = 32;
   static const int BULLET_SPEED = 4;
   static const int SHOOTING_INTERVAL = 1000;
+  const int MY_SCORE;
   const int MAX_HP = 3;
   int hp;
   int shootingTimeBucket;

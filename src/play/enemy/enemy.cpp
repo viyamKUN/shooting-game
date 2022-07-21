@@ -9,7 +9,7 @@ namespace play {
 Enemy::Enemy() : Enemy(0, 0) {}
 
 Enemy::Enemy(int posX, int posY)
-    : Entity("box.bmp", WIDTH, HEIGHT, posX, posY) {
+    : Entity("box.bmp", WIDTH, HEIGHT, posX, posY), MY_SCORE(5) {
   SetCollider(WIDTH, HEIGHT);
   SetTag(ENEMY);
   shootingTimeBucket = SDL_GetTicks();
@@ -52,7 +52,10 @@ void Enemy::Hit() {
   if (hp <= 0) Die();
 }
 
-void Enemy::Die() { SetIsActive(false); }
+void Enemy::Die() {
+  ServiceProvider::GetInstance()->GetPlayManager()->AddScore(MY_SCORE);
+  SetIsActive(false);
+}
 
 void Enemy::Shoot() {
   ServiceProvider::GetInstance()->GetBulletPool()->SpawnBullet(
