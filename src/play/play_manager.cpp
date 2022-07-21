@@ -34,7 +34,7 @@ void PlayManager::OnGameOver() {
   // Stop the game.
   gamelogic::Game::GetInstance()->SetPause(true);
 
-  // Off all of blood and bullet entities.
+  // TODO: Off all of blood and bullet entities.
 }
 
 void PlayManager::AddScore(int amt) {
