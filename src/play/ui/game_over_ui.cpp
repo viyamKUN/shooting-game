@@ -17,6 +17,7 @@ void GameOverUi::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   if (key == SDLK_SPACE) {
     SDL_Log("Game Restart...");
     SetIsActive(false);
+    gamelogic::Game::GetInstance()->SetPause(false);
   } else if (key == SDLK_ESCAPE) {
     // TODO: QUIT
   }

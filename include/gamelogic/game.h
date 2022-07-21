@@ -27,6 +27,7 @@ class Game : Event {
   void OnKey(SDL_Keycode key);
   void RegisterEntity(Entity* entity);
   void RegisterEntityDestroy(Entity* entity);
+  void SetPause(bool pause);
 
  private:
   Game();
@@ -43,6 +44,7 @@ class Game : Event {
   std::list<Entity*> entities;
   std::list<Entity*> destroyRegistry;
 
+  bool isPause;
   bool running;
   SDL_Window* window;
   SDL_Renderer* renderer;

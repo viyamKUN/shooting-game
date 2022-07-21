@@ -30,6 +30,11 @@ void PlayManager::OnGameOver() {
 
   // Show game over UI.
   ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI();
+
+  // Stop the game.
+  gamelogic::Game::GetInstance()->SetPause(true);
+
+  // Off all of blood and bullet entities.
 }
 
 void PlayManager::AddScore(int amt) {

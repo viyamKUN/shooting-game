@@ -15,6 +15,7 @@ Game* Game::GetInstance() {
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
+  isPause = false;
   window = NULL;
   renderer = NULL;
 }
@@ -31,8 +32,12 @@ int Game::OnExecute() {
       OnEvent(&event);
     }
     Event::OnRetainKeyEvents();
-    OnLoop();
-    OnCollision();
+    if (isPause) {
+      // Pass loops.
+    } else {
+      OnLoop();
+      OnCollision();
+    }
     OnRender();
     SDL_Delay(16);
   }
@@ -42,7 +47,7 @@ int Game::OnExecute() {
 
 bool Game::OnInit() {
   if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-    std::cout << "Init Fail" << std::endl;
+    SDL_Log("Init Fail");
     return false;
   }
 
@@ -65,6 +70,8 @@ void Game::RegisterEntity(Entity* entity) {
 void Game::RegisterEntityDestroy(Entity* entity) {
   destroyRegistry.push_back(entity);
 }
+
+void Game::SetPause(bool pause) { isPause = pause; }
 
 void Game::OnEvent(SDL_Event* event) { Event::OnEvent(event); }
 
