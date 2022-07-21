@@ -7,6 +7,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 include_directories(./include)
 add_executable(shooting-game
+    src/play/ui/game_over_ui.cpp
+    src/play/ui/game_start_ui.cpp
     src/play/ui/hp_heart_ui.cpp
     src/play/ui/hp_ui.cpp
     src/play/ui/number_ui.cpp

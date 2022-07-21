@@ -14,6 +14,7 @@ class EnemyBloodPool {
   ~EnemyBloodPool();
 
   void CallBloodAnim(int x, int y);
+  void ClearBloods();
 
  private:
   const int START_COUNT = 32;

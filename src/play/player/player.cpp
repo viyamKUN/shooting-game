@@ -7,11 +7,7 @@ namespace sg {
 namespace play {
 
 Player::Player()
-    : Entity("player.bmp", 32, 32, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 80),
-      shootingTimeBucket(0),
-      hp(PLAYER_MAX_HP),
-      isDead(false),
-      isInvincible(false) {
+    : Entity("player.bmp", 32, 32, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 80) {
   SetAnimation();
   SetTag(PLAYER);
   SetCollider(32, 32);
@@ -22,6 +18,15 @@ Player::Player()
 }
 
 Player::~Player() {}
+
+void Player::ResetData() {
+  hp = PLAYER_MAX_HP;
+  ServiceProvider::GetInstance()->GetUIManager()->UpdateHp(hp);
+  shootingTimeBucket = 0;
+  isDead = false;
+  isInvincible = false;
+  Entity::SetActiveCollider(true);
+}
 
 void Player::OnLoop() {
   Entity::OnLoop();
@@ -114,10 +119,8 @@ void Player::Hit() {
 
 void Player::Die() {
   isDead = true;
-  std::cout << "Player Die!" << std::endl;
   Entity::SetActiveCollider(false);
-
-  // TODO: implement
+  ServiceProvider::GetInstance()->GetPlayManager()->OnGameOver();
 }
 
 }  // namespace play

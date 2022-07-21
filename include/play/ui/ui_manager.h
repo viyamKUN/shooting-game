@@ -1,6 +1,8 @@
 #ifndef __UI_MANAGER_H_
 #define __UI_MANAGER_H_
 
+#include "game_over_ui.h"
+#include "game_start_ui.h"
 #include "hp_ui.h"
 #include "score_ui.h"
 
@@ -12,13 +14,17 @@ class UiManager {
   UiManager();
   ~UiManager();
 
-  void Init();
+  void InitStartUI();
+  void InitGameUI();
   void UpdateHp(int hp);
   void UpdateScore(int score);
+  void ShowGameOverUI();
 
  private:
   HpUi* hpUi;
   ScoreUi* scoreUI;
+  GameOverUi* gameOverUI;
+  GameStartUi* gameStartUI;
 };
 
 }  // namespace ui

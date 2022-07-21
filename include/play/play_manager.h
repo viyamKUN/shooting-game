@@ -3,6 +3,7 @@
 
 #include "play/background.h"
 #include "play/enemy/enemy_spawner.h"
+#include "play/game_settings.h"
 #include "play/player/player.h"
 
 namespace sg {
@@ -12,10 +13,15 @@ class PlayManager {
   PlayManager();
   ~PlayManager();
 
-  void InitScene();
+  void InitScene(SCENE scene);
+  void OnStartGame();
+  // Show game over ui and wait for restart or quit input.
+  void OnGameOver();
   void AddScore(int amt);
 
  private:
+  play::EnemySpawner* enemySpawner;
+  play::Player* player;
   int score;
 };
 

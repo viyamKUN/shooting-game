@@ -15,5 +15,7 @@ void BulletPool::SpawnBullet(int posX, int posY, int speed, FACTION faction) {
   ((Bullet*)bullet)->ResetData(posX, posY, speed, faction);
 }
 
+void BulletPool::ClearBullets() { pool->DisableAllObjects(); }
+
 }  // namespace play
 }  // namespace sg

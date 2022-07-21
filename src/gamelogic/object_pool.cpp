@@ -20,6 +20,12 @@ Entity* ObjectPool::GetObject() {
   return objects.back();
 }
 
+void ObjectPool::DisableAllObjects() {
+  for (auto obj : objects) {
+    if (obj->GetIsActive()) obj->SetIsActive(false);
+  }
+}
+
 void ObjectPool::CreateObjects(int maxCount) {
   for (int i = 0; i < maxCount; i++) {
     auto entity = baseEntity->Clone();

@@ -12,6 +12,7 @@ class EnemySpawner : public gamelogic::Entity {
   EnemySpawner();
   ~EnemySpawner();
 
+  void ClearEnemies();
   void OnLoop();
 
  private:

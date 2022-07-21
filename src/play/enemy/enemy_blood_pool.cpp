@@ -18,6 +18,8 @@ void EnemyBloodPool::CallBloodAnim(int x, int y) {
   ((EnemyHitEffect*)entity)->ResetData();
 }
 
+void EnemyBloodPool::ClearBloods() { pool->DisableAllObjects(); }
+
 }  // namespace enemy
 }  // namespace play
 }  // namespace sg

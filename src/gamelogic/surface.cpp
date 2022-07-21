@@ -28,8 +28,6 @@ void Surface::CutSurface(int posX, int posY) {
   surfConfig.position->setY(posY);
 }
 
-void Surface::SetScale(int x, int y) { transform->SetScale(x, y); }
-
 Coordination* Surface::GetSize() { return surfConfig.size; }
 
 void Surface::Flip(SDL_RendererFlip flipType) { flip = flipType; }
