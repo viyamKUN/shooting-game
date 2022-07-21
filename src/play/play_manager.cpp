@@ -36,6 +36,8 @@ void PlayManager::OnStartGame() {
 
 void PlayManager::OnGameOver() {
   SDL_Log("Player Die!");
+  SDL_Log("Score is %d", score);
+  SDL_Log("[SPACE]: Restart  [ESCAPE]: Quit");
 
   // Show game over UI.
   ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI();
