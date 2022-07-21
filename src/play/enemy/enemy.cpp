@@ -1,4 +1,4 @@
-#include "play/enemy.h"
+#include "play/enemy/enemy.h"
 
 #include "game.h"
 #include "play/service_provider.h"

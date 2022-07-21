@@ -4,7 +4,7 @@
 #include "config.h"
 #include "entity.h"
 #include "object_pool.h"
-#include "play/enemy.h"
+#include "play/enemy/enemy.h"
 namespace sg {
 namespace gamelogic {
 namespace play {
