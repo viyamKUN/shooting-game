@@ -21,6 +21,8 @@ void PlayManager::InitScene() {
   gamelogic::Game::GetInstance()->RegisterEntity(enemySpawner);
 
   play::ServiceProvider::GetInstance()->GetUIManager()->Init();
+
+  OnStartGame();
 }
 
 void PlayManager::OnStartGame() {
