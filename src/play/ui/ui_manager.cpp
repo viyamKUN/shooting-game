@@ -4,17 +4,20 @@ namespace sg {
 namespace play {
 namespace ui {
 
-UiManager::UiManager() {
-  hpUi = new HpUi();
-  scoreUI = new ScoreUi();
-  gameOverUI = new GameOverUi();
-}
+UiManager::UiManager() {}
 
 UiManager::~UiManager() {}
 
-void UiManager::Init() {
+void UiManager::InitStartUI() { gameStartUI = new GameStartUi(); }
+
+void UiManager::InitGameUI() {
+  hpUi = new HpUi();
   hpUi->Init();
+
+  scoreUI = new ScoreUi();
   scoreUI->Init();
+
+  gameOverUI = new GameOverUi();
   gameOverUI->SetIsActive(false);
 }
 

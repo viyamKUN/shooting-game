@@ -10,19 +10,33 @@ PlayManager::PlayManager() : score(0) {}
 
 PlayManager::~PlayManager() {}
 
-void PlayManager::InitScene() {
-  play::Background* background = new play::Background();
-  gamelogic::Game::GetInstance()->RegisterEntity(background);
+void PlayManager::InitScene(SCENE scene) {
+  switch (scene) {
+    case GAME_SCENE_START: {
+      SDL_Log("Hello, User!");
 
-  player = new play::Player();
-  gamelogic::Game::GetInstance()->RegisterEntity(player);
+      play::Background* background = new play::Background();
+      gamelogic::Game::GetInstance()->RegisterEntity(background);
 
-  enemySpawner = new play::EnemySpawner();
-  gamelogic::Game::GetInstance()->RegisterEntity(enemySpawner);
+      play::ServiceProvider::GetInstance()->GetUIManager()->InitStartUI();
+      break;
+    }
 
-  play::ServiceProvider::GetInstance()->GetUIManager()->Init();
+    case GAME_SCENE_GAME: {
+      SDL_Log("Start Game!");
 
-  OnStartGame();
+      player = new play::Player();
+      gamelogic::Game::GetInstance()->RegisterEntity(player);
+
+      enemySpawner = new play::EnemySpawner();
+      gamelogic::Game::GetInstance()->RegisterEntity(enemySpawner);
+
+      play::ServiceProvider::GetInstance()->GetUIManager()->InitGameUI();
+
+      OnStartGame();
+      break;
+    }
+  }
 }
 
 void PlayManager::OnStartGame() {

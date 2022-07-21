@@ -57,7 +57,8 @@ bool Game::OnInit() {
   if (window == NULL) return false;
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  play::ServiceProvider::GetInstance()->GetPlayManager()->InitScene();
+  play::ServiceProvider::GetInstance()->GetPlayManager()->InitScene(
+      play::GAME_SCENE_START);
   return true;
 }
 
