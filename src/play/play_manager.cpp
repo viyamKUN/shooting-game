@@ -14,16 +14,23 @@ void PlayManager::InitScene() {
   play::Background* background = new play::Background();
   gamelogic::Game::GetInstance()->RegisterEntity(background);
 
-  play::Player* player = new play::Player();
+  player = new play::Player();
   gamelogic::Game::GetInstance()->RegisterEntity(player);
 
-  play::EnemySpawner* spawner = new play::EnemySpawner();
-  gamelogic::Game::GetInstance()->RegisterEntity(spawner);
+  enemySpawner = new play::EnemySpawner();
+  gamelogic::Game::GetInstance()->RegisterEntity(enemySpawner);
 
   play::ServiceProvider::GetInstance()->GetUIManager()->Init();
 }
 
-void PlayManager::OnStartGame() {}
+void PlayManager::OnStartGame() {
+  // Reset player data.
+  player->ResetData();
+
+  // Reset score.
+  score = 0;
+  ServiceProvider::GetInstance()->GetUIManager()->UpdateScore(score);
+}
 
 void PlayManager::OnGameOver() {
   SDL_Log("Player Die!");
@@ -34,7 +41,10 @@ void PlayManager::OnGameOver() {
   // Stop the game.
   gamelogic::Game::GetInstance()->SetPause(true);
 
-  // TODO: Off all of blood and bullet entities.
+  // Off all of enemy, blood and bullet entities.
+  enemySpawner->ClearEnemies();
+  ServiceProvider::GetInstance()->GetBulletPool()->ClearBullets();
+  ServiceProvider::GetInstance()->GetBloodPool()->ClearBloods();
 }
 
 void PlayManager::AddScore(int amt) {

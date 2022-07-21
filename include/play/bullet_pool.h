@@ -13,6 +13,7 @@ class BulletPool {
   ~BulletPool();
 
   void SpawnBullet(int posX, int posY, int speed, FACTION faction);
+  void ClearBullets();
 
  private:
   const int START_COUNT = 32;

@@ -1,6 +1,7 @@
 #include "play/ui/game_over_ui.h"
 
 #include "gamelogic/game.h"
+#include "play/service_provider.h"
 
 namespace sg {
 namespace play {
@@ -18,6 +19,7 @@ void GameOverUi::OnKeyDown(SDL_Keycode key, Uint16 mod) {
     SDL_Log("Game Restart...");
     SetIsActive(false);
     gamelogic::Game::GetInstance()->SetPause(false);
+    ServiceProvider::GetInstance()->GetPlayManager()->OnStartGame();
   } else if (key == SDLK_ESCAPE) {
     gamelogic::Game::GetInstance()->OnQuit();
   }

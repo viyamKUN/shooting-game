@@ -15,6 +15,7 @@ class ObjectPool {
   ~ObjectPool();
 
   Entity* GetObject();
+  void DisableAllObjects();
 
  private:
   std::list<Entity*> objects;

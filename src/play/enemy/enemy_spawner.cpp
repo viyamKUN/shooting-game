@@ -11,6 +11,8 @@ EnemySpawner::EnemySpawner() : Entity() {
 
 EnemySpawner::~EnemySpawner() {}
 
+void EnemySpawner::ClearEnemies() { enemyPool->DisableAllObjects(); }
+
 void EnemySpawner::OnLoop() {
   if (SDL_GetTicks() > spawnTimeBucket + interval) {
     spawnTimeBucket = SDL_GetTicks();

@@ -19,6 +19,8 @@ class PlayManager {
   void AddScore(int amt);
 
  private:
+  play::EnemySpawner* enemySpawner;
+  play::Player* player;
   int score;
 };
 
