@@ -34,7 +34,8 @@ class Surface {
   Coordination* GetSize();
   void Flip(SDL_RendererFlip flipType);
   void ChangeAnimationState(int state);
-  void ResetAnimationFrame();
+  void ResetAnimation();
+  bool IsAnimationOver();
 
   // The 'data' need positions of tile source. Big tile sprite asset will be
   // seperate in surface size.

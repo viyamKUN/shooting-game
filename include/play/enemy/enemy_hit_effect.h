@@ -14,6 +14,7 @@ class EnemyHitEffect : public Entity {
 
   Entity* Clone();
   void SetPosition(int x, int y);
+  void ResetData();
 
  private:
   static const int SIZE = 32;

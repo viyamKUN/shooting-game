@@ -16,6 +16,8 @@ Entity* EnemyHitEffect::Clone() { return new EnemyHitEffect(); }
 
 void EnemyHitEffect::SetPosition(int x, int y) { transform->SetPosition(x, y); }
 
+void EnemyHitEffect::ResetData() { spriteRenderer->ResetAnimation(); }
+
 void EnemyHitEffect::SetAnimation() {
   Entity::SetAnimation();
   spriteRenderer->AddAnimation(0, ANIMATION_ONETIME, 5);

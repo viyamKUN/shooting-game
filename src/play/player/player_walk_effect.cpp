@@ -15,7 +15,7 @@ void PlayerWalkEffect::PlayWalkAnim() {
   if (GetIsActive()) return;
 
   SetIsActive(true);
-  spriteRenderer->ResetAnimationFrame();
+  spriteRenderer->ResetAnimation();
 }
 
 void PlayerWalkEffect::StopWalkAnim() { SetIsActive(false); }

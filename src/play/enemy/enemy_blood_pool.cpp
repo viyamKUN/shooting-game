@@ -16,6 +16,7 @@ void EnemyBloodPool::CallBloodAnim(int x, int y) {
   auto entity = pool->GetObject();
   entity->SetIsActive(true);
   ((EnemyHitEffect*)entity)->SetPosition(x, y);
+  ((EnemyHitEffect*)entity)->ResetData();
 }
 
 }  // namespace enemy
