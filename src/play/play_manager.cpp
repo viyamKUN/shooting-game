@@ -23,6 +23,15 @@ void PlayManager::InitScene() {
   play::ServiceProvider::GetInstance()->GetUIManager()->Init();
 }
 
+void PlayManager::OnStartGame() {}
+
+void PlayManager::OnGameOver() {
+  SDL_Log("Player Die!");
+
+  // Show game over UI.
+  ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI();
+}
+
 void PlayManager::AddScore(int amt) {
   score += amt;
   play::ServiceProvider::GetInstance()->GetUIManager()->UpdateScore(score);

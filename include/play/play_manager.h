@@ -13,6 +13,9 @@ class PlayManager {
   ~PlayManager();
 
   void InitScene();
+  void OnStartGame();
+  // Show game over ui and wait for restart or quit input.
+  void OnGameOver();
   void AddScore(int amt);
 
  private:

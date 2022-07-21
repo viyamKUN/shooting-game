@@ -115,8 +115,7 @@ void Player::Hit() {
 void Player::Die() {
   isDead = true;
   Entity::SetActiveCollider(false);
-  SDL_Log("Player Die!");
-  ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI();
+  ServiceProvider::GetInstance()->GetPlayManager()->OnGameOver();
 }
 
 }  // namespace play
