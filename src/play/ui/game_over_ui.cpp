@@ -19,7 +19,7 @@ void GameOverUi::OnKeyDown(SDL_Keycode key, Uint16 mod) {
     SetIsActive(false);
     gamelogic::Game::GetInstance()->SetPause(false);
   } else if (key == SDLK_ESCAPE) {
-    // TODO: QUIT
+    gamelogic::Game::GetInstance()->OnQuit();
   }
 }
 
