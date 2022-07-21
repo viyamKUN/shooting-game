@@ -2,7 +2,6 @@
 
 #include "gamelogic/game.h"
 #include "play/service_provider.h"
-#include "play/ui/ui_manager.h"
 
 namespace sg {
 namespace play {
@@ -107,7 +106,7 @@ void Player::OnCollisionDetect(Entity* target) {
 
 void Player::Hit() {
   hp--;
-  ui::UiManager::GetInstance()->UpdateHp(hp);
+  ServiceProvider::GetInstance()->GetUIManager()->UpdateHp(hp);
   isInvincible = true;
   invincibleTimeBucket = SDL_GetTicks();
   if (hp <= 0) Die();

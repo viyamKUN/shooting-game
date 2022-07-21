@@ -12,7 +12,7 @@
 #include "play/background.h"
 #include "play/enemy/enemy_spawner.h"
 #include "play/player/player.h"
-#include "play/ui/ui_manager.h"
+#include "play/service_provider.h"
 #include "surface.h"
 
 namespace sg {

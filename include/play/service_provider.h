@@ -3,6 +3,7 @@
 
 #include "play/bullet_pool.h"
 #include "play/enemy/enemy_blood_pool.h"
+#include "play/ui/ui_manager.h"
 
 namespace sg {
 namespace play {
@@ -13,11 +14,13 @@ class ServiceProvider {
   ServiceProvider();
   ~ServiceProvider();
 
+  ui::UiManager* GetUIManager();
   BulletPool* GetBulletPool();
   enemy::EnemyBloodPool* GetBloodPool();
 
  private:
   static ServiceProvider* instance;
+  ui::UiManager* uiManager;
   BulletPool* bulletPool;
   enemy::EnemyBloodPool* bloodPool;
 };

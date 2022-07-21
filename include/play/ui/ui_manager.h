@@ -9,8 +9,6 @@ namespace play {
 namespace ui {
 class UiManager {
  public:
-  static UiManager* GetInstance();
-
   UiManager();
   ~UiManager();
 
@@ -19,7 +17,6 @@ class UiManager {
   void UpdateScore(int score);
 
  private:
-  static UiManager* instance;
   HpUi* hpUi;
   ScoreUi* scoreUI;
 };

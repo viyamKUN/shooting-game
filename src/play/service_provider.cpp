@@ -12,9 +12,17 @@ ServiceProvider* ServiceProvider::GetInstance() {
   return instance;
 }
 
-ServiceProvider::ServiceProvider() : bulletPool(NULL), bloodPool(NULL) {}
+ServiceProvider::ServiceProvider()
+    : uiManager(NULL), bulletPool(NULL), bloodPool(NULL) {}
 
 ServiceProvider::~ServiceProvider() {}
+
+ui::UiManager* ServiceProvider::GetUIManager() {
+  if (uiManager == NULL) {
+    uiManager = new ui::UiManager();
+  }
+  return uiManager;
+}
 
 BulletPool* ServiceProvider::GetBulletPool() {
   if (bulletPool == NULL) {

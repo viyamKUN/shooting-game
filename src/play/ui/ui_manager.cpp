@@ -4,15 +4,6 @@ namespace sg {
 namespace play {
 namespace ui {
 
-UiManager* UiManager::instance = NULL;
-
-UiManager* UiManager::GetInstance() {
-  if (instance == NULL) {
-    instance = new UiManager();
-  }
-  return instance;
-}
-
 UiManager::UiManager() {
   hpUi = new HpUi();
   scoreUI = new ScoreUi();
