@@ -1,4 +1,4 @@
-#include "coordination.h"
+#include "gamelogic/coordination.h"
 
 namespace sg {
 namespace gamelogic {

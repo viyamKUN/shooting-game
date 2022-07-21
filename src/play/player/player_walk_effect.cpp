@@ -1,7 +1,6 @@
 #include "play/player/player_walk_effect.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 
 PlayerWalkEffect::PlayerWalkEffect()
@@ -39,9 +38,8 @@ void PlayerWalkEffect::SetPosition(int x, int y, SIDE moveSide) {
 
 void PlayerWalkEffect::SetAnimation() {
   Entity::SetAnimation();
-  spriteRenderer->AddAnimation(0, ANIMATION_RESTART, 5);
+  spriteRenderer->AddAnimation(0, gamelogic::ANIMATION_RESTART, 5);
 }
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg

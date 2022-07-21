@@ -1,18 +1,17 @@
 #ifndef __PLAYER_H_
 #define __PLAYER_H_
 
-#include "config.h"
-#include "entity.h"
+#include "gamelogic/config.h"
+#include "gamelogic/entity.h"
 #include "play/bullet.h"
 #include "play/bullet_pool.h"
 #include "play/game_settings.h"
 #include "play/player/player_walk_effect.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 
-class Player : public Entity {
+class Player : public gamelogic::Entity {
  public:
   Player();
   ~Player();
@@ -49,7 +48,6 @@ class Player : public Entity {
 };
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 
 #endif

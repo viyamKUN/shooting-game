@@ -1,14 +1,13 @@
 #ifndef __BULLET_H_
 #define __BULLET_H_
 
-#include "config.h"
-#include "entity.h"
+#include "gamelogic/config.h"
+#include "gamelogic/entity.h"
 #include "play/game_settings.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
-class Bullet : public Entity {
+class Bullet : public gamelogic::Entity {
  public:
   Bullet();
   ~Bullet();
@@ -29,7 +28,6 @@ class Bullet : public Entity {
 };
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 
 #endif

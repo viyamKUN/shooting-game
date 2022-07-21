@@ -5,7 +5,6 @@
 #include "play/enemy/enemy_blood_pool.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 class ServiceProvider {
  public:
@@ -24,7 +23,6 @@ class ServiceProvider {
 };
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 
 #endif

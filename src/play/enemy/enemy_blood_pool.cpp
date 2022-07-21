@@ -1,13 +1,12 @@
 #include "play/enemy/enemy_blood_pool.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 namespace enemy {
 
 EnemyBloodPool::EnemyBloodPool() {
-  Entity* baseEntity = new EnemyHitEffect();
-  pool = new ObjectPool(baseEntity, START_COUNT);
+  gamelogic::Entity* baseEntity = new EnemyHitEffect();
+  pool = new gamelogic::ObjectPool(baseEntity, START_COUNT);
 }
 
 EnemyBloodPool::~EnemyBloodPool() {}
@@ -21,5 +20,4 @@ void EnemyBloodPool::CallBloodAnim(int x, int y) {
 
 }  // namespace enemy
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg

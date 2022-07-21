@@ -15,8 +15,6 @@ enum ANIMATING_TYPE {
   ANIMATION_ONETIME
 };
 
-class Entity;
-
 class Animation {
  public:
   Animation();

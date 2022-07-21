@@ -1,15 +1,14 @@
 #ifndef __ENEMY_H_
 #define __ENEMY_H_
 
-#include "config.h"
-#include "entity.h"
+#include "gamelogic/config.h"
+#include "gamelogic/entity.h"
 #include "play/bullet.h"
 #include "play/game_settings.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
-class Enemy : public Entity {
+class Enemy : public gamelogic::Entity {
  public:
   Enemy();
   Enemy(int posX, int posY);
@@ -37,7 +36,6 @@ class Enemy : public Entity {
 };
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 
 #endif

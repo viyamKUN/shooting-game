@@ -1,7 +1,6 @@
 #include "play/service_provider.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 
 ServiceProvider* ServiceProvider::instance = NULL;
@@ -32,5 +31,4 @@ enemy::EnemyBloodPool* ServiceProvider::GetBloodPool() {
 }
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg

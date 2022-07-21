@@ -1,4 +1,4 @@
-#include "collider.h"
+#include "gamelogic/collider.h"
 
 namespace sg {
 namespace gamelogic {

@@ -4,7 +4,6 @@
 #include "hp_ui.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 namespace ui {
 class UiManager {
@@ -24,7 +23,6 @@ class UiManager {
 
 }  // namespace ui
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 
 #endif

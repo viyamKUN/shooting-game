@@ -1,7 +1,6 @@
 #include "play/ui/ui_manager.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 namespace ui {
 
@@ -24,5 +23,4 @@ void UiManager::UpdateHp(int hp) { hpUi->UpdateHp(hp); }
 
 }  // namespace ui
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg

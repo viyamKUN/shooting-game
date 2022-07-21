@@ -2,10 +2,9 @@
 #define __BULLET_POOL_H_
 
 #include "bullet.h"
-#include "object_pool.h"
+#include "gamelogic/object_pool.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 // Manage whole bullets for game. (include whole enemies and player.)
 class BulletPool {
@@ -17,11 +16,10 @@ class BulletPool {
 
  private:
   const int START_COUNT = 32;
-  ObjectPool* pool;
+  gamelogic::ObjectPool* pool;
 };
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 
 #endif

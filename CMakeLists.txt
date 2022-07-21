@@ -20,15 +20,15 @@ add_executable(shooting-game
     src/play/bullet.cpp
     src/play/bullet_pool.cpp
     src/play/service_provider.cpp
-    src/object_pool.cpp
-    src/animation.cpp
-    src/collider.cpp
-    src/coordination.cpp
-    src/transform.cpp
-    src/entity.cpp
-    src/surface.cpp
-    src/event.cpp
-    src/game.cpp
+    src/gamelogic/object_pool.cpp
+    src/gamelogic/animation.cpp
+    src/gamelogic/collider.cpp
+    src/gamelogic/coordination.cpp
+    src/gamelogic/transform.cpp
+    src/gamelogic/entity.cpp
+    src/gamelogic/surface.cpp
+    src/gamelogic/event.cpp
+    src/gamelogic/game.cpp
     src/main.cpp
 )
 

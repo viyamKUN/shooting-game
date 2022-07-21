@@ -1,4 +1,4 @@
-#include "surface.h"
+#include "gamelogic/surface.h"
 
 #include <SDL.h>
 

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "game.h"
+#include "gamelogic/game.h"
 
 int main(int argc, char** argv) {
   std::cout << "Run Game..." << std::endl;

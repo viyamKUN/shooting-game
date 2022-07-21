@@ -1,10 +1,9 @@
 #include "play/enemy/enemy.h"
 
-#include "game.h"
+#include "gamelogic/game.h"
 #include "play/service_provider.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 
 Enemy::Enemy() : Enemy(0, 0) {}
@@ -18,7 +17,7 @@ Enemy::Enemy(int posX, int posY)
 
 Enemy::~Enemy() {}
 
-Entity* Enemy::Clone() { return new Enemy(); }
+gamelogic::Entity* Enemy::Clone() { return new Enemy(); }
 
 void Enemy::OnLoop() {
   transform->Translate(0, 1);
@@ -61,5 +60,4 @@ void Enemy::Shoot() {
       BULLET_SPEED, FACTION_ENEMY);
 }
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg

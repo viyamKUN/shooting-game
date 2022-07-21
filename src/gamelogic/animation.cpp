@@ -1,4 +1,4 @@
-#include "animation.h"
+#include "gamelogic/animation.h"
 
 namespace sg {
 namespace gamelogic {

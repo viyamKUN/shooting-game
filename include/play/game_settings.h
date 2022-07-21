@@ -2,7 +2,6 @@
 #define __GAME_SETTINGS_H_
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 
 #define PLAYER "player"
@@ -16,7 +15,6 @@ enum FACTION { NONE, FACTION_PLAYER, FACTION_ENEMY };
 enum SIDE { LEFT, RIGHT };
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 
 #endif

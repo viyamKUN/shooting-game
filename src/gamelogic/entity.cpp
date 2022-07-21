@@ -1,6 +1,6 @@
-#include "entity.h"
+#include "gamelogic/entity.h"
 
-#include "game.h"
+#include "gamelogic/game.h"
 
 namespace sg {
 namespace gamelogic {

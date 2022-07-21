@@ -1,11 +1,10 @@
 #include "play/player/player.h"
 
-#include "game.h"
+#include "gamelogic/game.h"
 #include "play/service_provider.h"
 #include "play/ui/ui_manager.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 
 Player::Player()
@@ -19,7 +18,7 @@ Player::Player()
   SetCollider(32, 32);
 
   walkEffect = new PlayerWalkEffect();
-  Game::GetInstance()->RegisterEntity(walkEffect);
+  gamelogic::Game::GetInstance()->RegisterEntity(walkEffect);
   walkEffect->StopWalkAnim();
 }
 
@@ -81,8 +80,10 @@ void Player::OnKey(SDL_Keycode key) {
 
 void Player::SetAnimation() {
   Entity::SetAnimation();
-  spriteRenderer->AddAnimation(PLAYER_ANIMATION_IDLE, ANIMATION_RESTART, 4);
-  spriteRenderer->AddAnimation(PLAYER_ANIMATION_WALK, ANIMATION_RESTART, 5);
+  spriteRenderer->AddAnimation(PLAYER_ANIMATION_IDLE,
+                               gamelogic::ANIMATION_RESTART, 4);
+  spriteRenderer->AddAnimation(PLAYER_ANIMATION_WALK,
+                               gamelogic::ANIMATION_RESTART, 5);
 }
 
 void Player::Shoot() {
@@ -121,5 +122,4 @@ void Player::Die() {
 }
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg

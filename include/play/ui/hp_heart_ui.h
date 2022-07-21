@@ -1,13 +1,12 @@
 #ifndef __HP_HEART_UI_H_
 #define __HP_HEART_UI_H_
 
-#include "entity.h"
+#include "gamelogic/entity.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 namespace ui {
-class HpHeartUI : public Entity {
+class HpHeartUI : public gamelogic::Entity {
  public:
   HpHeartUI();
   ~HpHeartUI();
@@ -24,6 +23,5 @@ class HpHeartUI : public Entity {
 
 }  // namespace ui
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 #endif

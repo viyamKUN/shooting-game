@@ -1,4 +1,4 @@
-#include "game.h"
+#include "gamelogic/game.h"
 
 namespace sg {
 namespace gamelogic {

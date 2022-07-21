@@ -1,14 +1,13 @@
 #ifndef __ENEMY_SPAWNER_H_
 #define __ENEMY_SPAWNER_H_
 
-#include "config.h"
-#include "entity.h"
-#include "object_pool.h"
+#include "gamelogic/config.h"
+#include "gamelogic/entity.h"
+#include "gamelogic/object_pool.h"
 #include "play/enemy/enemy.h"
 namespace sg {
-namespace gamelogic {
 namespace play {
-class EnemySpawner : public Entity {
+class EnemySpawner : public gamelogic::Entity {
  public:
   EnemySpawner();
   ~EnemySpawner();
@@ -18,7 +17,7 @@ class EnemySpawner : public Entity {
  private:
   static const int MAX_COUNT = 15;
   static const int START_INTERVAL = 4000;
-  ObjectPool* enemyPool;
+  gamelogic::ObjectPool* enemyPool;
   int spawnTimeBucket;
   int interval;
 
@@ -27,7 +26,6 @@ class EnemySpawner : public Entity {
 };
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 
 #endif

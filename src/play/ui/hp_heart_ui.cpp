@@ -1,14 +1,13 @@
 #include "play/ui/hp_heart_ui.h"
 
-#include "game.h"
+#include "gamelogic/game.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 namespace ui {
 
 HpHeartUI::HpHeartUI() : Entity("hearts.bmp", WIDTH, HEIGHT, 0, 0) {
-  Game::GetInstance()->RegisterEntity(this);
+  gamelogic::Game::GetInstance()->RegisterEntity(this);
   UpdateState(true);
 }
 
@@ -29,5 +28,4 @@ int HpHeartUI::GetWidth() { return WIDTH; }
 
 }  // namespace ui
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg

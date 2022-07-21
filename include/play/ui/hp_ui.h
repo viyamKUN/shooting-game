@@ -5,7 +5,6 @@
 #include "play/game_settings.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 namespace ui {
 class HpUi {
@@ -24,6 +23,5 @@ class HpUi {
 
 }  // namespace ui
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 #endif

@@ -1,13 +1,12 @@
 #ifndef __ENEMY_HIT_EFFECT_H_
 #define __ENEMY_HIT_EFFECT_H_
 
-#include "entity.h"
+#include "gamelogic/entity.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 namespace enemy {
-class EnemyHitEffect : public Entity {
+class EnemyHitEffect : public gamelogic::Entity {
  public:
   EnemyHitEffect();
   ~EnemyHitEffect();
@@ -25,6 +24,5 @@ class EnemyHitEffect : public Entity {
 
 }  // namespace enemy
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 #endif

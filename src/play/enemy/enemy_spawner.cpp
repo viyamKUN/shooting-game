@@ -1,11 +1,10 @@
 #include "play/enemy/enemy_spawner.h"
 namespace sg {
-namespace gamelogic {
 namespace play {
 
 EnemySpawner::EnemySpawner() : Entity() {
   auto baseEntity = new Enemy();
-  enemyPool = new ObjectPool(baseEntity, MAX_COUNT);
+  enemyPool = new gamelogic::ObjectPool(baseEntity, MAX_COUNT);
   spawnTimeBucket = SDL_GetTicks();
   interval = START_INTERVAL;
 }
@@ -39,5 +38,4 @@ void EnemySpawner::OnSpawn() {
 }
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg

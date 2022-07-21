@@ -1,7 +1,6 @@
 #include "play/ui/hp_ui.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
 namespace ui {
 
@@ -30,5 +29,4 @@ void HpUi::UpdateHp(int hp) {
 
 }  // namespace ui
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg

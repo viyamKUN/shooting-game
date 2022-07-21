@@ -3,14 +3,13 @@
 
 #include <list>
 
-#include "config.h"
-#include "coordination.h"
-#include "entity.h"
+#include "gamelogic/config.h"
+#include "gamelogic/coordination.h"
+#include "gamelogic/entity.h"
 
 namespace sg {
-namespace gamelogic {
 namespace play {
-class Background : public Entity {
+class Background : public gamelogic::Entity {
  public:
   Background();
   ~Background();
@@ -21,7 +20,6 @@ class Background : public Entity {
 };
 
 }  // namespace play
-}  // namespace gamelogic
 }  // namespace sg
 
 #endif

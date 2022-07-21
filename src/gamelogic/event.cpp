@@ -1,4 +1,4 @@
-#include "event.h"
+#include "gamelogic/event.h"
 
 #include <SDL.h>
 

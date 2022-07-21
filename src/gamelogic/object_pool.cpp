@@ -1,6 +1,6 @@
-#include "object_pool.h"
+#include "gamelogic/object_pool.h"
 
-#include "game.h"
+#include "gamelogic/game.h"
 
 namespace sg {
 namespace gamelogic {
