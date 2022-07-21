@@ -52,21 +52,8 @@ bool Game::OnInit() {
   if (window == NULL) return false;
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-  RegisterEntities();
+  play::ServiceProvider::GetInstance()->GetPlayManager()->InitScene();
   return true;
-}
-
-void Game::RegisterEntities() {
-  play::Background* background = new play::Background();
-  RegisterEntity(background);
-
-  play::Player* player = new play::Player();
-  RegisterEntity(player);
-
-  play::EnemySpawner* spawner = new play::EnemySpawner();
-  RegisterEntity(spawner);
-
-  play::ServiceProvider::GetInstance()->GetUIManager()->Init();
 }
 
 void Game::RegisterEntity(Entity* entity) {

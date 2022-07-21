@@ -22,6 +22,7 @@ add_executable(shooting-game
     src/play/bullet.cpp
     src/play/bullet_pool.cpp
     src/play/service_provider.cpp
+    src/play/play_manager.cpp
     src/gamelogic/object_pool.cpp
     src/gamelogic/animation.cpp
     src/gamelogic/collider.cpp

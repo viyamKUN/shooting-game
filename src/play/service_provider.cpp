@@ -17,6 +17,13 @@ ServiceProvider::ServiceProvider()
 
 ServiceProvider::~ServiceProvider() {}
 
+PlayManager* ServiceProvider::GetPlayManager() {
+  if (playManager == NULL) {
+    playManager = new PlayManager();
+  }
+  return playManager;
+}
+
 ui::UiManager* ServiceProvider::GetUIManager() {
   if (uiManager == NULL) {
     uiManager = new ui::UiManager();
