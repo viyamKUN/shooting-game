@@ -114,10 +114,9 @@ void Player::Hit() {
 
 void Player::Die() {
   isDead = true;
-  std::cout << "Player Die!" << std::endl;
   Entity::SetActiveCollider(false);
-
-  // TODO: implement
+  SDL_Log("Player Die!");
+  ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI();
 }
 
 }  // namespace play

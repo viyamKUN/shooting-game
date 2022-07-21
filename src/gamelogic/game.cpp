@@ -125,6 +125,7 @@ void Game::OnQuit() {
 void Game::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   Event::OnKeyDown(key, mod);
   for (auto entity : entities) {
+    if (!entity->GetIsActive()) continue;
     entity->OnKeyDown(key, mod);
   }
 }
