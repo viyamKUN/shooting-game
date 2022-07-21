@@ -2,6 +2,7 @@
 #define __SERVICE_PROVIDER_H_
 
 #include "play/bullet_pool.h"
+#include "play/enemy/enemy_blood_pool.h"
 
 namespace sg {
 namespace gamelogic {
@@ -14,10 +15,12 @@ class ServiceProvider {
   ~ServiceProvider();
 
   BulletPool* GetBulletPool();
+  enemy::EnemyBloodPool* GetBloodPool();
 
  private:
   static ServiceProvider* instance;
   BulletPool* bulletPool;
+  enemy::EnemyBloodPool* bloodPool;
 };
 
 }  // namespace play

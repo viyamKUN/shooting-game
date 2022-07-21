@@ -7,7 +7,8 @@ Animation::Animation()
       currentFrame(0),
       timeBucket(0),
       animationState(0),
-      frameIncrease(1) {}
+      frameIncrease(1),
+      isAnimationOver(false) {}
 
 Animation::~Animation() {}
 
@@ -31,6 +32,8 @@ void Animation::OnAnimate() {
         frameIncrease *= -1;
       break;
 
+    case ANIMATION_ONETIME:
+      if (currentFrame >= maxFrame) isAnimationOver = true;
     default:
       break;
   }
@@ -54,6 +57,13 @@ void Animation::AddAnimationState(Uint16 state, Uint16 animType, int maxFrame) {
   animState.maxFrame = maxFrame;
   animationStatesMap.insert({state, animState});
 }
+
+void Animation::ResetAnimation() {
+  currentFrame = 0;
+  isAnimationOver = false;
+}
+
+bool Animation::GetIsAnimationOver() { return isAnimationOver; }
 
 }  // namespace gamelogic
 }  // namespace sg

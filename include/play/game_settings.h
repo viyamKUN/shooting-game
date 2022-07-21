@@ -13,6 +13,8 @@ namespace play {
 
 enum FACTION { NONE, FACTION_PLAYER, FACTION_ENEMY };
 
+enum SIDE { LEFT, RIGHT };
+
 }  // namespace play
 }  // namespace gamelogic
 }  // namespace sg

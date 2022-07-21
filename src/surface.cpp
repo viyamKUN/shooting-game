@@ -38,6 +38,17 @@ void Surface::ChangeAnimationState(int state) {
   animation->SetAnimationState(state);
 }
 
+void Surface::ResetAnimation() {
+  if (animation) {
+    animation->ResetAnimation();
+  }
+}
+
+bool Surface::IsAnimationOver() {
+  if (animation == NULL) return false;
+  return animation->GetIsAnimationOver();
+}
+
 void Surface::SetTileData(std::list<std::list<Coordination*>> data) {
   tiles = data;
 }

@@ -8,7 +8,14 @@
 namespace sg {
 namespace gamelogic {
 
-enum ANIMATING_TYPE { ANIMATION_NONE, ANIMATION_RESTART, ANIMATION_PINGPONG };
+enum ANIMATING_TYPE {
+  ANIMATION_NONE,
+  ANIMATION_RESTART,
+  ANIMATION_PINGPONG,
+  ANIMATION_ONETIME
+};
+
+class Entity;
 
 class Animation {
  public:
@@ -20,6 +27,9 @@ class Animation {
   void SetAnimationState(Uint16 state);
   int GetAnimationState();
   void AddAnimationState(Uint16 state, Uint16 animType, int maxFrame);
+  void ResetAnimation();
+
+  bool GetIsAnimationOver();
 
  private:
   const int frameRate;
@@ -30,6 +40,7 @@ class Animation {
   Uint16 animationState;
   std::map<Uint16, struct AnimationState>
       animationStatesMap;  // state index, state
+  bool isAnimationOver;
 };
 
 struct AnimationState {

@@ -11,11 +11,14 @@ add_executable(shooting-game
     src/play/ui/hp_ui.cpp
     src/play/ui/ui_manager.cpp
     src/play/background.cpp
+    src/play/enemy/enemy_hit_effect.cpp
+    src/play/enemy/enemy_blood_pool.cpp
     src/play/enemy.cpp
     src/play/enemy_spawner.cpp
     src/play/bullet.cpp
     src/play/bullet_pool.cpp
-    src/play/player.cpp
+    src/play/player/player_walk_effect.cpp
+    src/play/player/player.cpp
     src/play/service_provider.cpp
     src/object_pool.cpp
     src/animation.cpp

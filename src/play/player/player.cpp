@@ -1,4 +1,4 @@
-#include "play/player.h"
+#include "play/player/player.h"
 
 #include "game.h"
 #include "play/service_provider.h"
@@ -17,6 +17,10 @@ Player::Player()
   SetAnimation();
   SetTag(PLAYER);
   SetCollider(32, 32);
+
+  walkEffect = new PlayerWalkEffect();
+  Game::GetInstance()->RegisterEntity(walkEffect);
+  walkEffect->StopWalkAnim();
 }
 
 Player::~Player() {}
@@ -40,6 +44,7 @@ void Player::OnKeyUp(SDL_Keycode key, Uint16 mod) {
     case SDLK_LEFT:
     case SDLK_RIGHT:
       spriteRenderer->ChangeAnimationState(PLAYER_ANIMATION_IDLE);
+      walkEffect->StopWalkAnim();
       break;
   }
 }
@@ -51,12 +56,18 @@ void Player::OnKey(SDL_Keycode key) {
       transform->Translate(-1 * PLAYER_SPEED, 0);
       spriteRenderer->ChangeAnimationState(PLAYER_ANIMATION_WALK);
       spriteRenderer->Flip(SDL_FLIP_NONE);
+      walkEffect->PlayWalkAnim();
+      walkEffect->SetPosition(transform->GetPosition()->getX(),
+                              transform->GetPosition()->getY(), LEFT);
       break;
 
     case SDLK_RIGHT:
       transform->Translate(1 * PLAYER_SPEED, 0);
       spriteRenderer->ChangeAnimationState(PLAYER_ANIMATION_WALK);
       spriteRenderer->Flip(SDL_FLIP_HORIZONTAL);
+      walkEffect->PlayWalkAnim();
+      walkEffect->SetPosition(transform->GetPosition()->getX(),
+                              transform->GetPosition()->getY(), RIGHT);
       break;
 
     case SDLK_SPACE:
