@@ -6,12 +6,13 @@
 #include <iostream>
 #include <list>
 
-#include "shooting-game/gamelogic/animation.h"
 #include "shooting-game/gamelogic/coordination.h"
 #include "shooting-game/gamelogic/transform.h"
+#include "shooting-game/gamelogic/visual/animation.h"
 
 namespace sg {
 namespace gamelogic {
+namespace visual {
 
 enum SURF_TYPE { SURF_TYPE_SINGLE, SURF_TYPE_MULTIPLE };
 
@@ -67,6 +68,7 @@ class Surface {
   void DrawTileMap(SDL_Renderer* renderer);
 };
 
+}  // namespace visual
 }  // namespace gamelogic
 }  // namespace sg
 

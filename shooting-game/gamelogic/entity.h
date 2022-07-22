@@ -2,9 +2,8 @@
 #define __ENTITY_H_
 #include <SDL2/SDL.h>
 
-#include "animation.h"
 #include "collider.h"
-#include "surface.h"
+#include "shooting-game/gamelogic/visual/surface.h"
 #include "transform.h"
 
 namespace sg {
@@ -47,7 +46,7 @@ class Entity {
 
  protected:
   Transform* transform;
-  Surface* spriteRenderer;
+  visual::Surface* spriteRenderer;
   Collider* collider;
 
   virtual void OnCollisionDetect(Entity* target);

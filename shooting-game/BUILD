@@ -1,6 +1,6 @@
 cc_binary(
-    name = "main",
-    srcs = ["main.cpp"],
+    name = "shooting-game",
+    srcs = ["shooting-game.cpp"],
     data = [
         "//assets",
     ],

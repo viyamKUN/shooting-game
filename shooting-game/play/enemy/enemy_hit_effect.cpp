@@ -19,7 +19,7 @@ void EnemyHitEffect::ResetData() { spriteRenderer->ResetAnimation(); }
 
 void EnemyHitEffect::SetAnimation() {
   Entity::SetAnimation();
-  spriteRenderer->AddAnimation(0, gamelogic::ANIMATION_ONETIME, 5);
+  spriteRenderer->AddAnimation(0, gamelogic::visual::ANIMATION_ONETIME, 5);
 }
 
 }  // namespace enemy

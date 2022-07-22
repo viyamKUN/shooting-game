@@ -17,7 +17,7 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
   path = strcat(path, spriteName);
   this->spriteName = spriteName;
 
-  spriteRenderer = new Surface(path, sizeX, sizeY);
+  spriteRenderer = new visual::Surface(path, sizeX, sizeY);
   transform = new Transform(posX, posY);
   collider = NULL;
 }

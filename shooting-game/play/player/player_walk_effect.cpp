@@ -38,7 +38,7 @@ void PlayerWalkEffect::SetPosition(int x, int y, SIDE moveSide) {
 
 void PlayerWalkEffect::SetAnimation() {
   Entity::SetAnimation();
-  spriteRenderer->AddAnimation(0, gamelogic::ANIMATION_RESTART, 5);
+  spriteRenderer->AddAnimation(0, gamelogic::visual::ANIMATION_RESTART, 5);
 }
 
 }  // namespace play

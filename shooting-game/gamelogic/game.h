@@ -7,10 +7,8 @@
 #include <list>
 
 #include "shooting-game/gamelogic/config.h"
-#include "shooting-game/gamelogic/entity.h"
 #include "shooting-game/gamelogic/entity_registry.h"
 #include "shooting-game/gamelogic/event.h"
-#include "shooting-game/gamelogic/surface.h"
 #include "shooting-game/play/play_manager.h"
 
 namespace sg {

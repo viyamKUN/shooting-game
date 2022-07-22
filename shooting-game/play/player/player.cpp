@@ -87,9 +87,9 @@ void Player::OnKey(SDL_Keycode key) {
 void Player::SetAnimation() {
   Entity::SetAnimation();
   spriteRenderer->AddAnimation(PLAYER_ANIMATION_IDLE,
-                               gamelogic::ANIMATION_RESTART, 4);
+                               gamelogic::visual::ANIMATION_RESTART, 4);
   spriteRenderer->AddAnimation(PLAYER_ANIMATION_WALK,
-                               gamelogic::ANIMATION_RESTART, 5);
+                               gamelogic::visual::ANIMATION_RESTART, 5);
 }
 
 void Player::Shoot() {

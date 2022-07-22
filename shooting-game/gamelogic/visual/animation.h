@@ -7,7 +7,7 @@
 
 namespace sg {
 namespace gamelogic {
-
+namespace visual {
 enum ANIMATING_TYPE {
   ANIMATION_NONE,
   ANIMATION_RESTART,
@@ -47,6 +47,7 @@ struct AnimationState {
   Uint16 animationType;
 };
 
+}  // namespace visual
 }  // namespace gamelogic
 }  // namespace sg
 

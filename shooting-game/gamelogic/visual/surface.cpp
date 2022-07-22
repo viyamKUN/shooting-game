@@ -1,16 +1,17 @@
-#include "shooting-game/gamelogic/surface.h"
+#include "shooting-game/gamelogic/visual/surface.h"
 
 #include <SDL2/SDL.h>
 
 namespace sg {
 namespace gamelogic {
+namespace visual {
 
 Surface::Surface(char* path, int sizeX, int sizeY)
-    : angle(0),
-      flip(SDL_FLIP_NONE),
-      texture(NULL),
+    : texture(NULL),
       animation(NULL),
       assetPath(path),
+      angle(0),
+      flip(SDL_FLIP_NONE),
       surfConfig((SurfaceConfig){SURF_TYPE_SINGLE, new Coordination(0, 0),
                                  new Coordination(sizeX, sizeY)}) {}
 
@@ -136,5 +137,6 @@ void Surface::DrawTileMap(SDL_Renderer* renderer) {
   }
 }
 
+}  // namespace visual
 }  // namespace gamelogic
 }  // namespace sg

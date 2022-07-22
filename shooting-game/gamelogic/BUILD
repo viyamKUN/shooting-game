@@ -6,13 +6,6 @@ cc_library(
 )
 
 cc_library(
-    name = "animation",
-    srcs = ["animation.cpp"],
-    hdrs = ["animation.h"],
-    deps = ["@SDL2"],
-)
-
-cc_library(
     name = "coordination",
     srcs = ["coordination.cpp"],
     hdrs = ["coordination.h"],
@@ -46,18 +39,6 @@ cc_library(
 )
 
 cc_library(
-    name = "surface",
-    srcs = ["surface.cpp"],
-    hdrs = ["surface.h"],
-    deps = [
-        ":animation",
-        ":coordination",
-        ":transform",
-        "@SDL2",
-    ],
-)
-
-cc_library(
     name = "collider",
     srcs = ["collider.cpp"],
     hdrs = ["collider.h"],
@@ -72,9 +53,9 @@ cc_library(
     srcs = ["entity.cpp"],
     hdrs = ["entity.h"],
     deps = [
-        ":animation",
+        "//shooting-game/gamelogic/visual:animation",
+        "//shooting-game/gamelogic/visual:surface",
         ":collider",
-        ":surface",
         ":transform",
         "@SDL2",
     ],
@@ -103,10 +84,8 @@ cc_library(
     hdrs = ["game.h"],
     deps = [
         ":config",
-        ":entity",
         ":entity_registry",
         ":event",
-        ":surface",
         "//shooting-game/play:play_manager",
         "@SDL2",
     ],
