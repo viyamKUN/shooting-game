@@ -13,7 +13,9 @@ Collider::Collider(int sizeX, int sizeY, Transform* transform) {
   isActive = true;
 }
 
-Collider::~Collider() {}
+Collider::~Collider() {
+  if (collider) delete collider;
+}
 
 void Collider::UpdatePos(Transform* transform) {
   collider->x = transform->GetPosition()->getX();

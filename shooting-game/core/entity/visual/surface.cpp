@@ -25,6 +25,7 @@ Surface::~Surface() {
         line.pop_front();
       }
       line.clear();
+      tiles.pop_front();
     }
     tiles.clear();
   }

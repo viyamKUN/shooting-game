@@ -11,7 +11,10 @@ Transform::Transform(int posX, int posY) {
   scale = new Coordination(1, 1);  // Init scale
 }
 
-Transform::~Transform() {}
+Transform::~Transform() {
+  delete position;
+  delete scale;
+}
 
 Coordination* Transform::GetPosition() { return position; }
 

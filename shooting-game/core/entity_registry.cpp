@@ -24,7 +24,13 @@ void EntityRegistry::RegistEntity(entity::Entity* entity) {
 
 std::list<entity::Entity*> EntityRegistry::GetRegistry() { return entities; }
 
-void EntityRegistry::CleanUpRegistry() { entities.clear(); }
+void EntityRegistry::CleanUpRegistry() {
+  while (!entities.empty()) {
+    delete entities.front();
+    entities.pop_front();
+  }
+  entities.clear();
+}
 
 }  // namespace core
 }  // namespace sg
