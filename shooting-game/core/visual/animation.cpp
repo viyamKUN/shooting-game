@@ -11,7 +11,7 @@ Animation::Animation()
       animationState(0),
       isAnimationOver(false) {}
 
-Animation::~Animation() {}
+Animation::~Animation() { animationStatesMap.clear(); }
 
 void Animation::OnAnimate() {
   if (timeBucket + frameRate > SDL_GetTicks()) return;

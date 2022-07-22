@@ -15,7 +15,17 @@ Surface::Surface(char* path, int sizeX, int sizeY)
       surfConfig((SurfaceConfig){SURF_TYPE_SINGLE, new Coordination(0, 0),
                                  new Coordination(sizeX, sizeY)}) {}
 
-Surface::~Surface() {}
+Surface::~Surface() {
+  if (tiles.size() > 0) {
+    for (auto line : tiles) {
+      for (auto iter = line.begin(); iter != line.end();) {
+        delete (*iter);
+      }
+    }
+    tiles.clear();
+  }
+  delete animation;
+}
 
 void Surface::InitAnimation() { animation = new Animation(); }
 
