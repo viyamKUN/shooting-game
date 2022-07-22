@@ -17,32 +17,11 @@ cc_library(
 )
 
 cc_library(
-    name = "bullet",
-    srcs = ["bullet.cpp"],
-    hdrs = ["bullet.h"],
-    deps = [
-        ":game_settings",
-        "//shooting-game/core:config",
-        "//shooting-game/core/entity:entity",
-    ],
-)
-
-cc_library(
-    name = "bullet_pool",
-    srcs = ["bullet_pool.cpp"],
-    hdrs = ["bullet_pool.h"],
-    deps = [
-        ":bullet",
-        "//shooting-game/core:object_pool",
-    ],
-)
-
-cc_library(
     name = "service_provider",
     srcs = ["service_provider.cpp"],
     hdrs = ["service_provider.h"],
     deps = [
-        ":bullet_pool",
+        "//shooting-game/play/bullet:bullet_pool",
         "//shooting-game/play/enemy:enemy_blood_pool",
         "//shooting-game/play/ui:ui_manager",
     ],

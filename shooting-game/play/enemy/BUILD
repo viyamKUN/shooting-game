@@ -25,7 +25,6 @@ cc_library(
     deps = [
         "//shooting-game/core:config",
         "//shooting-game/core/entity:entity",
-        "//shooting-game/play:bullet",
         "//shooting-game/play:game_settings",
         "//shooting-game/play:service_provider",
     ],

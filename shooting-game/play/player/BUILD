@@ -18,8 +18,6 @@ cc_library(
         ":player_walk_effect",
         "//shooting-game/core:config",
         "//shooting-game/core:entity_registry",
-        "//shooting-game/play:bullet",
-        "//shooting-game/play:bullet_pool",
         "//shooting-game/play:game_settings",
         "//shooting-game/play:service_provider",
     ],

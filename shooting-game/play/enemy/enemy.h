@@ -3,7 +3,6 @@
 
 #include "shooting-game/core/config.h"
 #include "shooting-game/core/entity/entity.h"
-#include "shooting-game/play/bullet.h"
 #include "shooting-game/play/game_settings.h"
 #include "shooting-game/play/service_provider.h"
 

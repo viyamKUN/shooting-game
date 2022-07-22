@@ -1,8 +1,5 @@
 #include "shooting-game/play/player/player.h"
 
-#include "shooting-game/core/entity_registry.h"
-#include "shooting-game/play/service_provider.h"
-
 namespace sg {
 namespace play {
 

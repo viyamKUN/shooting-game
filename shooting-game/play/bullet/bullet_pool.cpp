@@ -1,4 +1,4 @@
-#include "shooting-game/play/bullet_pool.h"
+#include "shooting-game/play/bullet/bullet_pool.h"
 
 namespace sg {
 namespace play {

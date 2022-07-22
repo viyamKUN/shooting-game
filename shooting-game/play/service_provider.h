@@ -1,7 +1,7 @@
 #ifndef __SERVICE_PROVIDER_H_
 #define __SERVICE_PROVIDER_H_
 
-#include "shooting-game/play/bullet_pool.h"
+#include "shooting-game/play/bullet/bullet_pool.h"
 #include "shooting-game/play/enemy/enemy_blood_pool.h"
 #include "shooting-game/play/ui/ui_manager.h"
 

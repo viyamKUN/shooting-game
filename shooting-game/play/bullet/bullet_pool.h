@@ -2,7 +2,7 @@
 #define __BULLET_POOL_H_
 
 #include "shooting-game/core/object_pool.h"
-#include "shooting-game/play/bullet.h"
+#include "shooting-game/play/bullet/bullet.h"
 
 namespace sg {
 namespace play {
