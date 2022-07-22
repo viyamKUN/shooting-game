@@ -1,8 +1,5 @@
 #include "shooting-game/play/play_manager.h"
 
-// #include "shooting-game/gamelogic/game.h"
-#include "shooting-game/play/service_provider.h"
-
 namespace sg {
 namespace play {
 
@@ -61,7 +58,7 @@ void PlayManager::InitScene(SCENE scene) {
     case GAME_SCENE_GAME: {
       SDL_Log("Start Game!");
 
-      player = new play::Player();
+      player = new play::Player(std::bind(&PlayManager::OnGameOver, instance));
       gamelogic::EntityRegistry::GetInstance()->RegistEntity(player);
 
       enemySpawner = new play::EnemySpawner();

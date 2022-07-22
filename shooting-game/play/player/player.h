@@ -13,7 +13,7 @@ namespace play {
 
 class Player : public gamelogic::Entity {
  public:
-  Player();
+  Player(std::function<void()> gameOverEvent);
   ~Player();
 
   void ResetData();
@@ -27,11 +27,14 @@ class Player : public gamelogic::Entity {
   const int PLAYER_SPEED = 3;
   const int SHOOTING_INTERVAL = 500;  // milliseconds
   const int INVINCIBLE_TIME = 500;
+
   int hp;
   bool isDead;
   bool isInvincible;
   int shootingTimeBucket;
   int invincibleTimeBucket;
+  std::function<void()> gameOverEvent;
+
   enum PLAYER_ANIMATIONS {
     PLAYER_ANIMATION_IDLE = 0,
     PLAYER_ANIMATION_WALK = 1

@@ -6,6 +6,7 @@
 #include "shooting-game/play/enemy/enemy_spawner.h"
 #include "shooting-game/play/game_settings.h"
 #include "shooting-game/play/player/player.h"
+#include "shooting-game/play/service_provider.h"
 
 namespace sg {
 namespace play {

@@ -6,11 +6,13 @@
 namespace sg {
 namespace play {
 
-Player::Player()
+Player::Player(std::function<void()> gameOverEvent)
     : Entity("player.bmp", 32, 32, SCREEN_WIDTH / 2, SCREEN_HEIGHT - 80) {
   SetAnimation();
   SetTag(PLAYER);
   SetCollider(32, 32);
+
+  this->gameOverEvent = gameOverEvent;
 
   walkEffect = new PlayerWalkEffect();
   gamelogic::EntityRegistry::GetInstance()->RegistEntity(walkEffect);
@@ -120,8 +122,7 @@ void Player::Hit() {
 void Player::Die() {
   isDead = true;
   Entity::SetActiveCollider(false);
-  // TODO
-  // PlayManager::GetInstance()->OnGameOver();
+  gameOverEvent();
 }
 
 }  // namespace play
