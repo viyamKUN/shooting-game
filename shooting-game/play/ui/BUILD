@@ -48,7 +48,7 @@ cc_library(
     deps = [
         ":number_ui",
         "//shooting-game/core:config",
-        "//shooting-game/core/entity:entity",
+        "//shooting-game/core/entity",
     ],
 )
 

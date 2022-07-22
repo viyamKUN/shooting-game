@@ -12,7 +12,7 @@ cc_library(
     deps = [
         "//shooting-game/core:config",
         "//shooting-game/core:coordination",
-        "//shooting-game/core/entity:entity",
+        "//shooting-game/core/entity",
     ],
 )
 

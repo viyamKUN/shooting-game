@@ -24,7 +24,7 @@ cc_library(
     srcs = ["entity.cpp"],
     hdrs = ["entity.h"],
     deps = [
-        "//shooting-game/core/entity/visual:surface",
         ":collider",
+        "//shooting-game/core/entity/visual:surface",
     ],
 )

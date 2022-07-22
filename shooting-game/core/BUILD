@@ -31,7 +31,7 @@ cc_library(
     name = "entity_registry",
     srcs = ["entity_registry.cpp"],
     hdrs = ["entity_registry.h"],
-    deps = ["//shooting-game/core/entity:entity"],
+    deps = ["//shooting-game/core/entity"],
 )
 
 cc_library(

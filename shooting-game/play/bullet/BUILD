@@ -5,9 +5,9 @@ cc_library(
     srcs = ["bullet.cpp"],
     hdrs = ["bullet.h"],
     deps = [
-        "//shooting-game/play:game_settings",
         "//shooting-game/core:config",
-        "//shooting-game/core/entity:entity",
+        "//shooting-game/core/entity",
+        "//shooting-game/play:game_settings",
     ],
 )
 
