@@ -9,12 +9,14 @@
 
 namespace sg {
 namespace play {
-class PlayManager {
+class PlayManager : public gamelogic::Entity {
  public:
   PlayManager();
   ~PlayManager();
 
   static PlayManager* GetInstance();
+
+  void OnKeyDown(SDL_Keycode key, Uint16 mod);
 
   void InitScene(SCENE scene);
   void OnStartGame();
@@ -26,6 +28,7 @@ class PlayManager {
   play::EnemySpawner* enemySpawner;
   play::Player* player;
   int score;
+  SCENE currentScene;
 
   static PlayManager* instance;
 };

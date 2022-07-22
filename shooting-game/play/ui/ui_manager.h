@@ -15,6 +15,8 @@ class UiManager {
   ~UiManager();
 
   void InitStartUI();
+  void OffStartUI();
+
   void InitGameUI();
   void UpdateHp(int hp);
   void UpdateScore(int score);

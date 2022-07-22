@@ -14,7 +14,7 @@ enum FACTION { NONE, FACTION_PLAYER, FACTION_ENEMY };
 
 enum SIDE { LEFT, RIGHT };
 
-enum SCENE { GAME_SCENE_START, GAME_SCENE_GAME };
+enum SCENE { GAME_SCENE_NONE, GAME_SCENE_START, GAME_SCENE_GAME };
 
 }  // namespace play
 }  // namespace sg

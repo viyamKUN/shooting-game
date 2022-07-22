@@ -10,6 +10,8 @@ UiManager::~UiManager() {}
 
 void UiManager::InitStartUI() { gameStartUI = new GameStartUi(); }
 
+void UiManager::OffStartUI() { gameStartUI->SetIsActive(false); }
+
 void UiManager::InitGameUI() {
   hpUi = new HpUi();
   hpUi->Init();

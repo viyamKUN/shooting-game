@@ -10,8 +10,6 @@ class GameStartUi : public gamelogic::Entity {
  public:
   GameStartUi();
   ~GameStartUi();
-
-  void OnKeyDown(SDL_Keycode key, Uint16 mod);
 };
 }  // namespace ui
 }  // namespace play

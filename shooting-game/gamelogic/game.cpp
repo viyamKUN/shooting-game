@@ -58,6 +58,7 @@ bool Game::OnInit() {
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
   play::PlayManager::GetInstance()->InitScene(play::GAME_SCENE_START);
+  EntityRegistry::GetInstance()->RegistEntity(play::PlayManager::GetInstance());
   return true;
 }
 

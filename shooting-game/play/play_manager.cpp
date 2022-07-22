@@ -15,24 +15,40 @@ PlayManager* PlayManager::GetInstance() {
   return instance;
 }
 
-PlayManager::PlayManager() : score(0) {}
+PlayManager::PlayManager() : score(0), currentScene(GAME_SCENE_NONE) {}
 
 PlayManager::~PlayManager() {}
+
+void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
+  switch (currentScene) {
+    case GAME_SCENE_START:
+      if (key == SDLK_RETURN) {
+        InitScene(GAME_SCENE_GAME);
+        play::ServiceProvider::GetInstance()->GetUIManager()->OffStartUI();
+      }
+      break;
+
+    default:
+      break;
+  }
+}
 
 void PlayManager::InitScene(SCENE scene) {
   switch (scene) {
     case GAME_SCENE_START: {
       SDL_Log("Hello, User!");
+      currentScene = GAME_SCENE_START;
 
       play::Background* background = new play::Background();
       gamelogic::EntityRegistry::GetInstance()->RegistEntity(background);
 
-      // play::ServiceProvider::GetInstance()->GetUIManager()->InitStartUI();
+      play::ServiceProvider::GetInstance()->GetUIManager()->InitStartUI();
       break;
     }
 
     case GAME_SCENE_GAME: {
       SDL_Log("Start Game!");
+      currentScene = GAME_SCENE_GAME;
 
       player = new play::Player();
       gamelogic::EntityRegistry::GetInstance()->RegistEntity(player);

@@ -11,14 +11,6 @@ GameStartUi::GameStartUi() : Entity() {
 
 GameStartUi::~GameStartUi() {}
 
-void GameStartUi::OnKeyDown(SDL_Keycode key, Uint16 mod) {
-  if (key == SDLK_RETURN) {
-    // TODO
-    // PlayManager::GetInstance()->InitScene(GAME_SCENE_GAME);
-    SetIsActive(false);
-  }
-}
-
 }  // namespace ui
 }  // namespace play
 }  // namespace sg
