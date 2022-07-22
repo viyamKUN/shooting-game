@@ -17,8 +17,7 @@ namespace sg {
 namespace gamelogic {
 class Game : Event {
  public:
-  static Game* GetInstance();
-
+  Game();
   ~Game();
 
   int OnExecute();
@@ -29,7 +28,6 @@ class Game : Event {
   void SetPause(bool pause);
 
  private:
-  Game();
   bool OnInit();
   void OnEvent(SDL_Event* event);
   void OnLoop();
@@ -37,8 +35,6 @@ class Game : Event {
   void OnCollision();
   void OnRender();
   void OnCleanUp();
-
-  static Game* instance;
 
   bool isPause;
   bool running;

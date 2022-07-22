@@ -3,15 +3,6 @@
 namespace sg {
 namespace gamelogic {
 
-Game* Game::instance = NULL;
-
-Game* Game::GetInstance() {
-  if (instance == NULL) {
-    instance = new Game();
-  }
-  return instance;
-}
-
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
   running = true;
@@ -101,6 +92,8 @@ void Game::OnCleanUp() {
     entity->OnCleanUp();
   }
   EntityRegistry::GetInstance()->CleanUpRegistry();
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(window);
   SDL_Quit();
 }
 
