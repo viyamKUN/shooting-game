@@ -51,8 +51,7 @@ void Enemy::Hit() {
 }
 
 void Enemy::Die() {
-  // TODO
-  // PlayManager::GetInstance()->AddScore(MY_SCORE);
+  ServiceProvider::GetInstance()->AddScore(MY_SCORE);
   SetIsActive(false);
 }
 

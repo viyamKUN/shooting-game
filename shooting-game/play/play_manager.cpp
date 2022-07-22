@@ -89,15 +89,14 @@ void PlayManager::OnStartGame() {
   player->ResetData();
 
   // Reset score.
-  ServiceProvider::GetInstance()->GetScoreManager()->ChangeScore(0);
-  ServiceProvider::GetInstance()->GetUIManager()->UpdateScore(0);
+  ServiceProvider::GetInstance()->UpdateScore(0);
 }
 
 void PlayManager::OnGameOver() {
   currentScene = GAME_SCENE_OVER;
 
   SDL_Log("Player Die!");
-  auto score = ServiceProvider::GetInstance()->GetScoreManager()->GetScore();
+  auto score = ServiceProvider::GetInstance()->GetScore();
   SDL_Log("Score is %d", score);
   SDL_Log("[SPACE]: Restart  [ESCAPE]: Quit");
 

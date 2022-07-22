@@ -50,5 +50,17 @@ ScoreManager* ServiceProvider::GetScoreManager() {
   return scoreManager;
 }
 
+void ServiceProvider::UpdateScore(int score) {
+  GetScoreManager()->ChangeScore(score);
+  GetUIManager()->UpdateScore(score);
+}
+
+void ServiceProvider::AddScore(int amt) {
+  GetScoreManager()->AddScore(amt);
+  GetUIManager()->UpdateScore(GetScoreManager()->GetScore());
+}
+
+int ServiceProvider::GetScore() { return GetScoreManager()->GetScore(); }
+
 }  // namespace play
 }  // namespace sg

@@ -17,10 +17,18 @@ cc_library(
 )
 
 cc_library(
+    name = "score_manager",
+    srcs = ["score_manager.cpp"],
+    hdrs = ["score_manager.h"],
+    deps = [],
+)
+
+cc_library(
     name = "service_provider",
     srcs = ["service_provider.cpp"],
     hdrs = ["service_provider.h"],
     deps = [
+        ":score_manager",
         "//shooting-game/play/bullet:bullet_pool",
         "//shooting-game/play/enemy:enemy_blood_pool",
         "//shooting-game/play/ui:ui_manager",

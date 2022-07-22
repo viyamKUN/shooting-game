@@ -18,7 +18,12 @@ class ServiceProvider {
   ui::UiManager* GetUIManager();
   BulletPool* GetBulletPool();
   enemy::EnemyBloodPool* GetBloodPool();
-  ScoreManager* GetScoreManager();
+
+  // Update score data and ui.
+  void UpdateScore(int score);
+  // Add score data and ui.
+  void AddScore(int amt);
+  int GetScore();
 
  private:
   static ServiceProvider* instance;
@@ -26,6 +31,8 @@ class ServiceProvider {
   enemy::EnemyBloodPool* bloodPool;
   BulletPool* bulletPool;
   ScoreManager* scoreManager;
+
+  ScoreManager* GetScoreManager();
 };
 
 }  // namespace play
