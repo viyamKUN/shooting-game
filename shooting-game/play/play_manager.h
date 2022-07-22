@@ -16,6 +16,9 @@ class PlayManager : public core::entity::Entity {
 
   static PlayManager* GetInstance();
 
+  void SetEvents(std::function<void()> pause, std::function<void()> resume,
+                 std::function<void()> quit);
+
   void OnKeyDown(SDL_Keycode key, Uint16 mod);
 
   void InitScene(SCENE scene);
@@ -28,6 +31,10 @@ class PlayManager : public core::entity::Entity {
   play::EnemySpawner* enemySpawner;
   play::Player* player;
   SCENE currentScene;
+
+  std::function<void()> gamePause;
+  std::function<void()> gameResume;
+  std::function<void()> gameQuit;
 
   static PlayManager* instance;
 };

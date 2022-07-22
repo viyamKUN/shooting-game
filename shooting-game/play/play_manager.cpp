@@ -16,6 +16,14 @@ PlayManager::PlayManager() : currentScene(GAME_SCENE_NONE) {}
 
 PlayManager::~PlayManager() {}
 
+void PlayManager::SetEvents(std::function<void()> pause,
+                            std::function<void()> resume,
+                            std::function<void()> quit) {
+  gamePause = pause;
+  gameResume = resume;
+  gameQuit = quit;
+}
+
 void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   switch (currentScene) {
     case GAME_SCENE_START:
@@ -32,11 +40,10 @@ void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
         SDL_Log("Restart Game!");
 
         SetIsActive(false);
-        // TODO
-        // core::Game::GetInstance()->SetPause(false);
+        gameResume();
         OnStartGame();
       } else if (key == SDLK_ESCAPE) {
-        // core::Game::GetInstance()->OnQuit();
+        gameQuit();
       }
       break;
 
@@ -104,7 +111,7 @@ void PlayManager::OnGameOver() {
   ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI();
 
   // Stop the game.
-  // core::Game::GetInstance()->SetPause(true);
+  gamePause();
 
   // Off all of enemy, blood and bullet entities.
   enemySpawner->ClearEnemies();

@@ -23,7 +23,8 @@ class Game : Event {
   void OnKeyDown(SDL_Keycode key, Uint16 mod);
   void OnKeyUp(SDL_Keycode key, Uint16 mod);
   void OnKey(SDL_Keycode key);
-  void SetPause(bool pause);
+  void OnPause();
+  void OnResume();
 
  private:
   bool OnInit();

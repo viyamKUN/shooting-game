@@ -49,11 +49,16 @@ bool Game::OnInit() {
   renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
   play::PlayManager::GetInstance()->InitScene(play::GAME_SCENE_START);
+  play::PlayManager::GetInstance()->SetEvents(std::bind(&Game::OnPause, this),
+                                              std::bind(&Game::OnResume, this),
+                                              std::bind(&Game::OnQuit, this));
   EntityRegistry::GetInstance()->RegistEntity(play::PlayManager::GetInstance());
   return true;
 }
 
-void Game::SetPause(bool pause) { isPause = pause; }
+void Game::OnPause() { isPause = true; }
+
+void Game::OnResume() { isPause = false; }
 
 void Game::OnEvent(SDL_Event* event) { Event::OnEvent(event); }
 

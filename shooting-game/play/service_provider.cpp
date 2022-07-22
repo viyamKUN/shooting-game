@@ -16,10 +16,10 @@ ServiceProvider::ServiceProvider()
     : uiManager(NULL), bulletPool(NULL), bloodPool(NULL) {}
 
 ServiceProvider::~ServiceProvider() {
-  delete uiManager;
-  delete bulletPool;
-  delete bloodPool;
-  delete scoreManager;
+  if (uiManager) delete uiManager;
+  if (bulletPool) delete bulletPool;
+  if (bloodPool) delete bloodPool;
+  if (scoreManager) delete scoreManager;
 }
 
 ui::UiManager* ServiceProvider::GetUIManager() {
