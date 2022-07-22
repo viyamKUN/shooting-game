@@ -12,7 +12,7 @@ PlayManager* PlayManager::GetInstance() {
   return instance;
 }
 
-PlayManager::PlayManager() : score(0), currentScene(GAME_SCENE_NONE) {}
+PlayManager::PlayManager() : currentScene(GAME_SCENE_NONE) {}
 
 PlayManager::~PlayManager() {}
 
@@ -23,7 +23,7 @@ void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
         SDL_Log("Start Game!");
 
         InitScene(GAME_SCENE_GAME);
-        play::ServiceProvider::GetInstance()->GetUIManager()->OffStartUI();
+        ServiceProvider::GetInstance()->GetUIManager()->OffStartUI();
       }
       break;
 
@@ -51,21 +51,21 @@ void PlayManager::InitScene(SCENE scene) {
       SDL_Log("Hello, User!");
       currentScene = GAME_SCENE_START;
 
-      play::Background* background = new play::Background();
+      Background* background = new Background();
       core::EntityRegistry::GetInstance()->RegistEntity(background);
 
-      play::ServiceProvider::GetInstance()->GetUIManager()->InitStartUI();
+      ServiceProvider::GetInstance()->GetUIManager()->InitStartUI();
       break;
     }
 
     case GAME_SCENE_GAME: {
-      player = new play::Player(std::bind(&PlayManager::OnGameOver, instance));
+      player = new Player(std::bind(&PlayManager::OnGameOver, instance));
       core::EntityRegistry::GetInstance()->RegistEntity(player);
 
-      enemySpawner = new play::EnemySpawner();
+      enemySpawner = new EnemySpawner();
       core::EntityRegistry::GetInstance()->RegistEntity(enemySpawner);
 
-      play::ServiceProvider::GetInstance()->GetUIManager()->InitGameUI();
+      ServiceProvider::GetInstance()->GetUIManager()->InitGameUI();
 
       OnStartGame();
       break;
@@ -89,14 +89,15 @@ void PlayManager::OnStartGame() {
   player->ResetData();
 
   // Reset score.
-  score = 0;
-  ServiceProvider::GetInstance()->GetUIManager()->UpdateScore(score);
+  ServiceProvider::GetInstance()->GetScoreManager()->ChangeScore(0);
+  ServiceProvider::GetInstance()->GetUIManager()->UpdateScore(0);
 }
 
 void PlayManager::OnGameOver() {
   currentScene = GAME_SCENE_OVER;
 
   SDL_Log("Player Die!");
+  auto score = ServiceProvider::GetInstance()->GetScoreManager()->GetScore();
   SDL_Log("Score is %d", score);
   SDL_Log("[SPACE]: Restart  [ESCAPE]: Quit");
 
@@ -110,11 +111,6 @@ void PlayManager::OnGameOver() {
   enemySpawner->ClearEnemies();
   ServiceProvider::GetInstance()->GetBulletPool()->ClearBullets();
   ServiceProvider::GetInstance()->GetBloodPool()->ClearBloods();
-}
-
-void PlayManager::AddScore(int amt) {
-  score += amt;
-  play::ServiceProvider::GetInstance()->GetUIManager()->UpdateScore(score);
 }
 
 }  // namespace play
