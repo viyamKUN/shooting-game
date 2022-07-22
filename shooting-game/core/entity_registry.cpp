@@ -1,7 +1,7 @@
-#include "shooting-game/gamelogic/entity_registry.h"
+#include "shooting-game/core/entity_registry.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 
 EntityRegistry* EntityRegistry::instance = NULL;
 
@@ -26,5 +26,5 @@ std::list<Entity*> EntityRegistry::GetRegistry() { return entities; }
 
 void EntityRegistry::CleanUpRegistry() { entities.clear(); }
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

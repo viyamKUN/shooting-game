@@ -5,7 +5,7 @@ namespace play {
 namespace ui {
 
 HpHeartUI::HpHeartUI() : Entity("hearts.bmp", WIDTH, HEIGHT, 0, 0) {
-  gamelogic::EntityRegistry::GetInstance()->RegistEntity(this);
+  core::EntityRegistry::GetInstance()->RegistEntity(this);
   UpdateState(true);
 }
 

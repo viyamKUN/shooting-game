@@ -5,8 +5,8 @@ namespace play {
 namespace enemy {
 
 EnemyBloodPool::EnemyBloodPool() {
-  gamelogic::Entity* baseEntity = new EnemyHitEffect();
-  pool = new gamelogic::ObjectPool(baseEntity, START_COUNT);
+  core::Entity* baseEntity = new EnemyHitEffect();
+  pool = new core::ObjectPool(baseEntity, START_COUNT);
 }
 
 EnemyBloodPool::~EnemyBloodPool() {}

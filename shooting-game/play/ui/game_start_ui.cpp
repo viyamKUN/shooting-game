@@ -6,7 +6,7 @@ namespace ui {
 
 GameStartUi::GameStartUi() : Entity() {
   SDL_Log("[Return] Start game.");
-  gamelogic::EntityRegistry::GetInstance()->RegistEntity(this);
+  core::EntityRegistry::GetInstance()->RegistEntity(this);
 }
 
 GameStartUi::~GameStartUi() {}

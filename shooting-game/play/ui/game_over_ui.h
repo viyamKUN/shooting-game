@@ -1,13 +1,13 @@
 #ifndef __GAME_OVER_UI_H_
 #define __GAME_OVER_UI_H_
 
-#include "shooting-game/gamelogic/config.h"
-#include "shooting-game/gamelogic/entity_registry.h"
+#include "shooting-game/core/config.h"
+#include "shooting-game/core/entity_registry.h"
 
 namespace sg {
 namespace play {
 namespace ui {
-class GameOverUi : public gamelogic::Entity {
+class GameOverUi : public core::Entity {
  public:
   GameOverUi();
   ~GameOverUi();

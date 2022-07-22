@@ -5,7 +5,7 @@ namespace play {
 namespace ui {
 NumberUI::NumberUI() : Entity("numbers.bmp", SIZE, SIZE, 0, 0) {
   UpdateNumber(0);
-  gamelogic::EntityRegistry::GetInstance()->RegistEntity(this);
+  core::EntityRegistry::GetInstance()->RegistEntity(this);
 }
 
 NumberUI::~NumberUI() {}

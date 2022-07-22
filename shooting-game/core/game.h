@@ -6,13 +6,13 @@
 #include <iostream>
 #include <list>
 
-#include "shooting-game/gamelogic/config.h"
-#include "shooting-game/gamelogic/entity_registry.h"
-#include "shooting-game/gamelogic/event.h"
+#include "shooting-game/core/config.h"
+#include "shooting-game/core/entity_registry.h"
+#include "shooting-game/core/event.h"
 #include "shooting-game/play/play_manager.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 class Game : Event {
  public:
   Game();
@@ -39,7 +39,7 @@ class Game : Event {
   SDL_Window* window;
   SDL_Renderer* renderer;
 };
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg
 
 #endif

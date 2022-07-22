@@ -1,7 +1,7 @@
 #ifndef __PLAY_MANAGER_H_
 #define __PLAY_MANAGER_H_
 
-#include "shooting-game/gamelogic/entity_registry.h"
+#include "shooting-game/core/entity_registry.h"
 #include "shooting-game/play/background.h"
 #include "shooting-game/play/enemy/enemy_spawner.h"
 #include "shooting-game/play/game_settings.h"
@@ -10,7 +10,7 @@
 
 namespace sg {
 namespace play {
-class PlayManager : public gamelogic::Entity {
+class PlayManager : public core::Entity {
  public:
   PlayManager();
   ~PlayManager();

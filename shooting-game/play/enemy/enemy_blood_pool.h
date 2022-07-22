@@ -1,8 +1,8 @@
 #ifndef __ENEMY_BLOOD_POOL_H_
 #define __ENEMY_BLOOD_POOL_H_
 
-#include "shooting-game/gamelogic/entity.h"
-#include "shooting-game/gamelogic/object_pool.h"
+#include "shooting-game/core/entity.h"
+#include "shooting-game/core/object_pool.h"
 #include "shooting-game/play/enemy/enemy_hit_effect.h"
 
 namespace sg {
@@ -18,7 +18,7 @@ class EnemyBloodPool {
 
  private:
   const int START_COUNT = 32;
-  gamelogic::ObjectPool* pool;
+  core::ObjectPool* pool;
 };
 
 }  // namespace enemy

@@ -1,6 +1,6 @@
 #include "shooting-game/play/player/player.h"
 
-#include "shooting-game/gamelogic/entity_registry.h"
+#include "shooting-game/core/entity_registry.h"
 #include "shooting-game/play/service_provider.h"
 
 namespace sg {
@@ -15,7 +15,7 @@ Player::Player(std::function<void()> gameOverEvent)
   this->gameOverEvent = gameOverEvent;
 
   walkEffect = new PlayerWalkEffect();
-  gamelogic::EntityRegistry::GetInstance()->RegistEntity(walkEffect);
+  core::EntityRegistry::GetInstance()->RegistEntity(walkEffect);
   walkEffect->StopWalkAnim();
 }
 
@@ -87,9 +87,9 @@ void Player::OnKey(SDL_Keycode key) {
 void Player::SetAnimation() {
   Entity::SetAnimation();
   spriteRenderer->AddAnimation(PLAYER_ANIMATION_IDLE,
-                               gamelogic::visual::ANIMATION_RESTART, 4);
+                               core::visual::ANIMATION_RESTART, 4);
   spriteRenderer->AddAnimation(PLAYER_ANIMATION_WALK,
-                               gamelogic::visual::ANIMATION_RESTART, 5);
+                               core::visual::ANIMATION_RESTART, 5);
 }
 
 void Player::Shoot() {

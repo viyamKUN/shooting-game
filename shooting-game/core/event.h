@@ -3,7 +3,7 @@
 #include <SDL2/SDL.h>
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 //게임에서 발생할 수 있는 인풋 이벤트
 class Event {
  public:
@@ -43,7 +43,7 @@ class Event {
   void CallActiveEvent(SDL_WindowEvent* windowEvent);
   void CallMouseEvent(SDL_MouseButtonEvent* buttonEvent, bool isDown);
 };
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg
 
 #endif

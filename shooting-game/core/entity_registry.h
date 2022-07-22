@@ -3,10 +3,10 @@
 
 #include <list>
 
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/core/entity.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 class EntityRegistry {
  public:
   EntityRegistry();
@@ -25,7 +25,7 @@ class EntityRegistry {
   static EntityRegistry* instance;
 };
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg
 
 #endif

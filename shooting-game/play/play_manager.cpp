@@ -33,10 +33,10 @@ void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
 
         SetIsActive(false);
         // TODO
-        // gamelogic::Game::GetInstance()->SetPause(false);
+        // core::Game::GetInstance()->SetPause(false);
         OnStartGame();
       } else if (key == SDLK_ESCAPE) {
-        // gamelogic::Game::GetInstance()->OnQuit();
+        // core::Game::GetInstance()->OnQuit();
       }
       break;
 
@@ -52,7 +52,7 @@ void PlayManager::InitScene(SCENE scene) {
       currentScene = GAME_SCENE_START;
 
       play::Background* background = new play::Background();
-      gamelogic::EntityRegistry::GetInstance()->RegistEntity(background);
+      core::EntityRegistry::GetInstance()->RegistEntity(background);
 
       play::ServiceProvider::GetInstance()->GetUIManager()->InitStartUI();
       break;
@@ -60,10 +60,10 @@ void PlayManager::InitScene(SCENE scene) {
 
     case GAME_SCENE_GAME: {
       player = new play::Player(std::bind(&PlayManager::OnGameOver, instance));
-      gamelogic::EntityRegistry::GetInstance()->RegistEntity(player);
+      core::EntityRegistry::GetInstance()->RegistEntity(player);
 
       enemySpawner = new play::EnemySpawner();
-      gamelogic::EntityRegistry::GetInstance()->RegistEntity(enemySpawner);
+      core::EntityRegistry::GetInstance()->RegistEntity(enemySpawner);
 
       play::ServiceProvider::GetInstance()->GetUIManager()->InitGameUI();
 
@@ -104,7 +104,7 @@ void PlayManager::OnGameOver() {
   ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI();
 
   // Stop the game.
-  // gamelogic::Game::GetInstance()->SetPause(true);
+  // core::Game::GetInstance()->SetPause(true);
 
   // Off all of enemy, blood and bullet entities.
   enemySpawner->ClearEnemies();

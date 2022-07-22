@@ -3,11 +3,11 @@
 #include <SDL2/SDL.h>
 
 #include "collider.h"
-#include "shooting-game/gamelogic/visual/surface.h"
+#include "shooting-game/core/visual/surface.h"
 #include "transform.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 class Entity {
  public:
   Entity();
@@ -57,6 +57,6 @@ class Entity {
   bool isActive;
 };
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg
 #endif

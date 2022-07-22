@@ -1,11 +1,11 @@
-#include "shooting-game/gamelogic/event.h"
+#include "shooting-game/core/event.h"
 
 #include <SDL2/SDL.h>
 
 #include <iostream>
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 Event::Event() {}
 
 Event::~Event() {}
@@ -150,5 +150,5 @@ void Event::OnResize(int w, int h) {}
 void Event::OnExpose() {}
 void Event::OnQuit() { std::cout << "Quit the game." << std::endl; }
 void Event::OnUser(Uint8 type, int code, void* data, void* data2) {}
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

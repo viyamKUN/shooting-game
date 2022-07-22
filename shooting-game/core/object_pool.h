@@ -4,10 +4,10 @@
 #include <iostream>
 #include <list>
 
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/core/entity.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 
 class ObjectPool {
  public:
@@ -24,7 +24,7 @@ class ObjectPool {
   void CreateObjects(int maxCount);
 };
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg
 
 #endif

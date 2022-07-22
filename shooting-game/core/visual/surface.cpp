@@ -1,9 +1,9 @@
-#include "shooting-game/gamelogic/visual/surface.h"
+#include "shooting-game/core/visual/surface.h"
 
 #include <SDL2/SDL.h>
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 namespace visual {
 
 Surface::Surface(char* path, int sizeX, int sizeY)
@@ -138,5 +138,5 @@ void Surface::DrawTileMap(SDL_Renderer* renderer) {
 }
 
 }  // namespace visual
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

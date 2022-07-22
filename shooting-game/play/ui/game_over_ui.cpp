@@ -8,7 +8,7 @@ namespace ui {
 
 GameOverUi::GameOverUi() : Entity("black.bmp", 16, 16, 0, 0) {
   transform->SetScale(SCREEN_WIDTH, SCREEN_HEIGHT);
-  gamelogic::EntityRegistry::GetInstance()->RegistEntity(this);
+  core::EntityRegistry::GetInstance()->RegistEntity(this);
 }
 
 GameOverUi::~GameOverUi() {}

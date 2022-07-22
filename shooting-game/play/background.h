@@ -3,13 +3,13 @@
 
 #include <list>
 
-#include "shooting-game/gamelogic/config.h"
-#include "shooting-game/gamelogic/coordination.h"
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/core/config.h"
+#include "shooting-game/core/coordination.h"
+#include "shooting-game/core/entity.h"
 
 namespace sg {
 namespace play {
-class Background : public gamelogic::Entity {
+class Background : public core::Entity {
  public:
   Background();
   ~Background();

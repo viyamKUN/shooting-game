@@ -4,7 +4,7 @@ cc_library(
     name = "enemy_hit_effect",
     srcs = ["enemy_hit_effect.cpp"],
     hdrs = ["enemy_hit_effect.h"],
-    deps = ["//shooting-game/gamelogic:entity"],
+    deps = ["//shooting-game/core:entity"],
 )
 
 cc_library(
@@ -13,8 +13,8 @@ cc_library(
     hdrs = ["enemy_blood_pool.h"],
     deps = [
         ":enemy_hit_effect",
-        "//shooting-game/gamelogic:entity",
-        "//shooting-game/gamelogic:object_pool",
+        "//shooting-game/core:entity",
+        "//shooting-game/core:object_pool",
     ],
 )
 
@@ -23,8 +23,8 @@ cc_library(
     srcs = ["enemy.cpp"],
     hdrs = ["enemy.h"],
     deps = [
-        "//shooting-game/gamelogic:config",
-        "//shooting-game/gamelogic:entity",
+        "//shooting-game/core:config",
+        "//shooting-game/core:entity",
         "//shooting-game/play:bullet",
         "//shooting-game/play:game_settings",
         "//shooting-game/play:service_provider",
@@ -37,8 +37,8 @@ cc_library(
     hdrs = ["enemy_spawner.h"],
     deps = [
         ":enemy",
-        "//shooting-game/gamelogic:config",
-        "//shooting-game/gamelogic:entity",
-        "//shooting-game/gamelogic:object_pool",
+        "//shooting-game/core:config",
+        "//shooting-game/core:entity",
+        "//shooting-game/core:object_pool",
     ],
 )

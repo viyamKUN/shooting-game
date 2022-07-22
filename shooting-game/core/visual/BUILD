@@ -13,8 +13,8 @@ cc_library(
     hdrs = ["surface.h"],
     deps = [
         ":animation",
-        "//shooting-game/gamelogic:coordination",
-        "//shooting-game/gamelogic:transform",
+        "//shooting-game/core:coordination",
+        "//shooting-game/core:transform",
         "@SDL2",
     ],
 )

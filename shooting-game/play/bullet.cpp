@@ -13,7 +13,7 @@ Bullet::Bullet() : Entity("bullets.bmp", WIDTH, HEIGHT, 0, 0), speed(0) {
 
 Bullet::~Bullet() {}
 
-gamelogic::Entity* Bullet::Clone() { return new Bullet(); }
+core::Entity* Bullet::Clone() { return new Bullet(); }
 
 void Bullet::ResetData(int posX, int posY, int speed, FACTION faction) {
   transform->SetPosition(posX, posY);

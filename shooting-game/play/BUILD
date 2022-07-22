@@ -10,9 +10,9 @@ cc_library(
     srcs = ["background.cpp"],
     hdrs = ["background.h"],
     deps = [
-        "//shooting-game/gamelogic:config",
-        "//shooting-game/gamelogic:coordination",
-        "//shooting-game/gamelogic:entity",
+        "//shooting-game/core:config",
+        "//shooting-game/core:coordination",
+        "//shooting-game/core:entity",
     ],
 )
 
@@ -22,8 +22,8 @@ cc_library(
     hdrs = ["bullet.h"],
     deps = [
         ":game_settings",
-        "//shooting-game/gamelogic:config",
-        "//shooting-game/gamelogic:entity",
+        "//shooting-game/core:config",
+        "//shooting-game/core:entity",
     ],
 )
 
@@ -33,7 +33,7 @@ cc_library(
     hdrs = ["bullet_pool.h"],
     deps = [
         ":bullet",
-        "//shooting-game/gamelogic:object_pool",
+        "//shooting-game/core:object_pool",
     ],
 )
 

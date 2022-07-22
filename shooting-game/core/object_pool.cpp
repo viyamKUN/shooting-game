@@ -1,9 +1,9 @@
-#include "shooting-game/gamelogic/object_pool.h"
+#include "shooting-game/core/object_pool.h"
 
-#include "shooting-game/gamelogic/entity_registry.h"
+#include "shooting-game/core/entity_registry.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 
 ObjectPool::ObjectPool(Entity* baseEntity, int maxCount) {
   this->baseEntity = baseEntity;
@@ -35,5 +35,5 @@ void ObjectPool::CreateObjects(int maxCount) {
   }
 }
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

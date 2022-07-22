@@ -1,7 +1,7 @@
-#include "shooting-game/gamelogic/game.h"
+#include "shooting-game/core/game.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 
 Game::Game() {
   std::cout << "Game is running..." << std::endl;
@@ -124,5 +124,5 @@ void Game::OnKey(SDL_Keycode key) {
   }
 }
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

@@ -5,8 +5,8 @@ cc_library(
     srcs = ["game_over_ui.cpp"],
     hdrs = ["game_over_ui.h"],
     deps = [
-        "//shooting-game/gamelogic:config",
-        "//shooting-game/gamelogic:entity_registry",
+        "//shooting-game/core:config",
+        "//shooting-game/core:entity_registry",
     ],
 )
 
@@ -14,14 +14,14 @@ cc_library(
     name = "game_start_ui",
     srcs = ["game_start_ui.cpp"],
     hdrs = ["game_start_ui.h"],
-    deps = ["//shooting-game/gamelogic:entity_registry"],
+    deps = ["//shooting-game/core:entity_registry"],
 )
 
 cc_library(
     name = "hp_heart_ui",
     srcs = ["hp_heart_ui.cpp"],
     hdrs = ["hp_heart_ui.h"],
-    deps = ["//shooting-game/gamelogic:entity_registry"],
+    deps = ["//shooting-game/core:entity_registry"],
 )
 
 cc_library(
@@ -38,7 +38,7 @@ cc_library(
     name = "number_ui",
     srcs = ["number_ui.cpp"],
     hdrs = ["number_ui.h"],
-    deps = ["//shooting-game/gamelogic:entity_registry"],
+    deps = ["//shooting-game/core:entity_registry"],
 )
 
 cc_library(
@@ -47,8 +47,8 @@ cc_library(
     hdrs = ["score_ui.h"],
     deps = [
         ":number_ui",
-        "//shooting-game/gamelogic:config",
-        "//shooting-game/gamelogic:entity",
+        "//shooting-game/core:config",
+        "//shooting-game/core:entity",
     ],
 )
 

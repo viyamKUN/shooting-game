@@ -1,12 +1,12 @@
 #ifndef __HP_HEART_UI_H_
 #define __HP_HEART_UI_H_
 
-#include "shooting-game/gamelogic/entity_registry.h"
+#include "shooting-game/core/entity_registry.h"
 
 namespace sg {
 namespace play {
 namespace ui {
-class HpHeartUI : public gamelogic::Entity {
+class HpHeartUI : public core::Entity {
  public:
   HpHeartUI();
   ~HpHeartUI();

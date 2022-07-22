@@ -14,7 +14,7 @@ Enemy::Enemy(int posX, int posY)
 
 Enemy::~Enemy() {}
 
-gamelogic::Entity* Enemy::Clone() { return new Enemy(); }
+core::Entity* Enemy::Clone() { return new Enemy(); }
 
 void Enemy::OnLoop() {
   transform->Translate(0, 1);

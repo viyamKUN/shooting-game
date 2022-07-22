@@ -1,7 +1,7 @@
-#include "shooting-game/gamelogic/transform.h"
+#include "shooting-game/core/transform.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 
 Transform::Transform() { Transform(0, 0); }
 
@@ -31,5 +31,5 @@ void Transform::SetScale(int x, int y) {
   scale->setY(y);
 }
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

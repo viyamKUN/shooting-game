@@ -3,10 +3,10 @@
 
 #include <tuple>
 
-#include "shooting-game/gamelogic/coordination.h"
+#include "shooting-game/core/coordination.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 class Transform {
  private:
   Coordination* position;
@@ -24,7 +24,7 @@ class Transform {
   void SetScale(int x, int y);
   void SetPosition(int x, int y);
 };
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg
 
 #endif

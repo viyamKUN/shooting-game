@@ -6,7 +6,7 @@
 #include <map>
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 namespace visual {
 enum ANIMATING_TYPE {
   ANIMATION_NONE,
@@ -48,7 +48,7 @@ struct AnimationState {
 };
 
 }  // namespace visual
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg
 
 #endif

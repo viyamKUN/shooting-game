@@ -3,12 +3,12 @@
 
 #include <SDL2/SDL.h>
 
-#include "shooting-game/gamelogic/entity_registry.h"
+#include "shooting-game/core/entity_registry.h"
 
 namespace sg {
 namespace play {
 namespace ui {
-class NumberUI : public gamelogic::Entity {
+class NumberUI : public core::Entity {
  public:
   NumberUI();
   ~NumberUI();

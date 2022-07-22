@@ -2,7 +2,7 @@
 #define __COORDINATION_H_
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 class Coordination {
  private:
   int x;
@@ -17,6 +17,6 @@ class Coordination {
   void setY(int y);
 };
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg
 #endif

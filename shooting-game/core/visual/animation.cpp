@@ -1,7 +1,7 @@
-#include "shooting-game/gamelogic/visual/animation.h"
+#include "shooting-game/core/visual/animation.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 namespace visual {
 Animation::Animation()
     : frameRate(150),
@@ -67,5 +67,5 @@ void Animation::ResetAnimation() {
 bool Animation::GetIsAnimationOver() { return isAnimationOver; }
 
 }  // namespace visual
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

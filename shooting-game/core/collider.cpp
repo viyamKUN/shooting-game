@@ -1,7 +1,7 @@
-#include "shooting-game/gamelogic/collider.h"
+#include "shooting-game/core/collider.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 
 Collider::Collider(int sizeX, int sizeY, Transform* transform) {
   collider = new SDL_Rect();
@@ -29,5 +29,5 @@ void Collider::SetActive(bool isOn) { isActive = isOn; }
 
 bool Collider::GetActive() { return isActive; }
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

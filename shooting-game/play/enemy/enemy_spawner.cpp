@@ -4,7 +4,7 @@ namespace play {
 
 EnemySpawner::EnemySpawner() : Entity() {
   auto baseEntity = new Enemy();
-  enemyPool = new gamelogic::ObjectPool(baseEntity, MAX_COUNT);
+  enemyPool = new core::ObjectPool(baseEntity, MAX_COUNT);
   spawnTimeBucket = SDL_GetTicks();
   interval = START_INTERVAL;
 }

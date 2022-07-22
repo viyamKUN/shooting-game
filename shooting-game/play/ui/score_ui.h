@@ -4,8 +4,8 @@
 #include <SDL2/SDL.h>
 
 #include "number_ui.h"
-#include "shooting-game/gamelogic/config.h"
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/core/config.h"
+#include "shooting-game/core/entity.h"
 
 namespace sg {
 namespace play {

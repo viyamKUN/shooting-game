@@ -1,15 +1,15 @@
 #ifndef __ENEMY_H_
 #define __ENEMY_H_
 
-#include "shooting-game/gamelogic/config.h"
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/core/config.h"
+#include "shooting-game/core/entity.h"
 #include "shooting-game/play/bullet.h"
 #include "shooting-game/play/game_settings.h"
 #include "shooting-game/play/service_provider.h"
 
 namespace sg {
 namespace play {
-class Enemy : public gamelogic::Entity {
+class Enemy : public core::Entity {
  public:
   Enemy();
   Enemy(int posX, int posY);

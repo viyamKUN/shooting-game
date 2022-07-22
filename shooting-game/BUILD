@@ -28,7 +28,7 @@ cc_binary(
         "//conditions:default": [],
     }),
     deps = [
-        "//shooting-game/gamelogic:game",
+        "//shooting-game/core:game",
     ],
 )
 

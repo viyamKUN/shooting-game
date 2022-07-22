@@ -1,7 +1,7 @@
-#include "shooting-game/gamelogic/coordination.h"
+#include "shooting-game/core/coordination.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 Coordination::Coordination(int x, int y) {
   this->x = x;
   this->y = y;
@@ -17,5 +17,5 @@ void Coordination::setX(int x) { this->x = x; }
 
 void Coordination::setY(int y) { this->y = y; }
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

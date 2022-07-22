@@ -5,7 +5,7 @@ namespace play {
 
 BulletPool::BulletPool() {
   Bullet* baseBullet = new Bullet();
-  pool = new gamelogic::ObjectPool(baseBullet, START_COUNT);
+  pool = new core::ObjectPool(baseBullet, START_COUNT);
 }
 
 BulletPool::~BulletPool() {}

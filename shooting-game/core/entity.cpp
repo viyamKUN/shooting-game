@@ -1,7 +1,7 @@
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/core/entity.h"
 
 namespace sg {
-namespace gamelogic {
+namespace core {
 Entity::Entity() {
   spriteRenderer = NULL;
   transform = NULL;
@@ -124,5 +124,5 @@ void Entity::OnCleanUp() {
   }
 }
 
-}  // namespace gamelogic
+}  // namespace core
 }  // namespace sg

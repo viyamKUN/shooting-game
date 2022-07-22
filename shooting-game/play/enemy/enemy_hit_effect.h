@@ -1,12 +1,12 @@
 #ifndef __ENEMY_HIT_EFFECT_H_
 #define __ENEMY_HIT_EFFECT_H_
 
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/core/entity.h"
 
 namespace sg {
 namespace play {
 namespace enemy {
-class EnemyHitEffect : public gamelogic::Entity {
+class EnemyHitEffect : public core::Entity {
  public:
   EnemyHitEffect();
   ~EnemyHitEffect();

@@ -1,9 +1,9 @@
-#include "shooting-game/gamelogic/coordination.h"
+#include "shooting-game/core/coordination.h"
 
 #include <gtest/gtest.h>
 
 TEST(CoordinationTest, BasicCoordination) {
-  sg::gamelogic::Coordination c(1, 2);
+  sg::core::Coordination c(1, 2);
 
   EXPECT_EQ(c.getX(), 1);
   EXPECT_EQ(c.getY(), 2);

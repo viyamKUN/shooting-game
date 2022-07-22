@@ -1,8 +1,8 @@
 #ifndef __PLAYER_H_
 #define __PLAYER_H_
 
-#include "shooting-game/gamelogic/config.h"
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/core/config.h"
+#include "shooting-game/core/entity.h"
 #include "shooting-game/play/bullet.h"
 #include "shooting-game/play/bullet_pool.h"
 #include "shooting-game/play/game_settings.h"
@@ -11,7 +11,7 @@
 namespace sg {
 namespace play {
 
-class Player : public gamelogic::Entity {
+class Player : public core::Entity {
  public:
   Player(std::function<void()> gameOverEvent);
   ~Player();

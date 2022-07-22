@@ -1,7 +1,7 @@
 #ifndef __BULLET_POOL_H_
 #define __BULLET_POOL_H_
 
-#include "shooting-game/gamelogic/object_pool.h"
+#include "shooting-game/core/object_pool.h"
 #include "shooting-game/play/bullet.h"
 
 namespace sg {
@@ -17,7 +17,7 @@ class BulletPool {
 
  private:
   const int START_COUNT = 32;
-  gamelogic::ObjectPool* pool;
+  core::ObjectPool* pool;
 };
 
 }  // namespace play

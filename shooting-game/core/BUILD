@@ -53,8 +53,8 @@ cc_library(
     srcs = ["entity.cpp"],
     hdrs = ["entity.h"],
     deps = [
-        "//shooting-game/gamelogic/visual:animation",
-        "//shooting-game/gamelogic/visual:surface",
+        "//shooting-game/core/visual:animation",
+        "//shooting-game/core/visual:surface",
         ":collider",
         ":transform",
         "@SDL2",

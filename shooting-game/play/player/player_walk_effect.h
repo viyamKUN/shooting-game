@@ -1,12 +1,12 @@
 #ifndef __PLAYER_WALK_EFFECT_H_
 #define __PLAYER_WALK_EFFECT_H_
 
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/core/entity.h"
 #include "shooting-game/play/game_settings.h"
 
 namespace sg {
 namespace play {
-class PlayerWalkEffect : public gamelogic::Entity {
+class PlayerWalkEffect : public core::Entity {
  public:
   PlayerWalkEffect();
   ~PlayerWalkEffect();
