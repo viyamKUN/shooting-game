@@ -6,10 +6,8 @@ Animation::Animation()
     : frameRate(150),
       currentFrame(0),
       timeBucket(0),
-      // TODO(hayeon): warning: field 'animationState' will be initialized after
-      // field 'frameIncrease'
-      animationState(0),
       frameIncrease(1),
+      animationState(0),
       isAnimationOver(false) {}
 
 Animation::~Animation() {}
