@@ -28,6 +28,18 @@ void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
       }
       break;
 
+    case GAME_SCENE_OVER:
+      if (key == SDLK_SPACE) {
+        SDL_Log("Game Restart...");
+        SetIsActive(false);
+        // TODO
+        // gamelogic::Game::GetInstance()->SetPause(false);
+        OnStartGame();
+      } else if (key == SDLK_ESCAPE) {
+        // gamelogic::Game::GetInstance()->OnQuit();
+      }
+      break;
+
     default:
       break;
   }
@@ -48,7 +60,6 @@ void PlayManager::InitScene(SCENE scene) {
 
     case GAME_SCENE_GAME: {
       SDL_Log("Start Game!");
-      currentScene = GAME_SCENE_GAME;
 
       player = new play::Player();
       gamelogic::EntityRegistry::GetInstance()->RegistEntity(player);
@@ -65,6 +76,8 @@ void PlayManager::InitScene(SCENE scene) {
 }
 
 void PlayManager::OnStartGame() {
+  currentScene = GAME_SCENE_GAME;
+
   // Reset player data.
   player->ResetData();
 
@@ -74,6 +87,8 @@ void PlayManager::OnStartGame() {
 }
 
 void PlayManager::OnGameOver() {
+  currentScene = GAME_SCENE_OVER;
+
   SDL_Log("Player Die!");
   SDL_Log("Score is %d", score);
   SDL_Log("[SPACE]: Restart  [ESCAPE]: Quit");

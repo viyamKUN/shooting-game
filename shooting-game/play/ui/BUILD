@@ -6,7 +6,6 @@ cc_library(
     hdrs = ["game_over_ui.h"],
     deps = [
         "//shooting-game/gamelogic:config",
-        "//shooting-game/gamelogic:entity",
         "//shooting-game/gamelogic:entity_registry",
     ],
 )

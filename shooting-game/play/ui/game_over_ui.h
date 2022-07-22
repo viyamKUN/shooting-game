@@ -2,7 +2,7 @@
 #define __GAME_OVER_UI_H_
 
 #include "shooting-game/gamelogic/config.h"
-#include "shooting-game/gamelogic/entity.h"
+#include "shooting-game/gamelogic/entity_registry.h"
 
 namespace sg {
 namespace play {
@@ -11,8 +11,6 @@ class GameOverUi : public gamelogic::Entity {
  public:
   GameOverUi();
   ~GameOverUi();
-
-  void OnKeyDown(SDL_Keycode key, Uint16 mod);
 };
 
 }  // namespace ui
