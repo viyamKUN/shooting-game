@@ -20,6 +20,8 @@ void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
   switch (currentScene) {
     case GAME_SCENE_START:
       if (key == SDLK_RETURN) {
+        SDL_Log("Start Game!");
+
         InitScene(GAME_SCENE_GAME);
         play::ServiceProvider::GetInstance()->GetUIManager()->OffStartUI();
       }
@@ -27,7 +29,8 @@ void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
 
     case GAME_SCENE_OVER:
       if (key == SDLK_SPACE) {
-        SDL_Log("Game Restart...");
+        SDL_Log("Restart Game!");
+
         SetIsActive(false);
         // TODO
         // gamelogic::Game::GetInstance()->SetPause(false);
@@ -56,8 +59,6 @@ void PlayManager::InitScene(SCENE scene) {
     }
 
     case GAME_SCENE_GAME: {
-      SDL_Log("Start Game!");
-
       player = new play::Player(std::bind(&PlayManager::OnGameOver, instance));
       gamelogic::EntityRegistry::GetInstance()->RegistEntity(player);
 
@@ -67,6 +68,15 @@ void PlayManager::InitScene(SCENE scene) {
       play::ServiceProvider::GetInstance()->GetUIManager()->InitGameUI();
 
       OnStartGame();
+      break;
+    }
+
+    case GAME_SCENE_OVER: {
+      break;
+    }
+
+    case GAME_SCENE_NONE: {
+      SDL_LogError(SDL_LOG_CATEGORY_SYSTEM, "You can't initialize NONE scene.");
       break;
     }
   }
