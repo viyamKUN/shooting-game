@@ -3,8 +3,6 @@
 namespace sg {
 namespace play {
 
-Enemy::Enemy() : Enemy(0, 0) {}
-
 Enemy::Enemy(int posX, int posY)
     : Entity("box.bmp", WIDTH, HEIGHT, posX, posY), MY_SCORE(5) {
   SetCollider(WIDTH, HEIGHT);
@@ -14,7 +12,10 @@ Enemy::Enemy(int posX, int posY)
 
 Enemy::~Enemy() {}
 
-core::Entity* Enemy::Clone() { return new Enemy(); }
+core::Entity* Enemy::Clone() {
+  return new Enemy(transform->GetPosition()->getX(),
+                   transform->GetPosition()->getY());
+}
 
 void Enemy::OnLoop() {
   transform->Translate(0, 1);

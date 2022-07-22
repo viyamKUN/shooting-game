@@ -11,7 +11,6 @@ namespace sg {
 namespace play {
 class Enemy : public core::Entity {
  public:
-  Enemy();
   Enemy(int posX, int posY);
   ~Enemy();
   Entity* Clone();

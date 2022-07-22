@@ -3,7 +3,7 @@ namespace sg {
 namespace play {
 
 EnemySpawner::EnemySpawner() : Entity() {
-  auto baseEntity = new Enemy();
+  auto baseEntity = new Enemy(0, 0);
   enemyPool = new core::ObjectPool(baseEntity, MAX_COUNT);
   spawnTimeBucket = SDL_GetTicks();
   interval = START_INTERVAL;

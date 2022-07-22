@@ -17,7 +17,7 @@ class EnemySpawner : public core::Entity {
   void OnLoop();
 
  private:
-  static const int MAX_COUNT = 15;
+  static const int MAX_COUNT = 5;
   static const int START_INTERVAL = 4000;
   core::ObjectPool* enemyPool;
   int spawnTimeBucket;
