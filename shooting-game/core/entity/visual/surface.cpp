@@ -8,9 +8,9 @@ namespace entity {
 namespace visual {
 
 Surface::Surface(char* path, int sizeX, int sizeY)
-    : texture(NULL),
+    : assetPath(path),
+      texture(NULL),
       animation(NULL),
-      assetPath(path),
       angle(0),
       flip(SDL_FLIP_NONE),
       surfConfig((SurfaceConfig){SURF_TYPE_SINGLE, new Coordination(0, 0),
@@ -18,10 +18,17 @@ Surface::Surface(char* path, int sizeX, int sizeY)
 
 Surface::~Surface() {
   if (tiles.size() > 0) {
-    // TODO: delete each tile data.
+    while (!tiles.empty()) {
+      auto line = tiles.front();
+      while (!line.empty()) {
+        delete line.front();
+        line.pop_front();
+      }
+      line.clear();
+    }
     tiles.clear();
   }
-  delete animation;
+  if (animation) delete animation;
 }
 
 void Surface::InitAnimation() { animation = new Animation(); }
