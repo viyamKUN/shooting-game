@@ -1,12 +1,14 @@
 cc_binary(
     name = "main",
     srcs = ["main.cpp"],
+    data = [
+        "//assets",
+    ],
     linkopts = select({
         ":osx": [
             "-lm",
             "-liconv",
             "-lobjc",
-
             "-Wl,-framework,AVFoundation",
             "-Wl,-framework,AppKit",
             "-Wl,-framework,AudioToolbox",

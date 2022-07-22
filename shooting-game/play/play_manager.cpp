@@ -5,6 +5,7 @@
 
 namespace sg {
 namespace play {
+
 PlayManager* PlayManager::instance = NULL;
 
 PlayManager* PlayManager::GetInstance() {
@@ -26,7 +27,7 @@ void PlayManager::InitScene(SCENE scene) {
       play::Background* background = new play::Background();
       gamelogic::EntityRegistry::GetInstance()->RegistEntity(background);
 
-      play::ServiceProvider::GetInstance()->GetUIManager()->InitStartUI();
+      // play::ServiceProvider::GetInstance()->GetUIManager()->InitStartUI();
       break;
     }
 

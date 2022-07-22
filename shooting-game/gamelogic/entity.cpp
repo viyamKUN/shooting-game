@@ -11,7 +11,7 @@ Entity::Entity() {
 
 Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
                int posY) {
-  const char* defaultPath = "../assets/";
+  const char* defaultPath = "./assets/";
   char* path = new char[strlen(defaultPath) + strlen(spriteName)];
   path = strcat(path, defaultPath);
   path = strcat(path, spriteName);
