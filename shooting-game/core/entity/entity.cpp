@@ -25,9 +25,9 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
 }
 
 Entity::~Entity() {
-  delete spriteRenderer;
-  delete transform;
-  delete collider;
+  if (spriteRenderer) delete spriteRenderer;
+  if (transform) delete transform;
+  if (collider) delete collider;
 }
 
 entity::Entity* Entity::Clone() {

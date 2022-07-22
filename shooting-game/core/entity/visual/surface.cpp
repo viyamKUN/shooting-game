@@ -18,11 +18,7 @@ Surface::Surface(char* path, int sizeX, int sizeY)
 
 Surface::~Surface() {
   if (tiles.size() > 0) {
-    for (auto line : tiles) {
-      for (auto iter = line.begin(); iter != line.end();) {
-        delete (*iter);
-      }
-    }
+    // TODO: delete each tile data.
     tiles.clear();
   }
   delete animation;
