@@ -2,7 +2,7 @@ name: build and test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "update-action" ]
   pull_request:
     branches: [ "main" ]
 
@@ -21,15 +21,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Set up bazel
-      run: brew install bazel
-
     - name: Build
-      run: bazel build //shooting-game
+      run: bazelisk build //shooting-game
 
     - name: Test
       working-directory: ${{github.workspace}}
-      run: bazel test //...
+      run: bazelisk test //...
 
     - name: Upload
       uses: actions/upload-artifact@v3
