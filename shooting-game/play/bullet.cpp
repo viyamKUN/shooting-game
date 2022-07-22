@@ -13,7 +13,7 @@ Bullet::Bullet() : Entity("bullets.bmp", WIDTH, HEIGHT, 0, 0), speed(0) {
 
 Bullet::~Bullet() {}
 
-core::Entity* Bullet::Clone() { return new Bullet(); }
+core::entity::Entity* Bullet::Clone() { return new Bullet(); }
 
 void Bullet::ResetData(int posX, int posY, int speed, FACTION faction) {
   transform->SetPosition(posX, posY);
@@ -37,7 +37,7 @@ void Bullet::OnLoop() {
 
 FACTION Bullet::GetFaction() { return bulletFaction; }
 
-void Bullet::OnCollisionDetect(Entity* target) {
+void Bullet::OnCollisionDetect(core::entity::Entity* target) {
   auto targetTag = bulletFaction == FACTION_PLAYER ? ENEMY : PLAYER;
   if (target->CompareTag(targetTag)) SetIsActive(false);
 }

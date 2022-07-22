@@ -2,7 +2,7 @@
 #define __PLAYER_H_
 
 #include "shooting-game/core/config.h"
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity/entity.h"
 #include "shooting-game/play/bullet.h"
 #include "shooting-game/play/bullet_pool.h"
 #include "shooting-game/play/game_settings.h"
@@ -11,7 +11,7 @@
 namespace sg {
 namespace play {
 
-class Player : public core::Entity {
+class Player : public core::entity::Entity {
  public:
   Player(std::function<void()> gameOverEvent);
   ~Player();
@@ -42,7 +42,7 @@ class Player : public core::Entity {
 
   void SetAnimation();
   void Shoot();
-  void OnCollisionDetect(Entity* target);
+  void OnCollisionDetect(core::entity::Entity* target);
   void Hit();
   void Die();
   // When player hit by enemy, player will be invincible for short time.

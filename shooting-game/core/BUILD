@@ -9,7 +9,6 @@ cc_library(
     name = "coordination",
     srcs = ["coordination.cpp"],
     hdrs = ["coordination.h"],
-    deps = ["@SDL2"],
 )
 
 cc_test(
@@ -29,43 +28,10 @@ cc_library(
 )
 
 cc_library(
-    name = "transform",
-    srcs = ["transform.cpp"],
-    hdrs = ["transform.h"],
-    deps = [
-        ":coordination",
-        "@SDL2",
-    ],
-)
-
-cc_library(
-    name = "collider",
-    srcs = ["collider.cpp"],
-    hdrs = ["collider.h"],
-    deps = [
-        ":transform",
-        "@SDL2",
-    ],
-)
-
-cc_library(
-    name = "entity",
-    srcs = ["entity.cpp"],
-    hdrs = ["entity.h"],
-    deps = [
-        "//shooting-game/core/visual:animation",
-        "//shooting-game/core/visual:surface",
-        ":collider",
-        ":transform",
-        "@SDL2",
-    ],
-)
-
-cc_library(
     name = "entity_registry",
     srcs = ["entity_registry.cpp"],
     hdrs = ["entity_registry.h"],
-    deps = [":entity"],
+    deps = ["//shooting-game/core/entity:entity"],
 )
 
 cc_library(
@@ -73,7 +39,6 @@ cc_library(
     srcs = ["object_pool.cpp"],
     hdrs = ["object_pool.h"],
     deps = [
-        ":entity",
         ":entity_registry",
     ],
 )

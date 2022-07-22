@@ -4,7 +4,7 @@ cc_library(
     name = "enemy_hit_effect",
     srcs = ["enemy_hit_effect.cpp"],
     hdrs = ["enemy_hit_effect.h"],
-    deps = ["//shooting-game/core:entity"],
+    deps = ["//shooting-game/core/entity:entity"],
 )
 
 cc_library(
@@ -13,7 +13,7 @@ cc_library(
     hdrs = ["enemy_blood_pool.h"],
     deps = [
         ":enemy_hit_effect",
-        "//shooting-game/core:entity",
+        "//shooting-game/core/entity:entity",
         "//shooting-game/core:object_pool",
     ],
 )
@@ -24,7 +24,7 @@ cc_library(
     hdrs = ["enemy.h"],
     deps = [
         "//shooting-game/core:config",
-        "//shooting-game/core:entity",
+        "//shooting-game/core/entity:entity",
         "//shooting-game/play:bullet",
         "//shooting-game/play:game_settings",
         "//shooting-game/play:service_provider",
@@ -38,7 +38,7 @@ cc_library(
     deps = [
         ":enemy",
         "//shooting-game/core:config",
-        "//shooting-game/core:entity",
+        "//shooting-game/core/entity:entity",
         "//shooting-game/core:object_pool",
     ],
 )

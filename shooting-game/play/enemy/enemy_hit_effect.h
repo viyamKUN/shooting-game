@@ -1,17 +1,17 @@
 #ifndef __ENEMY_HIT_EFFECT_H_
 #define __ENEMY_HIT_EFFECT_H_
 
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity/entity.h"
 
 namespace sg {
 namespace play {
 namespace enemy {
-class EnemyHitEffect : public core::Entity {
+class EnemyHitEffect : public core::entity::Entity {
  public:
   EnemyHitEffect();
   ~EnemyHitEffect();
 
-  Entity* Clone();
+  core::entity::Entity* Clone();
   void SetPosition(int x, int y);
   void ResetData();
 

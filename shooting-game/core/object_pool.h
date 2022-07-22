@@ -4,22 +4,22 @@
 #include <iostream>
 #include <list>
 
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity_registry.h"
 
 namespace sg {
 namespace core {
 
 class ObjectPool {
  public:
-  ObjectPool(Entity* baseEntity, int maxCount);
+  ObjectPool(entity::Entity* baseEntity, int maxCount);
   ~ObjectPool();
 
-  Entity* GetObject();
+  entity::Entity* GetObject();
   void DisableAllObjects();
 
  private:
-  std::list<Entity*> objects;
-  Entity* baseEntity;
+  std::list<entity::Entity*> objects;
+  entity::Entity* baseEntity;
 
   void CreateObjects(int maxCount);
 };

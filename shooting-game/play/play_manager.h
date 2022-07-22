@@ -10,7 +10,7 @@
 
 namespace sg {
 namespace play {
-class PlayManager : public core::Entity {
+class PlayManager : public core::entity::Entity {
  public:
   PlayManager();
   ~PlayManager();

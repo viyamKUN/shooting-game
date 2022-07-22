@@ -1,7 +1,8 @@
-#include "shooting-game/core/collider.h"
+#include "shooting-game/core/entity/collider.h"
 
 namespace sg {
 namespace core {
+namespace entity {
 
 Collider::Collider(int sizeX, int sizeY, Transform* transform) {
   collider = new SDL_Rect();
@@ -29,5 +30,6 @@ void Collider::SetActive(bool isOn) { isActive = isOn; }
 
 bool Collider::GetActive() { return isActive; }
 
+}  // namespace entity
 }  // namespace core
 }  // namespace sg

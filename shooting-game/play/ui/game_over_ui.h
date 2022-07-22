@@ -7,7 +7,7 @@
 namespace sg {
 namespace play {
 namespace ui {
-class GameOverUi : public core::Entity {
+class GameOverUi : public core::entity::Entity {
  public:
   GameOverUi();
   ~GameOverUi();

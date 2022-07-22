@@ -1,7 +1,7 @@
 #ifndef __ENEMY_BLOOD_POOL_H_
 #define __ENEMY_BLOOD_POOL_H_
 
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity/entity.h"
 #include "shooting-game/core/object_pool.h"
 #include "shooting-game/play/enemy/enemy_hit_effect.h"
 

@@ -1,8 +1,10 @@
-#include "shooting-game/core/visual/animation.h"
+#include "shooting-game/core/entity/visual/animation.h"
 
 namespace sg {
 namespace core {
+namespace entity {
 namespace visual {
+
 Animation::Animation()
     : frameRate(150),
       currentFrame(0),
@@ -67,5 +69,6 @@ void Animation::ResetAnimation() {
 bool Animation::GetIsAnimationOver() { return isAnimationOver; }
 
 }  // namespace visual
+}  // namespace entity
 }  // namespace core
 }  // namespace sg

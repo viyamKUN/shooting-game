@@ -6,7 +6,7 @@
 namespace sg {
 namespace play {
 namespace ui {
-class HpHeartUI : public core::Entity {
+class HpHeartUI : public core::entity::Entity {
  public:
   HpHeartUI();
   ~HpHeartUI();

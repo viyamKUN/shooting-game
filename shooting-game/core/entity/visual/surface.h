@@ -7,11 +7,12 @@
 #include <list>
 
 #include "shooting-game/core/coordination.h"
-#include "shooting-game/core/transform.h"
-#include "shooting-game/core/visual/animation.h"
+#include "shooting-game/core/entity/transform.h"
+#include "shooting-game/core/entity/visual/animation.h"
 
 namespace sg {
 namespace core {
+namespace entity {
 namespace visual {
 
 enum SURF_TYPE { SURF_TYPE_SINGLE, SURF_TYPE_MULTIPLE };
@@ -69,6 +70,7 @@ class Surface {
 };
 
 }  // namespace visual
+}  // namespace entity
 }  // namespace core
 }  // namespace sg
 

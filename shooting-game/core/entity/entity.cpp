@@ -1,7 +1,9 @@
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity/entity.h"
 
 namespace sg {
 namespace core {
+namespace entity {
+
 Entity::Entity() {
   spriteRenderer = NULL;
   transform = NULL;
@@ -28,7 +30,7 @@ Entity::~Entity() {
   delete collider;
 }
 
-Entity* Entity::Clone() {
+entity::Entity* Entity::Clone() {
   return new Entity(spriteName, spriteRenderer->GetSize()->getX(),
                     spriteRenderer->GetSize()->getY(),
                     transform->GetPosition()->getX(),
@@ -99,7 +101,7 @@ void Entity::OnKey(SDL_Keycode key) {
   // virtual method
 }
 
-void Entity::OnCollision(Entity* target) {
+void Entity::OnCollision(entity::Entity* target) {
   if (collider == NULL) return;
   if (target->GetCollider() == NULL) return;
 
@@ -108,7 +110,7 @@ void Entity::OnCollision(Entity* target) {
   }
 }
 
-void Entity::OnCollisionDetect(Entity* target) {
+void Entity::OnCollisionDetect(entity::Entity* target) {
   // virtual method
 }
 
@@ -124,5 +126,6 @@ void Entity::OnCleanUp() {
   }
 }
 
+}  // namespace entity
 }  // namespace core
 }  // namespace sg

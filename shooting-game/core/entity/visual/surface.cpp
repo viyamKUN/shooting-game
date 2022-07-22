@@ -1,9 +1,10 @@
-#include "shooting-game/core/visual/surface.h"
+#include "shooting-game/core/entity/visual/surface.h"
 
 #include <SDL2/SDL.h>
 
 namespace sg {
 namespace core {
+namespace entity {
 namespace visual {
 
 Surface::Surface(char* path, int sizeX, int sizeY)
@@ -148,5 +149,6 @@ void Surface::DrawTileMap(SDL_Renderer* renderer) {
 }
 
 }  // namespace visual
+}  // namespace entity
 }  // namespace core
 }  // namespace sg

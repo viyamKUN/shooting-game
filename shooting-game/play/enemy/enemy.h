@@ -2,24 +2,24 @@
 #define __ENEMY_H_
 
 #include "shooting-game/core/config.h"
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity/entity.h"
 #include "shooting-game/play/bullet.h"
 #include "shooting-game/play/game_settings.h"
 #include "shooting-game/play/service_provider.h"
 
 namespace sg {
 namespace play {
-class Enemy : public core::Entity {
+class Enemy : public core::entity::Entity {
  public:
   Enemy(int posX, int posY);
   ~Enemy();
-  Entity* Clone();
+  core::entity::Entity* Clone();
 
   void OnLoop();
   void ResetData(int xPos, int yPos);
 
  protected:
-  void OnCollisionDetect(Entity* target);
+  void OnCollisionDetect(core::entity::Entity* target);
 
  private:
   static const int WIDTH = 32;

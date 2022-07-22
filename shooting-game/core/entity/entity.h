@@ -1,19 +1,19 @@
 #ifndef __ENTITY_H_
 #define __ENTITY_H_
-#include <SDL2/SDL.h>
 
-#include "collider.h"
-#include "shooting-game/core/visual/surface.h"
-#include "transform.h"
+#include "shooting-game/core/entity/collider.h"
+#include "shooting-game/core/entity/visual/surface.h"
 
 namespace sg {
 namespace core {
+namespace entity {
+
 class Entity {
  public:
   Entity();
   Entity(const char* spriteName, int sizeX, int sizeY, int posX, int posY);
   ~Entity();
-  virtual Entity* Clone();
+  virtual entity::Entity* Clone();
 
   void OnLoad();
 
@@ -40,7 +40,7 @@ class Entity {
   virtual void OnKey(SDL_Keycode key);
 
   // If collision appear, run OnCollisionDetect().
-  void OnCollision(Entity* target);
+  void OnCollision(entity::Entity* target);
   void OnRender(SDL_Renderer* renderer);
   void OnCleanUp();
 
@@ -49,7 +49,7 @@ class Entity {
   visual::Surface* spriteRenderer;
   Collider* collider;
 
-  virtual void OnCollisionDetect(Entity* target);
+  virtual void OnCollisionDetect(entity::Entity* target);
 
  private:
   const char* tag;
@@ -57,6 +57,8 @@ class Entity {
   bool isActive;
 };
 
+}  // namespace entity
 }  // namespace core
 }  // namespace sg
+
 #endif

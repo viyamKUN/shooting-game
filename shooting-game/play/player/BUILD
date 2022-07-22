@@ -5,7 +5,7 @@ cc_library(
     srcs = ["player_walk_effect.cpp"],
     hdrs = ["player_walk_effect.h"],
     deps = [
-        "//shooting-game/core:entity",
+        "//shooting-game/core/entity:entity",
         "//shooting-game/play:game_settings",
     ],
 )
@@ -17,7 +17,6 @@ cc_library(
     deps = [
         ":player_walk_effect",
         "//shooting-game/core:config",
-        "//shooting-game/core:entity",
         "//shooting-game/core:entity_registry",
         "//shooting-game/play:bullet",
         "//shooting-game/play:bullet_pool",

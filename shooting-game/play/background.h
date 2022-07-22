@@ -5,11 +5,11 @@
 
 #include "shooting-game/core/config.h"
 #include "shooting-game/core/coordination.h"
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity/entity.h"
 
 namespace sg {
 namespace play {
-class Background : public core::Entity {
+class Background : public core::entity::Entity {
  public:
   Background();
   ~Background();

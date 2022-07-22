@@ -7,6 +7,8 @@
 
 namespace sg {
 namespace core {
+namespace entity {
+
 class Transform {
  private:
   Coordination* position;
@@ -24,6 +26,8 @@ class Transform {
   void SetScale(int x, int y);
   void SetPosition(int x, int y);
 };
+
+}  // namespace entity
 }  // namespace core
 }  // namespace sg
 

@@ -3,10 +3,11 @@
 
 #include <SDL2/SDL.h>
 
-#include "shooting-game/core/transform.h"
+#include "shooting-game/core/entity/transform.h"
 
 namespace sg {
 namespace core {
+namespace entity {
 
 class Collider {
  public:
@@ -24,6 +25,7 @@ class Collider {
   bool isActive;
 };
 
+}  // namespace entity
 }  // namespace core
 }  // namespace sg
 

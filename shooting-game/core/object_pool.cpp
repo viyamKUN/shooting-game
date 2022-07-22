@@ -1,18 +1,16 @@
 #include "shooting-game/core/object_pool.h"
 
-#include "shooting-game/core/entity_registry.h"
-
 namespace sg {
 namespace core {
 
-ObjectPool::ObjectPool(Entity* baseEntity, int maxCount) {
+ObjectPool::ObjectPool(entity::Entity* baseEntity, int maxCount) {
   this->baseEntity = baseEntity;
   CreateObjects(maxCount);
 }
 
 ObjectPool::~ObjectPool() {}
 
-Entity* ObjectPool::GetObject() {
+entity::Entity* ObjectPool::GetObject() {
   for (auto obj : objects) {
     if (!obj->GetIsActive()) return obj;
   }

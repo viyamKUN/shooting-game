@@ -7,7 +7,9 @@
 
 namespace sg {
 namespace core {
+namespace entity {
 namespace visual {
+
 enum ANIMATING_TYPE {
   ANIMATION_NONE,
   ANIMATION_RESTART,
@@ -48,6 +50,7 @@ struct AnimationState {
 };
 
 }  // namespace visual
+}  // namespace entity
 }  // namespace core
 }  // namespace sg
 

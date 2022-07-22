@@ -5,7 +5,7 @@ namespace play {
 namespace enemy {
 
 EnemyBloodPool::EnemyBloodPool() {
-  core::Entity* baseEntity = new EnemyHitEffect();
+  core::entity::Entity* baseEntity = new EnemyHitEffect();
   pool = new core::ObjectPool(baseEntity, START_COUNT);
 }
 

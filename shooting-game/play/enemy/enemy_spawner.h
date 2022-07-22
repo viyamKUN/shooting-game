@@ -2,13 +2,13 @@
 #define __ENEMY_SPAWNER_H_
 
 #include "shooting-game/core/config.h"
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity/entity.h"
 #include "shooting-game/core/object_pool.h"
 #include "shooting-game/play/enemy/enemy.h"
 
 namespace sg {
 namespace play {
-class EnemySpawner : public core::Entity {
+class EnemySpawner : public core::entity::Entity {
  public:
   EnemySpawner();
   ~EnemySpawner();

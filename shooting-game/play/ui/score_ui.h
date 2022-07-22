@@ -5,7 +5,7 @@
 
 #include "number_ui.h"
 #include "shooting-game/core/config.h"
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity/entity.h"
 
 namespace sg {
 namespace play {

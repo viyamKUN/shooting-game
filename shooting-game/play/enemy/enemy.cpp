@@ -12,7 +12,7 @@ Enemy::Enemy(int posX, int posY)
 
 Enemy::~Enemy() {}
 
-core::Entity* Enemy::Clone() {
+core::entity::Entity* Enemy::Clone() {
   return new Enemy(transform->GetPosition()->getX(),
                    transform->GetPosition()->getY());
 }
@@ -35,7 +35,7 @@ void Enemy::ResetData(int xPos, int yPos) {
   transform->SetPosition(xPos, yPos);
 }
 
-void Enemy::OnCollisionDetect(Entity* target) {
+void Enemy::OnCollisionDetect(core::entity::Entity* target) {
   if (target->CompareTag(BULLET)) {
     if (((Bullet*)target)->GetFaction() == FACTION_PLAYER) {
       Hit();

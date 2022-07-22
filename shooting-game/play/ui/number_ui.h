@@ -8,7 +8,7 @@
 namespace sg {
 namespace play {
 namespace ui {
-class NumberUI : public core::Entity {
+class NumberUI : public core::entity::Entity {
  public:
   NumberUI();
   ~NumberUI();

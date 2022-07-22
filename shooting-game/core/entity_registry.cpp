@@ -16,13 +16,13 @@ EntityRegistry::EntityRegistry() {}
 
 EntityRegistry::~EntityRegistry() {}
 
-void EntityRegistry::RegistEntity(Entity* entity) {
+void EntityRegistry::RegistEntity(entity::Entity* entity) {
   entities.push_back(entity);
   entity->OnLoad();
   entity->SetIsActive(true);
 }
 
-std::list<Entity*> EntityRegistry::GetRegistry() { return entities; }
+std::list<entity::Entity*> EntityRegistry::GetRegistry() { return entities; }
 
 void EntityRegistry::CleanUpRegistry() { entities.clear(); }
 

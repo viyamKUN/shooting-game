@@ -87,9 +87,9 @@ void Player::OnKey(SDL_Keycode key) {
 void Player::SetAnimation() {
   Entity::SetAnimation();
   spriteRenderer->AddAnimation(PLAYER_ANIMATION_IDLE,
-                               core::visual::ANIMATION_RESTART, 4);
+                               core::entity::visual::ANIMATION_RESTART, 4);
   spriteRenderer->AddAnimation(PLAYER_ANIMATION_WALK,
-                               core::visual::ANIMATION_RESTART, 5);
+                               core::entity::visual::ANIMATION_RESTART, 5);
 }
 
 void Player::Shoot() {
@@ -98,7 +98,7 @@ void Player::Shoot() {
       BULLET_SPEED, FACTION_PLAYER);
 }
 
-void Player::OnCollisionDetect(Entity* target) {
+void Player::OnCollisionDetect(core::entity::Entity* target) {
   if (isDead) return;
   if (isInvincible) return;
 

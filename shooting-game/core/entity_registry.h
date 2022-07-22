@@ -3,7 +3,7 @@
 
 #include <list>
 
-#include "shooting-game/core/entity.h"
+#include "shooting-game/core/entity/entity.h"
 
 namespace sg {
 namespace core {
@@ -14,13 +14,13 @@ class EntityRegistry {
 
   static EntityRegistry* GetInstance();
 
-  void RegistEntity(Entity* entity);
+  void RegistEntity(entity::Entity* entity);
   void CleanUpRegistry();
 
-  std::list<Entity*> GetRegistry();
+  std::list<entity::Entity*> GetRegistry();
 
  private:
-  std::list<Entity*> entities;
+  std::list<entity::Entity*> entities;
 
   static EntityRegistry* instance;
 };

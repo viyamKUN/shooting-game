@@ -1,7 +1,8 @@
-#include "shooting-game/core/transform.h"
+#include "shooting-game/core/entity/transform.h"
 
 namespace sg {
 namespace core {
+namespace entity {
 
 Transform::Transform() { Transform(0, 0); }
 
@@ -31,5 +32,6 @@ void Transform::SetScale(int x, int y) {
   scale->setY(y);
 }
 
+}  // namespace entity
 }  // namespace core
 }  // namespace sg
