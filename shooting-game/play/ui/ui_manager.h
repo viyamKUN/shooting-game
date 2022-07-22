@@ -19,8 +19,11 @@ class UiManager {
 
   void InitGameUI();
   void UpdateHp(int hp);
+
   void UpdateScore(int score);
+
   void ShowGameOverUI();
+  void OffGameOverUI();
 
  private:
   HpUi* hpUi;

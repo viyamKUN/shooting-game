@@ -29,6 +29,8 @@ void UiManager::UpdateScore(int score) { scoreUI->UpdateNumber(score); }
 
 void UiManager::ShowGameOverUI() { gameOverUI->SetIsActive(true); }
 
+void UiManager::OffGameOverUI() { gameOverUI->SetIsActive(false); }
+
 }  // namespace ui
 }  // namespace play
 }  // namespace sg

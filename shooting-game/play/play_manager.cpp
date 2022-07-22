@@ -39,9 +39,10 @@ void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
       if (key == SDLK_SPACE) {
         SDL_Log("Restart Game!");
 
-        SetIsActive(false);
+        ServiceProvider::GetInstance()->GetUIManager()->OffGameOverUI();
         gameResume();
         OnStartGame();
+
       } else if (key == SDLK_ESCAPE) {
         gameQuit();
       }
