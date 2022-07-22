@@ -4,6 +4,13 @@ Basic shooting game.
 
 ## Build
 
+### Bazel
+
+* bazel build //shooting-game:main
+* ./bazel-bin/shooting-game/main
+
+### CMake
+
 * cmake .. -GNinja
 * ninja
 
