@@ -34,6 +34,7 @@ cc_library(
     deps = [
         ":background",
         ":game_settings",
+        ":service_provider",
         "//shooting-game/play/enemy:enemy_spawner",
         "//shooting-game/play/player",
     ],

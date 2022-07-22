@@ -1,7 +1,6 @@
 #ifndef __PLAY_MANAGER_H_
 #define __PLAY_MANAGER_H_
 
-#include "shooting-game/core/entity_registry.h"
 #include "shooting-game/play/background.h"
 #include "shooting-game/play/enemy/enemy_spawner.h"
 #include "shooting-game/play/game_settings.h"
@@ -28,7 +27,6 @@ class PlayManager : public core::entity::Entity {
  private:
   play::EnemySpawner* enemySpawner;
   play::Player* player;
-  int score;
   SCENE currentScene;
 
   static PlayManager* instance;

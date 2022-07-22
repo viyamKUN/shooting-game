@@ -15,7 +15,12 @@ ServiceProvider* ServiceProvider::GetInstance() {
 ServiceProvider::ServiceProvider()
     : uiManager(NULL), bulletPool(NULL), bloodPool(NULL) {}
 
-ServiceProvider::~ServiceProvider() {}
+ServiceProvider::~ServiceProvider() {
+  delete uiManager;
+  delete bulletPool;
+  delete bloodPool;
+  delete scoreManager;
+}
 
 ui::UiManager* ServiceProvider::GetUIManager() {
   if (uiManager == NULL) {
@@ -36,6 +41,13 @@ enemy::EnemyBloodPool* ServiceProvider::GetBloodPool() {
     bloodPool = new enemy::EnemyBloodPool();
   }
   return bloodPool;
+}
+
+ScoreManager* ServiceProvider::GetScoreManager() {
+  if (scoreManager == NULL) {
+    scoreManager = new ScoreManager();
+  }
+  return scoreManager;
 }
 
 }  // namespace play
