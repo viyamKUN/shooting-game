@@ -22,28 +22,7 @@ void EntityRegistry::RegistEntity(Entity* entity) {
   entity->SetIsActive(true);
 }
 
-void EntityRegistry::RegisterEntityDestroy(Entity* entity) {
-  destroyRegistry.push_back(entity);
-}
-
-bool EntityRegistry::HasDestroyRegister() { return !destroyRegistry.empty(); }
-
-void EntityRegistry::DestroyEntitiesIsDestroyRegistry() {
-  for (auto entity : destroyRegistry) {
-    entities.remove(entity);
-    entity->OnCleanUp();
-    // TODO: delete called on non-final 'sg::gamelogic::Entity' that has virtual
-    // functions but non-virtual destructo
-    delete entity;
-  }
-  destroyRegistry.clear();
-}
-
 std::list<Entity*> EntityRegistry::GetRegistry() { return entities; }
-
-std::list<Entity*> EntityRegistry::GetDestroyRegistry() {
-  return destroyRegistry;
-}
 
 void EntityRegistry::CleanUpRegistry() { entities.clear(); }
 

@@ -15,17 +15,12 @@ class EntityRegistry {
   static EntityRegistry* GetInstance();
 
   void RegistEntity(Entity* entity);
-  void RegisterEntityDestroy(Entity* entity);
-  bool HasDestroyRegister();
-  void DestroyEntitiesIsDestroyRegistry();
   void CleanUpRegistry();
 
   std::list<Entity*> GetRegistry();
-  std::list<Entity*> GetDestroyRegistry();
 
  private:
   std::list<Entity*> entities;
-  std::list<Entity*> destroyRegistry;
 
   static EntityRegistry* instance;
 };

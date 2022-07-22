@@ -72,12 +72,6 @@ void Game::OnLoop() {
       entity->OnLoop();
     }
   }
-  DestroyTargets();
-}
-
-void Game::DestroyTargets() {
-  if (!EntityRegistry::GetInstance()->HasDestroyRegister()) return;
-  EntityRegistry::GetInstance()->DestroyEntitiesIsDestroyRegistry();
 }
 
 void Game::OnCollision() {

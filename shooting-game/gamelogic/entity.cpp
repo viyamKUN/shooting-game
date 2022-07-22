@@ -118,10 +118,6 @@ void Entity::OnRender(SDL_Renderer* renderer) {
   }
 }
 
-void Entity::Destroy() {
-  // EntityRegistry::GetInstance()->RegisterEntityDestroy(this);
-}
-
 void Entity::OnCleanUp() {
   if (spriteRenderer) {
     spriteRenderer->OnClear();

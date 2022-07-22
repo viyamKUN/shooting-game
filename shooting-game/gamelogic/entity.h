@@ -43,9 +43,6 @@ class Entity {
   // If collision appear, run OnCollisionDetect().
   void OnCollision(Entity* target);
   void OnRender(SDL_Renderer* renderer);
-  // Register in destroy targets.
-  // After Loop, parent entity will destroy whole targets.
-  void Destroy();
   void OnCleanUp();
 
  protected:
