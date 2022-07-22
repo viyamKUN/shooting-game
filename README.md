@@ -4,6 +4,13 @@ Basic shooting game.
 
 ## Build
 
+### Bazel
+
+* bazel build //shooting-game
+* ./bazel-bin/shooting-game/shooting-game
+
+### CMake
+
 * cmake .. -GNinja
 * ninja
 
@@ -15,6 +22,15 @@ Basic shooting game.
 ## Use
 
 * `SDL2`
+* `Bazel`
+
+## Commands
+
+* bazel run //:buildifier
+
+## Test
+
+* test all: bazel test //...
 
 ## Other Docs
 
