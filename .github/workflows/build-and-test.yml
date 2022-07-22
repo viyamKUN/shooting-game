@@ -14,44 +14,33 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
 
     runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v3
     
-    - name: Install dependencies (Ubuntu)
-      if: matrix.os == 'ubuntu-latest'
+    - name: Set up bazel
       run: |
-        sudo apt-get update
-        sudo apt-get install freeglut3-dev
+        curl -LO https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-installer-${{ matrix.bazel-target }}-x86_64.sh
+        chmod +x bazel-${BAZEL_VERSION}-installer-${{ matrix.bazel-target }}-x86_64.sh
+        ./bazel-${BAZEL_VERSION}-installer-${{ matrix.bazel-target }}-x86_64.sh --user
+        export PATH="$PATH:$HOME/bin"
+        rm bazel-${BAZEL_VERSION}-installer-${{ matrix.bazel-target }}-x86_64.sh
 
-    - name: Install dependencies (MacOS)
+    - name: (macos) install clang-format
       if: matrix.os == 'macos-latest'
       run: |
-        brew install freeglut
-
-    - name: Install SDL
-      run: |
-        git clone -b release-${{env.SDL_VERSION}} https://github.com/libsdl-org/SDL
-        mkdir -p SDL/build
-        pushd SDL/build
-        ../configure
-        make -j 2
-        sudo make install
-        popd
-        rm -rf SDL
-
-    - name: Configure CMake
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        brew install clang-format
+        which clang-format
 
     - name: Build
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: bazel build //shooting-game
 
     - name: Test
-      working-directory: ${{github.workspace}}/build
-      run: ctest -C ${{env.BUILD_TYPE}}
+      working-directory: ${{github.workspace}}
+      run: bazel test //...
 
     - name: Upload
       uses: actions/upload-artifact@v3
