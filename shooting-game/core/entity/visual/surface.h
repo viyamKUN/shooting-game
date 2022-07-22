@@ -26,7 +26,7 @@ struct SurfaceConfig {
 
 class Surface {
  public:
-  Surface(char* path, int sizeX, int sizeY);
+  Surface(const char* path, int sizeX, int sizeY);
   ~Surface();
 
   void InitAnimation();
@@ -48,7 +48,7 @@ class Surface {
   void OnClear();
 
  private:
-  char* assetPath;
+  const char* assetPath;
   SDL_Surface* src;
   SDL_Texture* texture;
   Transform* transform;

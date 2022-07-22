@@ -7,7 +7,7 @@ namespace core {
 namespace entity {
 namespace visual {
 
-Surface::Surface(char* path, int sizeX, int sizeY)
+Surface::Surface(const char* path, int sizeX, int sizeY)
     : assetPath(path),
       texture(NULL),
       animation(NULL),

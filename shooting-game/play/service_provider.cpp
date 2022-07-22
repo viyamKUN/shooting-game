@@ -13,7 +13,7 @@ ServiceProvider* ServiceProvider::GetInstance() {
 }
 
 ServiceProvider::ServiceProvider()
-    : uiManager(NULL), bulletPool(NULL), bloodPool(NULL) {}
+    : uiManager(NULL), bloodPool(NULL), bulletPool(NULL) {}
 
 ServiceProvider::~ServiceProvider() {
   if (uiManager) delete uiManager;
