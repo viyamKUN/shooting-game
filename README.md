@@ -6,8 +6,8 @@ Basic shooting game.
 
 ### Bazel
 
-* bazel build //shooting-game:main
-* ./bazel-bin/shooting-game/main
+* bazel build //shooting-game
+* ./bazel-bin/shooting-game/shooting-game
 
 ### CMake
 
@@ -22,6 +22,11 @@ Basic shooting game.
 ## Use
 
 * `SDL2`
+* `Bazel`
+
+## Commands
+
+* bazel run //:buildifier
 
 ## Other Docs
 
