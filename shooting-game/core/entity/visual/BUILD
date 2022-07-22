@@ -17,3 +17,12 @@ cc_library(
         "@SDL2",
     ],
 )
+
+cc_test(
+    name = "surface_test",
+    srcs = ["surface_test.cpp"],
+    deps = [
+        ":surface",
+        "@com_google_googletest//:gtest_main",
+    ],
+)

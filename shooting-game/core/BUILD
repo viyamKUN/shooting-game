@@ -43,6 +43,15 @@ cc_library(
     ],
 )
 
+cc_test(
+    name = "object_pool_test",
+    srcs = ["object_pool_test.cpp"],
+    deps = [
+        ":object_pool",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
+
 cc_library(
     name = "game",
     srcs = ["game.cpp"],

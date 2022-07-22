@@ -28,3 +28,12 @@ cc_library(
         "//shooting-game/core/entity/visual:surface",
     ],
 )
+
+cc_test(
+    name = "entity_test",
+    srcs = ["entity_test.cpp"],
+    deps = [
+        ":entity",
+        "@com_google_googletest//:gtest_main",
+    ],
+)

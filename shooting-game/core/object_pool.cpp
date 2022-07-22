@@ -24,6 +24,8 @@ void ObjectPool::DisableAllObjects() {
   }
 }
 
+int ObjectPool::GetObjectCount() { return objects.size(); }
+
 void ObjectPool::CreateObjects(int maxCount) {
   for (int i = 0; i < maxCount; i++) {
     auto entity = baseEntity->Clone();

@@ -70,9 +70,12 @@ void Surface::SetTileData(std::list<std::list<Coordination*>> data) {
 void Surface::OnLoad(Transform* transform) {
   this->transform = transform;
   src = SDL_LoadBMP(assetPath);
-  SDL_SetColorKey(src, SDL_TRUE,
-                  SDL_MapRGB(src->format, TRANS_R, TRANS_G, TRANS_B));
-  if (src == NULL) SDL_GetError();
+  if (src == NULL)
+    SDL_GetError();
+  else {
+    SDL_SetColorKey(src, SDL_TRUE,
+                    SDL_MapRGB(src->format, TRANS_R, TRANS_G, TRANS_B));
+  }
 }
 
 void Surface::OnLoop() {

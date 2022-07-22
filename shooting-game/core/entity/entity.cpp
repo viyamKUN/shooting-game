@@ -25,12 +25,17 @@ Entity::Entity(const char* spriteName, int sizeX, int sizeY, int posX,
 }
 
 Entity::~Entity() {
-  if (spriteRenderer) delete spriteRenderer;
-  if (transform) delete transform;
-  if (collider) delete collider;
+  if (spriteRenderer == NULL) delete spriteRenderer;
+  if (transform == NULL) delete transform;
+  if (collider == NULL) delete collider;
 }
 
 entity::Entity* Entity::Clone() {
+  if (spriteRenderer == NULL)
+    return new Entity();
+  else if (transform == NULL)
+    return new Entity();
+
   return new Entity(spriteName, spriteRenderer->GetSize()->getX(),
                     spriteRenderer->GetSize()->getY(),
                     transform->GetPosition()->getX(),

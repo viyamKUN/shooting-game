@@ -28,6 +28,10 @@ Basic shooting game.
 
 * bazel run //:buildifier
 
+## Test
+
+* test all: bazel test //...
+
 ## Other Docs
 
 * [Dev diary](docs/diary.md)
