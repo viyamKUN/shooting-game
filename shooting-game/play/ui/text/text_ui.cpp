@@ -4,18 +4,33 @@ namespace sg {
 namespace play {
 namespace ui {
 
-TextUi::TextUi() : capacity(5), posX(0), posY(0), text("") {}
+TextUi::TextUi() : text(""), posX(0), posY(0) {}
 
-TextUi::~TextUi() {}
+TextUi::~TextUi() { letterUis.clear(); }
 
 void TextUi::UpdatePos(int x, int y) {
   posX = x;
   posY = y;
 }
 
-void TextUi::UpdateText(std::string text) { this->text = text; }
+void TextUi::UpdateText(std::string text) {
+  this->text = text;
+  if (text.size() > letterUis.size()) {
+    AddLetterEntities(text.size());
+  }
+  auto index = 0;
+  for (auto letter : letterUis) {
+    letter->TryUpdateLetter(text[index++]);
+  }
+}
 
 std::string TextUi::GetText() { return text; }
+
+void TextUi::AddLetterEntities(int targetSize) {
+  while (letterUis.size() < targetSize) {
+    letterUis.push_back(new LetterUi());
+  }
+}
 
 }  // namespace ui
 }  // namespace play

@@ -19,9 +19,12 @@ class TextUi {
 
  private:
   std::string text;
-  int capacity;
   int posX;
   int posY;
+
+  std::list<LetterUi*> letterUis;
+
+  void AddLetterEntities(int targetSize);
 };
 
 }  // namespace ui
