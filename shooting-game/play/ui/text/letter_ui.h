@@ -14,8 +14,10 @@ class LetterUi : public core::entity::Entity {
   ~LetterUi();
 
   void SetPosition(int posX, int posY);
-  // Return success.
+  // Return is success to update letter.
   bool TryUpdateLetter(char letter);
+  // Return x size of letter image that is scaled.
+  int GetScaledSizeX();
 
  private:
   static const int SIZE = 16;

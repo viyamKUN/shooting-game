@@ -26,6 +26,7 @@ class TextUi {
   std::list<LetterUi*> letterUis;
 
   void AddLetterEntities(int targetSize);
+  int GetLetterPosition(int letterIndex, int letterSize);
 };
 
 }  // namespace ui

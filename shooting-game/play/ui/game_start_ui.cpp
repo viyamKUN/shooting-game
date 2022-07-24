@@ -20,7 +20,7 @@ void GameStartUi::Close() {
 void GameStartUi::Init() {
   textUi = new TextUi();
   textUi->UpdatePos(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 0.8);
-  textUi->UpdateText("START TO CLICK RETRUN");
+  textUi->UpdateText("CLICK RETURN TO START");
   SDL_Log("[Return]: Start game.");
 }
 }  // namespace ui

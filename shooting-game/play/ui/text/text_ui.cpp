@@ -21,12 +21,15 @@ void TextUi::UpdatePos(int x, int y) {
 
 void TextUi::UpdateText(std::string text) {
   this->text = text;
-  if (text.size() > letterUis.size()) {
-    AddLetterEntities(text.size());
+  if (text.length() > letterUis.size()) {
+    AddLetterEntities(text.length());
   }
   auto index = 0;
   for (auto letter : letterUis) {
-    letter->TryUpdateLetter(text[index++]);
+    letter->TryUpdateLetter(text[index]);
+    letter->SetPosition(
+        posX + GetLetterPosition(index, letter->GetScaledSizeX()), posY);
+    index++;
   }
 }
 
@@ -36,6 +39,10 @@ void TextUi::AddLetterEntities(int targetSize) {
   while (letterUis.size() < targetSize) {
     letterUis.push_back(new LetterUi());
   }
+}
+
+int TextUi::GetLetterPosition(int letterIndex, int letterSize) {
+  return letterSize * (letterIndex - text.length() / 2);
 }
 
 }  // namespace ui
