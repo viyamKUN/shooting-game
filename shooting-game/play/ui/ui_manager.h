@@ -22,7 +22,7 @@ class UiManager {
 
   void UpdateScore(int score);
 
-  void ShowGameOverUI();
+  void ShowGameOverUI(int score);
   void OffGameOverUI();
 
  private:

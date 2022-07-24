@@ -5,12 +5,24 @@ namespace play {
 namespace ui {
 
 GameStartUi::GameStartUi() : Entity() {
-  SDL_Log("[Return] Start game.");
   core::EntityRegistry::GetInstance()->RegistEntity(this);
 }
 
 GameStartUi::~GameStartUi() {}
 
+void GameStartUi::Open() { SetIsActive(true); }
+
+void GameStartUi::Close() {
+  textUi->Close();
+  SetIsActive(false);
+}
+
+void GameStartUi::Init() {
+  textUi = new TextUi();
+  textUi->UpdatePos(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 0.8);
+  textUi->UpdateText("PRESS RETURN TO START");
+  SDL_Log("[Return]: Start game.");
+}
 }  // namespace ui
 }  // namespace play
 }  // namespace sg

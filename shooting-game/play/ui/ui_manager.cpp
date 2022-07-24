@@ -8,9 +8,12 @@ UiManager::UiManager() {}
 
 UiManager::~UiManager() {}
 
-void UiManager::InitStartUI() { gameStartUI = new GameStartUi(); }
+void UiManager::InitStartUI() {
+  gameStartUI = new GameStartUi();
+  gameStartUI->Init();
+}
 
-void UiManager::OffStartUI() { gameStartUI->SetIsActive(false); }
+void UiManager::OffStartUI() { gameStartUI->Close(); }
 
 void UiManager::InitGameUI() {
   hpUi = new HpUi();
@@ -20,16 +23,20 @@ void UiManager::InitGameUI() {
   scoreUI->Init();
 
   gameOverUI = new GameOverUi();
-  gameOverUI->SetIsActive(false);
+  gameOverUI->Init();
+  gameOverUI->Close();
 }
 
 void UiManager::UpdateHp(int hp) { hpUi->UpdateHp(hp); }
 
 void UiManager::UpdateScore(int score) { scoreUI->UpdateNumber(score); }
 
-void UiManager::ShowGameOverUI() { gameOverUI->SetIsActive(true); }
+void UiManager::ShowGameOverUI(int score) {
+  gameOverUI->UpdateScore(score);
+  gameOverUI->Open();
+}
 
-void UiManager::OffGameOverUI() { gameOverUI->SetIsActive(false); }
+void UiManager::OffGameOverUI() { gameOverUI->Close(); }
 
 }  // namespace ui
 }  // namespace play
