@@ -1,4 +1,4 @@
-#include "shooting-game/play/ui/letter_ui.h"
+#include "shooting-game/play/ui/text/letter_ui.h"
 
 namespace sg {
 namespace play {
