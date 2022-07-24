@@ -3,7 +3,7 @@
 namespace sg {
 namespace play {
 namespace ui {
-LetterUi::LetterUi() : Entity("numbers.bmp", SIZE, SIZE, 0, 0) {
+LetterUi::LetterUi() : Entity("letters.bmp", SIZE, SIZE, 0, 0) {
   core::EntityRegistry::GetInstance()->RegistEntity(this);
 
   // Init to letter A.

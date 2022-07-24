@@ -13,6 +13,7 @@ class TextUi {
   TextUi();
   ~TextUi();
 
+  void Close();
   void UpdatePos(int x, int y);
   void UpdateText(std::string text);
   std::string GetText();

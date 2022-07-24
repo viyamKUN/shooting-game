@@ -15,6 +15,7 @@ cc_library(
     srcs = ["game_start_ui.cpp"],
     hdrs = ["game_start_ui.h"],
     deps = [
+        "//shooting-game/core:config",
         "//shooting-game/core:entity_registry",
         "//shooting-game/play/ui/text:text_ui",
     ],

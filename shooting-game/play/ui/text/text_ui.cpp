@@ -8,6 +8,12 @@ TextUi::TextUi() : text(""), posX(0), posY(0) {}
 
 TextUi::~TextUi() { letterUis.clear(); }
 
+void TextUi::Close() {
+  for (auto text : letterUis) {
+    text->SetIsActive(false);
+  }
+}
+
 void TextUi::UpdatePos(int x, int y) {
   posX = x;
   posY = y;
