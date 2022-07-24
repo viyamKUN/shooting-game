@@ -21,6 +21,7 @@ class LetterUi : public core::entity::Entity {
 
  private:
   static const int SIZE = 16;
+  const int NUMBER_ROW_STARTING_COUNT = 4;
   // The letter that entity will show.
   char letter;
 };

@@ -29,12 +29,14 @@ void GameOverUi::Init() {
 void GameOverUi::Close() {
   titleTextUi->Close();
   descTextUi->Close();
+  scoreUi->Close();
   SetIsActive(false);
 }
 
 void GameOverUi::Open() {
   titleTextUi->Open();
   descTextUi->Open();
+  scoreUi->Open();
   SetIsActive(true);
 }
 

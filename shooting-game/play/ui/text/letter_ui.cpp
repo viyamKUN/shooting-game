@@ -18,15 +18,24 @@ void LetterUi::SetPosition(int posX, int posY) {
 
 bool LetterUi::TryUpdateLetter(char letter) {
   int letterIndex = (int)letter - (int)'A';
-  if (letterIndex < 0 || letterIndex >= 26) {
-    // TODO: If letter is integer, make interger image.
+
+  if ((int)letter >= (int)'0' && (int)letter <= (int)'9') {
+    // Interger letter
+    letterIndex = (int)letter - (int)'0';
+    // 4 is basic number
+    CutSprite(letterIndex % 8 * SIZE,
+              (NUMBER_ROW_STARTING_COUNT + letterIndex / 8) * SIZE);
+    return true;
+  } else if (letterIndex < 0 || letterIndex >= 26) {
     // Update letter image to blank image. (last block)
     CutSprite(7 * SIZE, 7 * SIZE);
     if ((int)letter == (int)' ') {
+      // Empty letter.
       return true;
     }
     return false;
   } else {
+    // A~Z
     this->letter = letter;
     auto x = letterIndex % 8 * SIZE;
     auto y = letterIndex / 8 * SIZE;
