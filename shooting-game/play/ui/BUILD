@@ -14,7 +14,10 @@ cc_library(
     name = "game_start_ui",
     srcs = ["game_start_ui.cpp"],
     hdrs = ["game_start_ui.h"],
-    deps = ["//shooting-game/core:entity_registry"],
+    deps = [
+        "//shooting-game/core:entity_registry",
+        "//shooting-game/play/ui/text:text_ui",
+    ],
 )
 
 cc_library(

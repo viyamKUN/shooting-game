@@ -1,8 +1,8 @@
-#include "shooting-game/play/ui/letter_ui.h"
+#include "shooting-game/play/ui/text/letter_ui.h"
 
 #include <gtest/gtest.h>
 
-TEST(CoordinationTest, BasicCoordination) {
+TEST(LetterTest, BasicTest) {
   sg::play::ui::LetterUi letterUi;
 
   EXPECT_EQ(letterUi.TryUpdateLetter('B'), true);

@@ -2,6 +2,7 @@
 #define __GAME_START_UI_H_
 
 #include "shooting-game/core/entity_registry.h"
+#include "shooting-game/play/ui/text/text_ui.h"
 
 namespace sg {
 namespace play {

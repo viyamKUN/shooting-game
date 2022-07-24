@@ -15,3 +15,21 @@ cc_test(
         "@com_google_googletest//:gtest_main",
     ],
 )
+
+cc_library(
+    name = "text_ui",
+    srcs = ["text_ui.cpp"],
+    hdrs = ["text_ui.h"],
+    deps = [
+        ":letter_ui",
+    ],
+)
+
+cc_test(
+    name = "text_ui_test",
+    srcs = ["text_ui_test.cpp"],
+    deps = [
+        ":text_ui",
+        "@com_google_googletest//:gtest_main",
+    ],
+)
