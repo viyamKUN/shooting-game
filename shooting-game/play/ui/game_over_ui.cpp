@@ -13,18 +13,25 @@ GameOverUi::~GameOverUi() {}
 void GameOverUi::Init() {
   transform->SetScale(SCREEN_WIDTH, SCREEN_HEIGHT);
   core::EntityRegistry::GetInstance()->RegistEntity(this);
+
   titleTextUi = new TextUi();
   titleTextUi->UpdatePos(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 0.4);
   titleTextUi->UpdateText("PLAYER DIE");
+
+  descTextUi = new TextUi();
+  descTextUi->UpdatePos(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 0.6);
+  descTextUi->UpdateText("RESTART BY RETURN   QUIT BY ESCAPE");
 }
 
 void GameOverUi::Close() {
   titleTextUi->Close();
+  descTextUi->Close();
   SetIsActive(false);
 }
 
 void GameOverUi::Open() {
   titleTextUi->Open();
+  descTextUi->Open();
   SetIsActive(true);
 }
 

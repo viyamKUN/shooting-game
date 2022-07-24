@@ -36,7 +36,7 @@ void PlayManager::OnKeyDown(SDL_Keycode key, Uint16 mod) {
       break;
 
     case GAME_SCENE_OVER:
-      if (key == SDLK_SPACE) {
+      if (key == SDLK_RETURN) {
         SDL_Log("Restart Game!");
 
         ServiceProvider::GetInstance()->GetUIManager()->OffGameOverUI();
@@ -106,7 +106,6 @@ void PlayManager::OnGameOver() {
   SDL_Log("Player Die!");
   auto score = ServiceProvider::GetInstance()->GetScore();
   SDL_Log("Score is %d", score);
-  SDL_Log("[SPACE]: Restart  [ESCAPE]: Quit");
 
   // Show game over UI.
   ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI(score);
