@@ -21,6 +21,7 @@ class GameOverUi : public core::entity::Entity {
  private:
   TextUi* titleTextUi;
   TextUi* descTextUi;
+  TextUi* scoreUi;
 };
 
 }  // namespace ui

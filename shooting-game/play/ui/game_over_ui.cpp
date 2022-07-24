@@ -6,7 +6,7 @@ namespace sg {
 namespace play {
 namespace ui {
 
-GameOverUi::GameOverUi() : Entity("black.bmp", 16, 16, 0, 0) {}
+GameOverUi::GameOverUi() : Entity("brown_1px.bmp", 16, 16, 0, 0) {}
 
 GameOverUi::~GameOverUi() {}
 
@@ -21,6 +21,9 @@ void GameOverUi::Init() {
   descTextUi = new TextUi();
   descTextUi->UpdatePos(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 0.6);
   descTextUi->UpdateText("RESTART BY RETURN   QUIT BY ESCAPE");
+
+  scoreUi = new TextUi();
+  scoreUi->UpdatePos(SCREEN_WIDTH / 2, SCREEN_HEIGHT * 0.8);
 }
 
 void GameOverUi::Close() {
@@ -36,7 +39,7 @@ void GameOverUi::Open() {
 }
 
 void GameOverUi::UpdateScore(int score) {
-  // By Number UI
+  scoreUi->UpdateText(std::to_string(score));
 }
 
 }  // namespace ui

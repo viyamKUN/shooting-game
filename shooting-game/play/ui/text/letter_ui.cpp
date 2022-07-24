@@ -19,6 +19,7 @@ void LetterUi::SetPosition(int posX, int posY) {
 bool LetterUi::TryUpdateLetter(char letter) {
   int letterIndex = (int)letter - (int)'A';
   if (letterIndex < 0 || letterIndex >= 26) {
+    // TODO: If letter is integer, make interger image.
     // Update letter image to blank image. (last block)
     CutSprite(7 * SIZE, 7 * SIZE);
     if ((int)letter == (int)' ') {
