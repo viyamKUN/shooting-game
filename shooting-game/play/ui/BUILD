@@ -7,6 +7,7 @@ cc_library(
     deps = [
         "//shooting-game/core:config",
         "//shooting-game/core:entity_registry",
+        "//shooting-game/play/ui/text:text_ui",
     ],
 )
 

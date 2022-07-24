@@ -3,6 +3,7 @@
 
 #include "shooting-game/core/config.h"
 #include "shooting-game/core/entity_registry.h"
+#include "shooting-game/play/ui/text/text_ui.h"
 
 namespace sg {
 namespace play {
@@ -11,6 +12,14 @@ class GameOverUi : public core::entity::Entity {
  public:
   GameOverUi();
   ~GameOverUi();
+
+  void Init();
+  void Close();
+  void Open();
+  void UpdateScore(int score);
+
+ private:
+  TextUi* titleTextUi;
 };
 
 }  // namespace ui

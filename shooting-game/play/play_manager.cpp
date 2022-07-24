@@ -109,7 +109,7 @@ void PlayManager::OnGameOver() {
   SDL_Log("[SPACE]: Restart  [ESCAPE]: Quit");
 
   // Show game over UI.
-  ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI();
+  ServiceProvider::GetInstance()->GetUIManager()->ShowGameOverUI(score);
 
   // Stop the game.
   gamePause();
