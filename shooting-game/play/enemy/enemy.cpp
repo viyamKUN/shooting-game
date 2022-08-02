@@ -4,7 +4,8 @@ namespace sg {
 namespace play {
 
 Enemy::Enemy(int posX, int posY)
-    : Entity("box.bmp", WIDTH, HEIGHT, posX, posY), MY_SCORE(5) {
+    : Entity("enemy.bmp", WIDTH, HEIGHT, posX, posY), MY_SCORE(5) {
+  SetAnimation();
   SetCollider(WIDTH, HEIGHT);
   SetTag(ENEMY);
   shootingTimeBucket = SDL_GetTicks();
@@ -18,6 +19,9 @@ core::entity::Entity* Enemy::Clone() {
 }
 
 void Enemy::OnLoop() {
+  Entity::OnLoop();
+  if (hp <= 0) return;
+
   transform->Translate(0, 1);
   collider->UpdatePos(transform);
   if (transform->GetPosition()->getY() > SCREEN_HEIGHT) {
@@ -33,6 +37,8 @@ void Enemy::OnLoop() {
 void Enemy::ResetData(int xPos, int yPos) {
   hp = MAX_HP;
   transform->SetPosition(xPos, yPos);
+  spriteRenderer->ChangeAnimationState(ENEMY_ANIMATION_WALK);
+  spriteRenderer->ResetAnimation();
 }
 
 void Enemy::OnCollisionDetect(core::entity::Entity* target) {
@@ -52,7 +58,7 @@ void Enemy::Hit() {
 
 void Enemy::Die() {
   ServiceProvider::GetInstance()->AddScore(MY_SCORE);
-  SetIsActive(false);
+  spriteRenderer->ChangeAnimationState(ENEMY_ANIMATION_DEAD);
 }
 
 void Enemy::Shoot() {
@@ -60,5 +66,14 @@ void Enemy::Shoot() {
       transform->GetPosition()->getX(), transform->GetPosition()->getY(),
       BULLET_SPEED, FACTION_ENEMY);
 }
+
+void Enemy::SetAnimation() {
+  Entity::SetAnimation();
+  spriteRenderer->AddAnimation(ENEMY_ANIMATION_WALK,
+                               core::entity::visual::ANIMATION_RESTART, 5);
+  spriteRenderer->AddAnimation(ENEMY_ANIMATION_DEAD,
+                               core::entity::visual::ANIMATION_ONETIME, 7);
+}
+
 }  // namespace play
 }  // namespace sg
