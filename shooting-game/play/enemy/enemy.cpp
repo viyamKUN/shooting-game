@@ -20,6 +20,8 @@ core::entity::Entity* Enemy::Clone() {
 
 void Enemy::OnLoop() {
   Entity::OnLoop();
+  if (hp <= 0) return;
+
   transform->Translate(0, 1);
   collider->UpdatePos(transform);
   if (transform->GetPosition()->getY() > SCREEN_HEIGHT) {
