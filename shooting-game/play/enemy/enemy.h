@@ -30,9 +30,12 @@ class Enemy : public core::entity::Entity {
   int hp;
   int shootingTimeBucket;
 
+  enum ENEMY_ANIMATIONS { ENEMY_ANIMATION_WALK = 0, ENEMY_ANIMATION_DEAD = 1 };
+
   void Hit();
   void Die();
   void Shoot();
+  void SetAnimation();
 };
 
 }  // namespace play
